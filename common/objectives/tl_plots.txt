@@ -1,0 +1,224 @@
+#################################
+#	File:	tl_plots.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws plots file
+#   
+################################# 
+# Plot tags need to start with 'plot_'
+
+# Supported types:
+# character, spouse, rivals, friends, liege_titles, vassal_titles, realm_titles, realm_characters, realm_characters_plus, independent_rulers
+# Special: society_plot. When trigger fulfilled, anyone within the society can be invited. ROOT is the plotter. FROM is the target. FROMFROM is the society
+# Note that "player_allow" has the target as ROOT, and the plotter (the player) as FROM!
+
+###############
+# PLOTS
+###############
+# Seize Trade Post (Byzantine/Roman Emperor)
+plot_seize_trade_post_byz = {
+	type = rep_trade_posts
+	intrigue_plot = yes
+	
+	# Plotter scope
+	potential = {
+		has_dlc = "The Republic"
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		prisoner = no
+		age = 16
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+	}
+	
+	# Target scope
+	allow = {
+		has_trade_post = yes
+		trade_post_owner = {
+			num_of_trade_post_diff = {
+				character = FROM 
+				value = 1
+			}
+			OR = {
+				same_liege = FROM
+				any_vassal = { character = FROM }
+			}
+			NOT = { character = FROM }
+			NOT = { 
+				has_opinion_modifier = { who = FROM modifier = opinion_seized_tp }
+			}
+			
+			# Only if there is no non-aggression-pact with the trade post owner
+			FROM = {
+				NOT = {
+					has_non_aggression_pact_with = PREV
+				}			
+			}
+		}
+		
+		any_neighbor_province = {
+			has_trade_post = yes
+			trade_post_owner = { 
+				character = FROM
+			}
+		}
+	}
+	
+	chance = {
+		factor = 1 # Must be an integer
+		
+		modifier = {
+			factor = 0.0
+			FROM = {
+				ai = yes
+				war = yes
+			}
+		}
+		modifier = {
+			factor = 0.01
+			FROM = { trait = content }
+		}
+		modifier = {
+			factor = 0.2
+			FROM = {
+				OR = {
+					trait = dull
+					trait = slow
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			FROM = { trait = kind }
+		}
+		modifier = {
+			factor = 0
+			ROOT = {
+				holder_scope ={
+					NOT = { character = FROM }
+					reverse_opinion = { who = FROM value = 25 }
+				}
+			}
+			OR = {
+				FROM = { trait = envious }
+				FROM = { trait = deceitful }
+				FROM = { trait = ambitious }
+			}
+		}
+		modifier = {
+			factor = 0
+			ROOT = {
+				holder_scope ={
+					NOT = { character = FROM }
+					reverse_opinion = { who = FROM value = 50 }
+				}
+			}
+			NOT = {
+				OR = {
+					FROM = { trait = envious }
+					FROM = { trait = deceitful }
+					FROM = { trait = ambitious }
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			ROOT = {
+				holder_scope ={
+					NOT = { character = FROM }
+					reverse_opinion = { who = FROM value = 0 }
+				}
+			}
+			OR = {
+				FROM = { trait = envious }
+				FROM = { trait = deceitful }
+				FROM = { trait = ambitious }
+			}
+		}
+		modifier = {
+			factor = 0.2
+			ROOT = {
+				holder_scope ={
+					NOT = { character = FROM }
+					reverse_opinion = { who = FROM value = 25 }
+				}
+			}
+			NOT = {
+				OR = {
+					FROM = { trait = envious }
+					FROM = { trait = deceitful }
+					FROM = { trait = ambitious }
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = {
+				ROOT = {
+					holder_scope = {
+						NOT = { character = FROM }
+						reverse_opinion = { who = FROM value = -50 }
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { 
+				ROOT = {
+					holder_scope = {
+						NOT = { character = FROM }
+						reverse_opinion = { who = FROM value = -75 }
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 1.5
+			FROM = { is_smart_trigger = yes }
+		}
+		modifier = {
+			factor = 2.0
+			FROM = { trait = envious }
+		}
+		modifier = {
+			factor = 2.0
+			FROM = { trait = deceitful }
+		}
+		modifier = {
+			factor = 4.0
+			FROM = { trait = ambitious }
+		}
+		modifier = {
+			factor = 4.0
+			ROOT = { 
+				holder_scope = {
+					num_of_trade_post_diff = {
+						character = FROM
+						value = 10
+					}
+				}
+			}
+		}
+	}
+	
+	success = {
+		trade_post_owner = { 
+			character = FROM
+		}
+	}
+	abort = {
+#		holder = {
+#			independent = yes
+#		}
+	}
+	abort_effect = {
+		FROM = {
+			clr_character_flag = plot_seize_trade_post_decision_taken
+		}
+	}
+	effect = {
+		seize_trade_post = FROM
+	}
+}

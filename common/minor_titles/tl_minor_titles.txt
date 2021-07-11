@@ -1,0 +1,1565 @@
+########################################################
+#	File:	tl_minor_titles.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws minor titles file
+#   
+#################################
+# MINOR TITLES
+# Characters can have any number of these
+#
+#	Titles:
+#		Tresviri capitales - oversee imperial executions
+#		Tresviri epulones - priests that oversee public banquets
+#		Tresviri monetales - oversee imperial coin minting
+#		Senator titles - Duke level titles to add further vassals to the council
+#		Legatus Augusti titles - King level titles to add further vassals to the council
+#		
+#		keeper of the seal
+#		
+#
+########################################################
+#	grant_limit: Max number of holders.
+#	realm_in_name: Append the name of the country after the title (Queen [of Sweden])
+#	allowed_to_hold: conditions for the character to hold the title
+#	allowed_to_grant: conditions for a ruler to grant the title
+#	regent: This is the title for regents (not really "minor")
+#	gain_effect: fires when the title is granted
+#	lose_effect: fires when a title is lost if dismissal_trigger evaluates to false
+#	message: should fire a message to the its owner when set
+#	The other fields are all character modifiers.
+
+# Basic title example
+title_houndmaster = {
+    dignity = 0.05
+    grant_limit = 1
+    opinion_effect = 5
+
+    monthly_salary = 0.1
+    monthly_prestige = 0.15
+
+    is_unique = yes
+
+    allowed_to_hold = {
+        is_adult = yes
+        NOT = { trait = incapable }
+    }
+    allowed_to_grant = {
+		is_feudal = yes
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+    }
+
+	revoke_trigger = {
+		FROM = {
+			primary_title = {
+				NOT = { 
+					AND = {
+						ROOT = { is_powerful_vassal = yes }
+					}
+				}
+			}
+		}
+	}
+}
+
+# Tresviri monetales - oversee imperial coin minting
+tbyz_title_monetalis = {
+	is_voter = no
+	attribute = stewardship	#used in minor titles?
+	dignity = 0.1
+	realm_in_name = yes
+	grant_limit = 3
+	opinion_effect = 10
+	
+	monthly_salary = 0.15
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		higher_tier_than = BARON
+		NOT = { trait = incapable }
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# Tresviri capitales - oversee imperial executions
+tbyz_title_capitalis = {
+	is_voter = no
+	attribute = martial	#used in minor titles?
+	dignity = 0.1
+	realm_in_name = yes
+	grant_limit = 3
+	opinion_effect = 10
+	
+	monthly_salary = 0.1
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		higher_tier_than = BARON
+		NOT = { trait = incapable }
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+# Tresviri epulones - priests that oversee public banquets
+tbyz_title_epulonis = {
+	is_voter = no
+	attribute = learning	#used in minor titles?
+	dignity = 0.1
+	realm_in_name = yes
+	grant_limit = 3
+	opinion_effect = 10
+	
+	monthly_salary = 0.1
+	monthly_prestige = 0.1
+	monthly_piety = 0.15
+	
+	show_as_title = yes
+	
+	is_unique = yes
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		is_theocracy = yes
+		NOT = { trait = incapable }
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}
+
+
+# IMPERIAL SENATE
+# Imperial Senate - Consul
+tbyz_title_consul = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.5
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+
+		NOT = { is_republic = yes }
+		NOT = { is_theocracy = yes }
+		OR = {
+			is_adult = yes
+			liege = { has_trait = arbitrary }
+			liege = { has_trait = lunatic }
+		}
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_consul
+
+# Imperial Senate - Greece
+tbyz_title_senator_greece = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_1 }
+			primary_title = { de_jure_liege = k_byzantium }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_1
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_greece
+
+# Imperial Senate - Epirus
+tbyz_title_senator_epirus = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_2 }
+			primary_title = { de_jure_liege = k_epirus }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_2
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_epirus
+
+# Imperial Senate - Sicily
+tbyz_title_senator_sicily = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_3 }
+			primary_title = { de_jure_liege = k_sicily }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_3
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_sicily
+
+# Imperial Senate - Italy
+tbyz_title_senator_italy = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_4 }
+			primary_title = { de_jure_liege = k_italy }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_4
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_italy
+
+# Imperial Senate - Sardinia
+tbyz_title_senator_sardinia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_5 }
+			primary_title = { de_jure_liege = k_sardinia }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_5
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_sardinia
+
+# Imperial Senate - Baetica (Andalusia)
+tbyz_title_senator_andalusia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_6 }
+			primary_title = { de_jure_liege = k_andalusia }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_6
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_andalusia
+
+# Imperial Senate - Africa
+tbyz_title_senator_africa = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 2
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_7 }
+			primary_title = { de_jure_liege = k_africa }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_7
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_africa
+
+# Imperial Senate - Trebizond
+tbyz_title_senator_trebizond = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_8 }
+			primary_title = { de_jure_liege = k_trebizond }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_8
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_trebizond
+
+# Imperial Senate - Anatolia
+tbyz_title_senator_anatolia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = diplomacy	#used in minor titles?
+	dignity = 5
+	realm_in_name = yes
+	grant_limit = 3
+	opinion_effect = 10
+	
+	monthly_salary = 0.0	#unpaid
+	monthly_prestige = 0.35
+	
+	show_as_title = yes
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes }
+		}
+		#primary_title = { is_vice_royalty = yes }
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		AND = {
+			liege = { has_law = tl_senate_prov_law_9 }
+			primary_title = { de_jure_liege = k_anatolia }
+		}									
+		real_tier = DUKE
+		is_feudal = yes
+		is_landed = yes
+		is_adult = yes
+		NOT = { trait = incapable }
+		NOT = { trait = imbecile }
+		NOT = { trait = infirm }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_senate_law_1
+		has_law = tl_senate_prov_law_9
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_senator_anatolia
+
+
+# LEGATES AUGUSTI
+# Legatus Augusti Hispania 
+tbyz_title_leg_hispania = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_galicia
+			has_landed_title = k_navarra
+			has_landed_title = k_asturias
+			has_landed_title = k_badajoz
+			has_landed_title = k_valencia
+			has_landed_title = k_andalusia	#if senate prov exists, won't matter
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_1
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_galicia
+				has_landed_title = k_navarra
+				has_landed_title = k_asturias
+				has_landed_title = k_badajoz
+				has_landed_title = k_valencia
+				has_landed_title = k_andalusia	#if senate prov exists, won't matter
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_hispania
+
+# Legatus Augusti Gallia 
+tbyz_title_leg_gallia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_france
+			has_landed_title = k_aquitaine
+			has_landed_title = k_burgundy
+			has_landed_title = k_brittany
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_2
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_france
+				has_landed_title = k_aquitaine
+				has_landed_title = k_burgundy
+				has_landed_title = k_brittany
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_gallia
+
+# Legatus Augusti Aegyptus (Praefectus Aegypti)
+tbyz_title_leg_aegyptus = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 6
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.3
+	monthly_prestige = 0.5
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_egypt
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_3
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_egypt
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_aegyptus
+
+# Legatus Augusti Germania 
+tbyz_title_leg_germania = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_germany
+			has_landed_title = k_bavaria
+			has_landed_title = k_lotharingia
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_4
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_germany
+				has_landed_title = k_bavaria
+				has_landed_title = k_lotharingia
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_germania
+
+# Legatus Augusti Britannia 
+tbyz_title_leg_britannia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_england
+			has_landed_title = k_wales
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_5
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_england
+				has_landed_title = k_wales
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_britannia
+
+# Legatus Augusti Dalmatia 
+tbyz_title_leg_dalmatia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_croatia
+			has_landed_title = k_serbia
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_6
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_croatia
+				has_landed_title = k_serbia
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_dalmatia
+
+# Legatus Augusti Moesia 
+tbyz_title_leg_moesia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_bulgaria
+			has_landed_title = k_dacia
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_7
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_bulgaria
+				has_landed_title = k_dacia
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_moesia
+
+# Legatus Augusti Syria 
+tbyz_title_leg_syria = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_syria
+			has_landed_title = k_mesopotamia
+			has_landed_title = k_iraq
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_8
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_syria
+				has_landed_title = k_mesopotamia
+				has_landed_title = k_iraq
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_syria
+
+# Legatus Augusti Armenia 
+tbyz_title_leg_armenia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_armenia
+			has_landed_title = k_georgia
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_9
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_armenia
+				has_landed_title = k_georgia
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_armenia
+
+# Legatus Augusti Arabia 
+tbyz_title_leg_arabia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_arabia
+			has_landed_title = k_jerusalem
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_10
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_arabia
+				has_landed_title = k_jerusalem
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_arabia
+
+# Legatus Augusti Italia 
+tbyz_title_leg_italia = {
+	is_voter = yes
+	is_high_prio = yes
+	attribute = stewardship	#used in minor titles?
+	dignity = 5
+	realm_in_name = no
+	grant_limit = 1
+	opinion_effect = 10
+	
+	monthly_salary = 0.25
+	monthly_prestige = 0.25
+	
+	show_as_title = yes
+	
+	is_unique = no
+	
+	allowed_to_hold = {
+		NOT = { 
+			primary_title = { temporary = yes } 
+		}
+		is_landed = yes
+		is_adult = yes
+		NOT = { has_trait = incapable }
+		NOT = { has_trait = infirm }
+		NOT = { has_trait = imbecile }
+		NOT = { is_councillor = yes }	#can't already be a councillor
+		OR = {
+			has_landed_title = k_sicily
+			has_landed_title = k_italy
+			has_landed_title = k_sardinia
+			AND = {
+				has_landed_title = k_romagna
+				is_feudal = yes
+			}
+		}
+	}
+	
+	allowed_to_grant = {
+		is_feudal = yes
+		has_law = tl_legatus_prov_law_11
+		OR = {
+			has_landed_title = e_byzantium
+			has_landed_title = e_roman_empire
+		}
+		any_vassal = {
+			OR = {
+				has_landed_title = k_sicily
+				has_landed_title = k_italy
+				has_landed_title = k_sardinia
+				AND = {
+					has_landed_title = k_romagna
+					is_feudal = yes
+				}
+			}
+		}
+		OR = {
+			religion_group = christian
+			religion_group = jewish_group
+			religion_group = pagan_group
+		}
+	}
+	
+	gain_effect = {
+	}
+	lose_effect = {
+	}
+
+	message = yes
+}#end tbyz_title_leg_italia

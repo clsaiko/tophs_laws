@@ -1,0 +1,1 @@
+NDefines.NMilitary.MAX_COMMANDERS_EMPEROR = 16

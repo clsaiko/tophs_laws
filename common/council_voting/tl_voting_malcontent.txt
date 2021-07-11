@@ -1,0 +1,160 @@
+###############################################################################
+#	File:	tl_voting_malcontent.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the ruler.
+#			This file details how the Malcontent will vote on the changes.
+#
+###############################################################################
+
+malcontent_pattern_for = {	# Always votes against the liege
+	icon = 4
+	pattern_type = for
+
+	# Imperial Feudal Usurp
+	tl_impusurp_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_impusurp_law_1 = { NOT = { liege = { character = FROM } } }
+
+	# Imperial Republic Usurp
+	tl_impusurp_law_2 = { NOT = { liege = { character = FROM } } }	
+
+	#Imperial Theocracy Usurp
+	tl_impusurp_law_3 = { NOT = { liege = { character = FROM } } }
+
+	# Bestow Born in Purple
+	tl_purple_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_purple_law_1 = { NOT = { liege = { character = FROM } } }
+
+	# Deactivate titular titles
+	tl_deact_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_deact_law_1 = { NOT = { liege = { character = FROM } } }
+
+	# De Jure Edict
+	tl_djedict_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_djedict_law_1 = { NOT = { liege = { character = FROM } } }
+
+	# Imperial Senate
+	tl_senate_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_senate_law_1 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_1 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_2 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_3 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_4 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_5 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_6 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_7 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_8 = { NOT = { liege = { character = FROM } } }
+	tl_senate_prov_law_9 = { NOT = { liege = { character = FROM } } }
+
+	# Legatus Augusti
+	tl_legatus_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_law_1 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_1 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_2 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_3 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_4 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_5 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_6 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_7 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_8 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_9 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_10 = { NOT = { liege = { character = FROM } } }
+	tl_legatus_prov_law_11 = { NOT = { liege = { character = FROM } } }
+
+	# Punishment Committee
+	tl_punish_voting_power1_0 = { NOT = { liege = { character = FROM } } }
+	tl_punish_voting_power1_1 = { NOT = { liege = { character = FROM } } }
+	tl_punish_voting_power2_0 = { NOT = { liege = { character = FROM } } }
+	tl_punish_voting_power2_1 = { NOT = { liege = { character = FROM } } }
+}
+
+malcontent_pattern_against = {	#Always votes against the liege
+	icon = 4
+	pattern_type = against
+
+	# Imperial Feudal Usurp
+	tl_impusurp_law_0 = { liege = { character = FROM } }
+	tl_impusurp_law_1 = { liege = { character = FROM } }
+
+	# Imperial Republic Usurp
+	tl_impusurp_law_2 = { liege = { character = FROM } }
+
+	#Imperial Theocracy Usurp
+	tl_impusurp_law_3 = { liege = { character = FROM } }
+
+	# Bestow Born in Purple
+	tl_purple_law_0 = { liege = { character = FROM } }
+	tl_purple_law_1 = { liege = { character = FROM } }
+
+	# Deactivate titular titles
+	tl_deact_law_0 = { liege = { character = FROM } }
+	tl_deact_law_1 = { liege = { character = FROM } }
+
+	# De Jure Edict
+	tl_djedict_law_0 = { liege = { character = FROM } }
+	tl_djedict_law_1 = { liege = { character = FROM } }
+
+	# Imperial Senate
+	tl_senate_law_0 = { liege = { character = FROM } }
+	tl_senate_law_1 = { liege = { character = FROM } }
+	tl_senate_prov_law_0 = { liege = { character = FROM } }
+	tl_senate_prov_law_1 = { liege = { character = FROM } }
+	tl_senate_prov_law_2 = { liege = { character = FROM } }
+	tl_senate_prov_law_3 = { liege = { character = FROM } }
+	tl_senate_prov_law_4 = { liege = { character = FROM } }
+	tl_senate_prov_law_5 = { liege = { character = FROM } }
+	tl_senate_prov_law_6 = { liege = { character = FROM } }
+	tl_senate_prov_law_7 = { liege = { character = FROM } }
+	tl_senate_prov_law_8 = { liege = { character = FROM } }
+	tl_senate_prov_law_9 = { liege = { character = FROM } }
+
+	# Legatus Augusti
+	tl_legatus_law_0 = { liege = { character = FROM } }
+	tl_legatus_law_1 = { liege = { character = FROM } }
+	tl_legatus_prov_law_0 = { liege = { character = FROM } }
+	tl_legatus_prov_law_1 = { liege = { character = FROM } }
+	tl_legatus_prov_law_2 = { liege = { character = FROM } }
+	tl_legatus_prov_law_3 = { liege = { character = FROM } }
+	tl_legatus_prov_law_4 = { liege = { character = FROM } }
+	tl_legatus_prov_law_5 = { liege = { character = FROM } }
+	tl_legatus_prov_law_6 = { liege = { character = FROM } }
+	tl_legatus_prov_law_7 = { liege = { character = FROM } }
+	tl_legatus_prov_law_8 = { liege = { character = FROM } }
+	tl_legatus_prov_law_9 = { liege = { character = FROM } }
+	tl_legatus_prov_law_10 = { liege = { character = FROM } }
+	tl_legatus_prov_law_11 = { liege = { character = FROM } }
+
+	# Punishment Committee
+	tl_punish_voting_power1_0 = { liege = { character = FROM } }
+	tl_punish_voting_power1_1 = { liege = { character = FROM } }
+	tl_punish_voting_power2_0 = { liege = { character = FROM } }
+	tl_punish_voting_power2_1 = { liege = { character = FROM } }
+
+	# Punishment Committee Decisions
+	prisoner_mutilate = {
+		custom_tooltip = {
+			text = pattern_malcontent_vote_against_liege_custom_tooltip
+			hidden_tooltip = {
+				always = yes
+			}
+		}
+	}
+	prisoner_humiliation = {
+		custom_tooltip = {
+			text = pattern_malcontent_vote_against_liege_custom_tooltip
+			hidden_tooltip = {
+				always = yes
+			}
+		}
+	}
+	prisoner_torture = {
+		custom_tooltip = {
+			text = pattern_malcontent_vote_against_liege_custom_tooltip
+			hidden_tooltip = {
+				always = yes
+			}
+		}
+	}
+}

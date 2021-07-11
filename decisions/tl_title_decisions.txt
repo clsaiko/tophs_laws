@@ -1,0 +1,251 @@
+#################################
+#	File:	tl_title_decisions.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws Title Decisions
+#
+#           tl_imperial_usurp_f
+#           tl_imperial_usurp_r
+#           tl_imperial_usurp_t
+#
+#################################
+
+title_decisions = {
+
+    # Forcefully usurp this title, feudal only
+    tl_imperial_usurp_f = {
+        only_playable = yes
+        filter = all
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            AND = {
+                OR = {
+                    FROM = { has_law = tl_impusurp_law_1 }      # liege must have the law
+                    FROM = { has_law = tl_impusurp_law_2 }
+                    FROM = { has_law = tl_impusurp_law_3 }
+                }
+                ROOT = { real_tier = DUKE }                 # only duke tier, cleans up visibility
+                ROOT = { vassal_of = FROM }                 # must be a direct vassal
+                holder_scope = { is_feudal = yes }          # must be feudal
+            }
+        }
+
+        allow = {           #when is this enabled
+            ROOT = {
+                AND = {     
+                    is_vice_royalty = no                # must not be a viceroyalty
+                    real_tier = DUKE                    # only duke tier, just for player info
+                    holder_scope = { is_feudal = yes }   # must be feudal, just for player info
+                }
+            }
+        }
+
+        effect = {
+            # Usurp this title
+            ROOT = { usurp_title = FROM }
+
+            # cost
+            wealth = -100
+            prestige = -100
+            piety = -50
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }   
+    }#end tl_imperial_usurp_f
+
+    # Forcefully usurp this title, republic
+    tl_imperial_usurp_r = {
+        only_playable = yes
+        filter = all
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            AND = {
+                OR = {
+                    FROM = { has_law = tl_impusurp_law_2 }  # liege must have the law
+                    FROM = { has_law = tl_impusurp_law_3 }
+                }
+                ROOT = { real_tier = DUKE }                 # only duke tier, cleans up visibility
+                ROOT = { vassal_of = FROM }                 # must be a direct vassal
+                holder_scope = { is_republic = yes }        # must be republic
+            }
+        }
+
+        allow = {           #when is this enabled
+            ROOT = {
+                AND = {     
+                    is_vice_royalty = no                    # must not be a viceroyalty
+                    real_tier = DUKE                        # only duke tier, just for player info
+                    holder_scope = { is_republic = yes }    # must be republic, just for player info
+                }
+            }
+        }
+
+        effect = {
+            # Usurp this title
+            ROOT = { usurp_title = FROM }
+
+            # cost
+            wealth = -100
+            prestige = -150
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }
+    }#end tl_imperial_usurp_r
+
+    # Forcefully usurp this title, theocratic
+    tl_imperial_usurp_t = {
+        only_playable = yes
+        filter = all
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            AND = {
+                FROM = { has_law = tl_impusurp_law_3 }      # liege must have the law
+                ROOT = { real_tier = DUKE }                 # only duke tier, cleans up visibility
+                ROOT = { vassal_of = FROM }                 # must be a direct vassal
+                holder_scope = { is_theocracy = yes }       # must be theocracy
+            }
+        }
+
+        allow = {           #when is this enabled
+            ROOT = {
+                AND = {     
+                    is_vice_royalty = no                    # must not be a viceroyalty
+                    real_tier = DUKE                        # only duke tier, just for player info
+                    holder_scope = { is_theocracy = yes }   # must be theocracy, just for player info
+                }
+            }
+        }
+
+        effect = {
+            # Usurp this title
+            ROOT = { usurp_title = FROM }
+
+            # cost
+            wealth = -100
+            prestige = -50
+            piety = -100
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }
+
+    }#end tl_imperial_usurp_t
+
+    # Deactivate title
+    tl_deact_title = {
+        only_playable = yes
+        filter = owned
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            FROM = { has_law = tl_deact_law_1 }      # must have the law
+            owner = { character = FROM }
+            is_titular = yes
+        }
+
+        allow = {           #when is this enabled
+            FROM = { prestige = 1000 }
+            is_titular = yes
+        }
+
+        effect = {
+            # Deactivate the title
+			activate_title = {
+				title = ROOT
+				status = no
+			}
+			destroy_landed_title = ROOT
+
+            # cost
+            FROM = { prestige = -1000 }
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }
+
+    }#end tl_deact_title
+
+    # De Jure Edict
+    tl_djedict_title = {
+        only_playable = yes
+        filter = owned
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            FROM = { has_law = tl_djedict_law_1 }      # must have the law
+            ROOT = { real_tier = DUKE }                 # only duke tier, cleans up visibility
+            ROOT = { vassal_of = FROM }                 # must be a direct vassal
+            NOT = {
+                FROM = {
+                    capital_scope = {
+                        kingdom = {
+                            ROOT = {
+                                de_jure_liege = PREV
+                            }
+                        }
+                    }
+                }
+            }           
+        }
+
+        allow = {           #when is this enabled
+            FROM = { wealth = 1000 }
+            FROM = { prestige = 1000 }
+            FROM = { num_of_king_titles == 1 }  #must only have one Kingdom title
+            ROOT = {
+                real_tier = DUKE        # only duke tier, just for player info
+            }
+        }
+
+        effect = {
+            # Transfer the title
+            FROM = {
+                capital_scope = {
+                    kingdom = {
+                        ROOT = {
+                            de_jure_liege = PREV
+                        }
+                    }
+                }
+            }
+            # cost
+            FROM = { 
+                wealth = -1000
+                prestige = -1000
+                add_character_modifier = {      #vassals are upset
+                    modifier = tl_edict_modifier
+                    months = 120
+                    stacking = yes
+                }
+            }
+
+            holder_scope = {    #title holder is mad at this sudden change
+                opinion = {
+                    modifier = opinion_outraged
+                    who = FROM
+                    years = 2
+                }
+            }
+
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }
+
+    }#end tl_djedict_title
+
+}#end title_decisions

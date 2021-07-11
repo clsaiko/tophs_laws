@@ -1,0 +1,403 @@
+#################################
+#	File:   tl_localisation.csv
+#	Author: Chris Saiko
+#	Desc:   Toph's Laws Localisation File
+#           Windows 1252 encoding
+#################################
+
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+#CODE;ENGLISH;;;;;;;;;;;;;x
+
+#LAWS
+#Imperial Usurpation
+tl_impusurp_law;Imperial Usurpation;;;;;;;;;;;;;x
+tl_impusurp_law_desc;This law determines the ability of the Emperor to be able to usurp non-viceroyal duchies at will.;;;;;;;;;;;;;x
+
+tl_impusurp_law_0;Imperial Feudal Usurp Disallowed;;;;;;;;;;;;;x
+tl_impusurp_law_0_desc;Imperial usurpation of any non-viceroyal duchies by the emperor is not allowed. The emperor may always return to this.;;;;;;;;;;;;;x
+tl_impusurp_law_0_option;None;Aucune;Keine;;Ninguno;;;;;;;;;x
+
+tl_impusurp_law_1;Imperial Feudal Usurp Allowed;;;;;;;;;;;;;x
+tl_impusurp_law_1_desc;The emperor may usurp non-viceroyal duchies from a feudal direct vassal for any reason.;;;;;;;;;;;;;x
+tl_impusurp_law_1_option;Feudal;;;;;;;;;;;;;x
+
+tl_impusurp_law_2;Imperial Republic Usurp Allowed;;;;;;;;;;;;;x
+tl_impusurp_law_2_desc;The emperor may usurp republic duchies from a republic direct vassal for any reason.;;;;;;;;;;;;;x
+tl_impusurp_law_2_option;Republic;;;;;;;;;;;;;x
+
+tl_impusurp_law_3;Imperial Theocracy Usurp Allowed;;;;;;;;;;;;;x
+tl_impusurp_law_3_desc;The emperor may usurp theocratic duchies from a theocratic direct vassal for any reason.;;;;;;;;;;;;;x
+tl_impusurp_law_3_option;Theocracy;;;;;;;;;;;;;x
+
+
+#Other Laws
+tl_purple_law;Bestow Born In The Purple Law;;;;;;;;;;;;;x
+tl_purple_law_desc;Born In The Purple is a trait reserved for only direct children of the Emperor who are born in the Imperial Palace. The Emperor may, under certain conditions, grant this trait to grandchildren of the Emperor.;;;;;;;;;;;;;x
+
+tl_purple_law_0;Bestow Born In The Purple Disabled;;;;;;;;;;;;;x
+tl_purple_law_0_desc;Born In The Purple may not be bestowed outside of traditional means.;;;;;;;;;;;;;x
+tl_purple_law_0_option;Disabled;;;;;;;;;;;;;x
+
+tl_purple_law_1;Bestow Born In The Purple Enabled;;;;;;;;;;;;;x
+tl_purple_law_1_desc;Born In The Purple is a trait reserved for only direct children of the Emperor who are born in the Imperial Palace. The Emperor may, under certain conditions, grant this trait to grandchildren of the Emperor.;;;;;;;;;;;;;x
+tl_purple_law_1_option;Enabled;;;;;;;;;;;;;x
+
+tl_title_law;Realm Title Laws;;;;;;;;;;;;;x
+tl_title_law_desc;Certain laws pertaining to title decisions within the realm.;;;;;;;;;;;;;x
+
+tl_deact_law_0;Deactivate Titular Title Disabled;;;;;;;;;;;;;x
+tl_deact_law_0_desc;The ruler may not deactivate owned titular titles.;;;;;;;;;;;;;x
+tl_deact_law_0_option;Disabled;;;;;;;;;;;;;x
+
+tl_deact_law_1;Deactivate Titular Title Enabled;;;;;;;;;;;;;x
+tl_deact_law_1_desc;The ruler may deactivate owned titular titles.;;;;;;;;;;;;;x
+tl_deact_law_1_option;Enabled;;;;;;;;;;;;;x
+
+tl_deact_title;Deactivate Title;;;;;;;;;;;;;x
+tl_deact_title_desc;Deactivate the title §Y[Root.GetFullBaseName]§!.;;;;;;;;;;;;;x
+
+tl_djedict_law_0;De Jure Edict Disabled;;;;;;;;;;;;;x
+tl_djedict_law_0_desc;The ruler may not issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
+tl_djedict_law_0_option;Disabled;;;;;;;;;;;;;x
+
+tl_djedict_law_1;De Jure Edict Enabled;;;;;;;;;;;;;x
+tl_djedict_law_1_desc;The ruler may issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
+tl_djedict_law_1_option;Enabled;;;;;;;;;;;;;x
+
+plot_seize_trade_post_byz_title;Seize the Trade Post in [This.GetName];S'emparer du comptoir de [This.GetName];Beschlagnahmt den Handelsposten in [This.GetName];;Sitiar el Puesto Comercial de [This.GetName];;;;;;;;;x
+plot_seize_trade_post_byz_desc;Strike a blow for freedom everywhere by usurping control over the [This.GetName] Trade Post.;Combattre pour défendre la liberté en usurpant le comptoir de [This.GetName].;Brecht überall eine Lanze für Freiheit, indem Ihr die Kontrolle über den [This.GetName] Handelsposten an Euch reißt.;;Contribuir a la defensa de la libertad en todas partes usurpando el control del Puesto Comercial de [This.GetName].;;;;;;;;;x
+
+
+#IMPERIAL SENATE LAW
+tl_senate_law;Imperial Senate;;;;;;;;;;;;;x
+tl_senate_law_desc;The Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+tl_senate_law_0;Imperial Senate Dissolved;;;;;;;;;;;;;x
+tl_senate_law_0_desc;The Imperial Senate is not active. The Consul title is inactive.;;;;;;;;;;;;;x
+tl_senate_law_0_option;None;;;;;;;;;;;;;x
+
+tl_senate_law_1;Imperial Senate Established;;;;;;;;;;;;;x
+tl_senate_law_1_desc;The Imperial Senate is established. The Consul title is now active. Imperial Senate provinces may now be established.;;;;;;;;;;;;;x
+tl_senate_law_1_option;Enable;;;;;;;;;;;;;x
+
+#IMPERIAL SENATE PROVINCES
+tl_senate_prov_law;Imperial Senate Provinces;;;;;;;;;;;;;x
+tl_senate_prov_law_desc;Senators may be appointed from select Imperial provinces. Provinces must be established in turn to appoint Senators from them.;;;;;;;;;;;;;x
+
+tl_senate_prov_law_0;All Imperial Senate Provinces Inactive;;;;;;;;;;;;;x
+tl_senate_prov_law_0_desc;All Imperial Senate provinces are inactive.;;;;;;;;;;;;;x
+tl_senate_prov_law_0_option;None;;;;;;;;;;;;;x
+
+tl_senate_prov_law_1;Imperial Province of Greece;;;;;;;;;;;;;x
+tl_senate_prov_law_1_desc;The province of Greece is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_1_option;Greece;;;;;;;;;;;;;x
+
+tl_senate_prov_law_2;Imperial Province of Epirus;;;;;;;;;;;;;x
+tl_senate_prov_law_2_desc;The province of Epirus is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_2_option;Epirus;;;;;;;;;;;;;x
+
+tl_senate_prov_law_3;Imperial Province of Sicily;;;;;;;;;;;;;x
+tl_senate_prov_law_3_desc;The province of Sicily is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_3_option;Sicily;;;;;;;;;;;;;x
+
+tl_senate_prov_law_4;Imperial Province of Italy;;;;;;;;;;;;;x
+tl_senate_prov_law_4_desc;The province of Italy is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_4_option;Italy;;;;;;;;;;;;;x
+
+tl_senate_prov_law_5;Imperial Province of Sardinia and Corsica;;;;;;;;;;;;;x
+tl_senate_prov_law_5_desc;The province of Sardinia and Corsica is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_5_option;Sardinia;;;;;;;;;;;;;x
+
+tl_senate_prov_law_6;Imperial Province of Baetica;;;;;;;;;;;;;x
+tl_senate_prov_law_6_desc;The province of Baetica is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_6_option;Baetica;;;;;;;;;;;;;x
+
+tl_senate_prov_law_7;Imperial Province of Africa;;;;;;;;;;;;;x
+tl_senate_prov_law_7_desc;The province of Africa is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_7_option;Africa;;;;;;;;;;;;;x
+
+tl_senate_prov_law_8;Imperial Province of Trebizond;;;;;;;;;;;;;x
+tl_senate_prov_law_8_desc;The province of Trebizond is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_8_option;Trebizond;;;;;;;;;;;;;x
+
+tl_senate_prov_law_9;Imperial Province of Anatolia;;;;;;;;;;;;;x
+tl_senate_prov_law_9_desc;The province of Anatolia is established within the Imperial Senate.;;;;;;;;;;;;;x
+tl_senate_prov_law_9_option;Anatolia;;;;;;;;;;;;;x
+
+
+#LEGATES AUGUSTI
+tl_legatus_law;Legates Augusti;;;;;;;;;;;;;x
+tl_legatus_law_desc;The Legates Augusti were literally envoys of the Emperor, governors which oversaw a specific province of the Roman Empire.;;;;;;;;;;;;;x
+
+tl_legatus_law_0;Legates Augusti Inactive;;;;;;;;;;;;;x
+tl_legatus_law_0_desc;The Legates Augusti titles are inactive.;;;;;;;;;;;;;x
+tl_legatus_law_0_option;None;;;;;;;;;;;;;x
+
+tl_legatus_law_1;Legates Augusti Enabled;;;;;;;;;;;;;x
+tl_legatus_law_1_desc;The Legates Augusti titles are enabled.;;;;;;;;;;;;;x
+tl_legatus_law_1_option;Enable;;;;;;;;;;;;;x
+
+#LEGATES AUGUSTI PROVINCES
+tl_legatus_prov_law;Legates Augusti Provinces;;;;;;;;;;;;;x
+tl_legatus_prov_law_desc;The Legates Augusti are selected from the provincial area to which they belong.;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_0;All Legates Augusti Provinces Inactive;;;;;;;;;;;;;x
+tl_legatus_prov_law_0_desc;All Legates Augusti provinces are inactive.;;;;;;;;;;;;;x
+tl_legatus_prov_law_0_option;None;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_1;Legatus Hispania;;;;;;;;;;;;;x
+tl_legatus_prov_law_1_desc;The province of Hispania is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_1_option;Hispania;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_2;Legatus Gallia;;;;;;;;;;;;;x
+tl_legatus_prov_law_2_desc;The province of Gallia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_2_option;Gallia;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_3;Legatus Aegyptus;;;;;;;;;;;;;x
+tl_legatus_prov_law_3_desc;The province of Egypt is established within the Legates Augusti. After Marcus Antonius was defeated and Octavian rose to power, Egypt would forever be seen as a crucial asset to the Roman Empire, distinguishing it a bit above other Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_3_option;Egypt;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_4;Legatus Germania;;;;;;;;;;;;;x
+tl_legatus_prov_law_4_desc;The province of Germania is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_4_option;Germania;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_5;Legatus Britannia;;;;;;;;;;;;;x
+tl_legatus_prov_law_5_desc;The province of Britannia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_5_option;Britannia;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_6;Legatus Dalmatia;;;;;;;;;;;;;x
+tl_legatus_prov_law_6_desc;The province of Dalmatia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_6_option;Dalmatia;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_7;Legatus Moesia;;;;;;;;;;;;;x
+tl_legatus_prov_law_7_desc;The province of Moesia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_7_option;Moesia;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_8;Legatus Syria;;;;;;;;;;;;;x
+tl_legatus_prov_law_8_desc;The province of Syria is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_8_option;Syria;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_9;Legatus Armenia;;;;;;;;;;;;;x
+tl_legatus_prov_law_9_desc;The province of Armenia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_9_option;Armenia;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_10;Legatus Arabia;;;;;;;;;;;;;x
+tl_legatus_prov_law_10_desc;The province of Arabia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_10_option;Arabia;;;;;;;;;;;;;x
+
+tl_legatus_prov_law_11;Legatus Italia;;;;;;;;;;;;;x
+tl_legatus_prov_law_11_desc;The province of Italia is established within the Legates Augusti.;;;;;;;;;;;;;x
+tl_legatus_prov_law_11_option;Italia;;;;;;;;;;;;;x
+
+
+#Blinding Punishment
+tl_blind_law;Blinding Punishment;;;;;;;;;;;;;x
+tl_blind_law_desc;This law determines the ability of those within the realm to utilize blinding as a punishment for crimes.;;;;;;;;;;;;;x
+
+tl_blind_law_0;Blinding Disallowed;;;;;;;;;;;;;x
+tl_blind_law_0_desc;Blinding may not be used as a punishment.;;;;;;;;;;;;;x
+tl_blind_law_0_option;None;Aucune;Keine;;Ninguno;;;;;;;;;x
+
+tl_blind_law_1;Partial Blinding Allowed;;;;;;;;;;;;;x
+tl_blind_law_1_desc;Blinding of a single eye may be used as a punishment.;;;;;;;;;;;;;x
+tl_blind_law_1_option;Partial;;;;;;;;;;;;;x
+
+tl_blind_law_2;Full Blinding Allowed;;;;;;;;;;;;;x
+tl_blind_law_2_desc;Full blinding may be used as a punishment.;;;;;;;;;;;;;x
+tl_blind_law_2_option;Full;;;;;;;;;;;;;x
+
+#Castration Punishment
+tl_cast_law;Castrate Punishment;;;;;;;;;;;;;x
+tl_cast_law_desc;This law determines the ability of those within the realm to utilize castration as a punishment for crimes.;;;;;;;;;;;;;x
+
+tl_cast_law_0;Castration Disallowed;;;;;;;;;;;;;x
+tl_cast_law_0_desc;Castration may not be used as a punishment.;;;;;;;;;;;;;x
+tl_cast_law_0_option;None;Aucune;Keine;;Ninguno;;;;;;;;;x
+
+tl_cast_law_1;Castration Allowed;;;;;;;;;;;;;x
+tl_cast_law_1_desc;Castration may be used as a punishment.;;;;;;;;;;;;;x
+tl_cast_law_1_option;Allowed;;;;;;;;;;;;;x
+
+tl_vassal_partblind_decision;Partially Blind [Root.GetTitledFirstName];Aveugler [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] blenden;;Ciego [Root.GetTitledFirstName];;;;;;;;;x
+
+tl_vassal_blinding_decision;Blind [Root.GetTitledFirstName];Aveugler [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] blenden;;Ciego [Root.GetTitledFirstName];;;;;;;;;x
+tl_vassal_blinding_decision_desc;As punishment for [Root.GetHerHis] crimes, [Root.GetTitledFirstName] will be blinded.;;;;;;;;;;;;;x
+
+tl_vassal_castrate_decision;Castrate [Root.GetTitledFirstName];Castrer [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] kastrieren;;Castrado [Root.GetTitledFirstName];;;;;;;;;x
+
+tl_vassal_probation_decision;Release [Root.GetTitledFirstName];Libérer [Root.Get_le_TitledFirstName] en probation;[Root.GetTitledFirstName] auf Bewährung freilassen;;Liberar a [Root.GetTitledFirstName] en libertad condicional;;;;;;;;;x
+
+#Council Punishments Voting
+tl_punish_voting_power1;Class I Punishment;;;;;;;;;;;;;x
+tl_punish_voting_power1_desc;The Council's ability to vote on Class I Punishment decisions - probation, torture, and humiliation.;;;;;;;;;;;;;x
+
+tl_punish_voting_power1_0;Class I Punishment Ruler Authority;;;;;;;;;;;;;x
+tl_punish_voting_power1_0_desc;The Ruler has full authority on Class I punishments.;;;;;;;;;;;;;x
+tl_punish_voting_power1_0_option;Ruler;;;;;;;;;;;;;x
+
+tl_punish_voting_power1_1;Class I Punishment Committee;;;;;;;;;;;;;x
+tl_punish_voting_power1_1_desc;The Council may vote on Class I punishments.;;;;;;;;;;;;;x
+tl_punish_voting_power1_1_option;Council;;;;;;;;;;;;;x
+
+tl_punish_voting_power2;Class II Punishment;;;;;;;;;;;;;x
+tl_punish_voting_power2_desc;The Council's ability to influence Class II Punishment decisions - mutilation, blinding, and castration.;;;;;;;;;;;;;x
+
+tl_punish_voting_power2_0;Class II Punishment Ruler Authority;;;;;;;;;;;;;x
+tl_punish_voting_power2_0_desc;The Ruler has full authority on Class II punishments.;;;;;;;;;;;;;x
+tl_punish_voting_power2_0_option;Ruler;;;;;;;;;;;;;x
+
+tl_punish_voting_power2_1;Class II Punishment Committee;;;;;;;;;;;;;x
+tl_punish_voting_power2_1_desc;The Council may vote on Class II punishments.;;;;;;;;;;;;;x
+tl_punish_voting_power2_1_option;Council;;;;;;;;;;;;;x
+
+tl_vassal_castrate_decision_voting;Castrate Prisoner (Non-Byz);;;;;;;;;;;;;x
+tl_vassal_blinding_decision_voting;Blind Prisoner (Non-Byz);;;;;;;;;;;;;x
+tl_vassal_partblind_decision_voting;Partially Blind Prisoner;;;;;;;;;;;;;x
+vassal_castrate_decision_voting;Castrate Prisoner;;;;;;;;;;;;;x
+vassal_blinding_decision_voting;Blind Prisoner;;;;;;;;;;;;;x
+prisoner_mutilate_voting;Mutilate Prisoner;;;;;;;;;;;;;x
+prisoner_torture_voting;Torture Prisoner;;;;;;;;;;;;;x
+prisoner_humiliation_voting;Humiliate Prisoner;;;;;;;;;;;;;x
+tl_vassal_probation_decision_voting;Prisoner Probation;;;;;;;;;;;;;x
+
+#DECISIONS
+#Imperial Usurpation (Feudal)
+tl_imperial_usurp_f;Imperial Usurpation;;;;;;;;;;;;;x
+tl_imperial_usurp_f_desc;Usurp the feudal title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
+#Imperial Usurpation (Republic)
+tl_imperial_usurp_r;Imperial Usurpation;;;;;;;;;;;;;x
+tl_imperial_usurp_r_desc;Usurp the republic title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
+#Imperial Usurpation (Theocracy)
+tl_imperial_usurp_t;Imperial Usurpation;;;;;;;;;;;;;x
+tl_imperial_usurp_t_desc;Usurp the theocractic title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
+tl_djedict_title;De Jure Edict;;;;;;;;;;;;;x
+tl_djedict_title_desc;The title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
+#Bestow Born in the Purple
+tl_best_purple;Bestow Born in the Purple;;;;;;;;;;;;;x
+tl_best_purple_desc;Bestow the Born in the Purple trait on §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
+tl_bestow_purple_modifier;Bestowed Born in the Purple;;;;;;;;;;;;;x
+tl_bestow_purple_modifier_desc;This ruler has bestowed the Born in the Purple trait upon a grandchild.;;;;;;;;;;;;;x
+
+#TEXT
+tl_pattern_selfish_affects_me_pos_custom_tooltip;This affects me positively!;;;;;;;;;;;;;x
+tl_pattern_selfish_affects_me_neg_custom_tooltip;This affects me negatively!;;;;;;;;;;;;;x
+
+
+
+#MINOR TITLES
+#Houndmaster - basic title example
+title_houndmaster;Houndmaster;;;;;;;;;;;;;x
+title_houndmaster_desc;The realm Houndmaster maintains the hunting and guard dogs.;;;;;;;;;;;;;x
+
+#Capitalis - tbyz_title_capitalis
+tbyz_title_capitalis;Capitalis;;;;;;;;;;;;;x
+tbyz_title_capitalis_desc;The Tresviri Capitales are a council of three which manage the carrying out of executions in the Byzantine Empire.;;;;;;;;;;;;;x
+
+#Epulonis - tbyz_title_epulonis
+tbyz_title_epulonis;Epulonis;;;;;;;;;;;;;x
+tbyz_title_epulonis_desc;The Tresviri Epulones are a council of three priests which manage public banquets in the Byzantine Empire.;;;;;;;;;;;;;x
+
+#Tresviri monetales - tbyz_title_monetalis
+tbyz_title_monetalis;Monetalis;;;;;;;;;;;;;x
+tbyz_title_monetalis_desc;The Tresviri Monetales are a council of three which manage the minting of coins in the Byzantine Empire.;;;;;;;;;;;;;x
+
+
+#IMPERIAL SENATE
+#Imperial Senate Consul
+tbyz_title_consul;Consul;;;;;;;;;;;;;x
+tbyz_title_consul_desc;The Consul was a member of the Imperial Senate, often appointed by the Emperor, to oversee Senate proceedings with the Emperor, and to see to the Senate on the Emperor's behalf. While in real life there were two, in game the Emperor is limited to one.;;;;;;;;;;;;;x
+
+#Imperial Senator - Greece Province
+tbyz_title_senator_greece;Senator (Greece);;;;;;;;;;;;;x
+tbyz_title_senator_greece_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Epirus Province
+tbyz_title_senator_epirus;Senator (Epirus);;;;;;;;;;;;;x
+tbyz_title_senator_epirus_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Sicily Province
+tbyz_title_senator_sicily;Senator (Sicily);;;;;;;;;;;;;x
+tbyz_title_senator_sicily_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Italy Province
+tbyz_title_senator_italy;Senator (Italy);;;;;;;;;;;;;x
+tbyz_title_senator_italy_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Sardinia and Corsica Province
+tbyz_title_senator_sardinia;Senator (Sardinia);;;;;;;;;;;;;x
+tbyz_title_senator_sardinia_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Andalusia (Baetica) Province
+tbyz_title_senator_andalusia;Senator (Baetica);;;;;;;;;;;;;x
+tbyz_title_senator_andalusia_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Africa Province
+tbyz_title_senator_africa;Senator (Africa);;;;;;;;;;;;;x
+tbyz_title_senator_africa_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Trebizond Province
+tbyz_title_senator_trebizond;Senator (Trebizond);;;;;;;;;;;;;x
+tbyz_title_senator_trebizond_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+#Imperial Senator - Anatolia Province
+tbyz_title_senator_anatolia;Senator (Anatolia);;;;;;;;;;;;;x
+tbyz_title_senator_anatolia_desc;Senators of the Imperial Senate of the Roman Empire handled many of the laws regarding the operation of the Empire, advising the Emperor and offering counsel.;;;;;;;;;;;;;x
+
+
+#LEGATUS AUGUSTI
+#Legatus Augusti Hispania
+tbyz_title_leg_hispania;Legatus Hispania;;;;;;;;;;;;;x
+tbyz_title_leg_hispania_desc;The Legatus Hispania is the governor which oversees the imperial province of Hispania.;;;;;;;;;;;;;x
+
+#Legatus Augusti Gallia
+tbyz_title_leg_gallia;Legatus Gallia;;;;;;;;;;;;;x
+tbyz_title_leg_gallia_desc;The Legatus Gallia is the governor which oversees the imperial province of Gallia.;;;;;;;;;;;;;x
+
+# Legatus Augusti Aegyptus (Praefectus Aegyptus)
+tbyz_title_leg_aegyptus;Praefectus Aegyptus;;;;;;;;;;;;;x
+tbyz_title_leg_aegyptus_desc;The Praefectus Aegyptus is the governor which oversees the imperial province of Aegyptus. It is similar to a Legatus Augusti title, but is a higher honor. After Marcus Antonius was defeated and Octavian rose to power, Egypt would forever be seen as a crucial asset to the Roman Empire.;;;;;;;;;;;;;x
+
+#Legatus Augusti Germania
+tbyz_title_leg_germania;Legatus Germania;;;;;;;;;;;;;x
+tbyz_title_leg_germania_desc;The Legatus Germania is the governor which oversees the imperial province of Germania.;;;;;;;;;;;;;x
+
+#Legatus Augusti Britannia
+tbyz_title_leg_britannia;Legatus Britannia;;;;;;;;;;;;;x
+tbyz_title_leg_britannia_desc;The Legatus Britannia is the governor which oversees the imperial province of Britannia.;;;;;;;;;;;;;x
+
+#Legatus Augusti Dalmatia
+tbyz_title_leg_dalmatia;Legatus Dalmatia;;;;;;;;;;;;;x
+tbyz_title_leg_dalmatia_desc;The Legatus Dalmatia is the governor which oversees the imperial province of Dalmatia.;;;;;;;;;;;;;x
+
+#Legatus Augusti Moesia
+tbyz_title_leg_moesia;Legatus Moesia;;;;;;;;;;;;;x
+tbyz_title_leg_moesia_desc;The Legatus Moesia is the governor which oversees the imperial province of Moesia.;;;;;;;;;;;;;x
+
+#Legatus Augusti Syria
+tbyz_title_leg_syria;Legatus Syria;;;;;;;;;;;;;x
+tbyz_title_leg_syria_desc;The Legatus Syria is the governor which oversees the imperial province of Syria.;;;;;;;;;;;;;x
+
+#Legatus Augusti Armenia
+tbyz_title_leg_armenia;Legatus Armenia;;;;;;;;;;;;;x
+tbyz_title_leg_armenia_desc;The Legatus Armenia is the governor which oversees the imperial province of Armenia.;;;;;;;;;;;;;x
+
+#Legatus Augusti Arabia
+tbyz_title_leg_arabia;Legatus Arabia;;;;;;;;;;;;;x
+tbyz_title_leg_arabia_desc;The Legatus Arabia is the governor which oversees the imperial province of Arabia.;;;;;;;;;;;;;x
+
+#Legatus Augusti Italia
+tbyz_title_leg_arabia;Legatus Italia;;;;;;;;;;;;;x
+tbyz_title_leg_arabia_desc;The Legatus Italia is the governor which oversees the imperial province of Italia.;;;;;;;;;;;;;x
+
+
+
+#MODIFIERS
+
+#De Jure Edict
+tl_edict_modifier;De Jure Edict;;;;;;;;;;;;;x
+tl_edict_modifier_desc;The ruler has proclaimed an edict, shifting the de jure allegiance of a vassal.;;;;;;;;;;;;;x

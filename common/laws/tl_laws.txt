@@ -1,0 +1,2585 @@
+#################################
+#	File:	tl_laws.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws laws file
+#   
+#################################
+
+law_groups = {
+
+	# Imperial Usurpation
+	# The emperor may usurp non-viceroyal duchies.
+	tl_impusurp_law = {
+		law_type = crown
+		allowed_for_councillors = yes
+	}
+
+	# Born in Purple Law
+	tl_purple_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Title Law
+	tl_title_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Imperial Senate Council Law
+	tl_senate_law = {
+		law_type = council
+		allowed_for_councillors = yes
+	}
+
+	# Imperial Senate Province Law
+	tl_senate_prov_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Legatus Augusti Council Law
+	tl_legatus_law = {
+		law_type = council
+		allowed_for_councillors = yes
+	}
+
+	# Legatus Augusti Province Law
+	tl_legatus_prov_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Punishment Law - Blinding
+	# Blinding actions may be utilized to punish the guilty.
+	tl_blind_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Punishment Law - Castration
+	# Castration may be utilized to punish the guilty.
+	tl_cast_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Punishment Law - Probation
+	# The guilty is released, on the promise of future behavior.
+	tl_prob_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Council class I punishment power - probation, torture, humiliation
+	# Enables the council voting on punishment actions taken
+	tl_punish_voting_power1 = {
+		law_type = council
+		allowed_for_councillors = yes
+	}
+
+	# Council class II punishment power - blinding, castration, mutilation
+	# Enables the council voting on punishment actions taken
+	tl_punish_voting_power2 = {
+		law_type = council
+		allowed_for_councillors = yes
+	}
+
+	# Punishment Law - Blinding
+	# Blinding actions may be utilized to punish the guilty.
+	tl_blind_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+}
+
+#Realm and council Laws
+laws = {
+
+	# IMPERIAL SENATE LAWS
+	# Imperial Senate Disabled
+	tl_senate_law_0 = {
+		group = tl_senate_law
+		default = yes 			#start game disabled
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			add_law = {
+				law = tl_senate_prov_law_0
+				cooldown = no
+				opinion_effect = no
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_law_1	# revoke Imperial Senate established law
+			}
+		}
+	}#end tl_senate_law_0
+
+	# Imperial Senate Established
+	tl_senate_law_1 = {
+		group = tl_senate_law
+		default = no
+
+		#when is this enabled
+		allow = {
+			has_law = tl_senate_law_0
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_senate_law_0	# revoke Imperial Senate disabled law
+			}
+		}
+
+		vassal_opinion = -10	#direct vassals, more vassals, more scheming
+		vassal_limit = 5
+		demesne_size = 1
+
+	}#end tl_senate_law_1
+
+	# No Imperial Senate Provinces
+	tl_senate_prov_law_0 = {
+		group = tl_senate_prov_law
+		default = yes 			#start game disallowed
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1	#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {					#reactivate Greece
+				title = k_byzantium
+				status = yes
+			}
+			activate_title = {					#reactivate Epirus
+				title = k_epirus
+				status = yes
+			}
+			activate_title = {					#reactivate Sicily
+				title = k_sicily
+				status = yes
+			}
+			activate_title = {					#reactivate Italy
+				title = k_italy
+				status = yes
+			}
+			activate_title = {					#reactivate Sardinia and Corsica
+				title = k_sardinia
+				status = yes
+			}
+			activate_title = {					#reactivate Andalusia
+				title = k_andalusia
+				status = yes
+			}
+			activate_title = {					#reactivate Africa
+				title = k_africa
+				status = yes
+			}
+			activate_title = {					#reactivate Trebizond
+				title = k_trebizond
+				status = yes
+			}
+			activate_title = {					#reactivate Anatolia
+				title = k_anatolia
+				status = yes
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_1	# revoke Greece province
+				revoke_law = tl_senate_prov_law_2	# revoke Epirus province
+				revoke_law = tl_senate_prov_law_3	# revoke Sicily province
+				revoke_law = tl_senate_prov_law_4	# revoke Italy province
+				revoke_law = tl_senate_prov_law_5	# revoke Sardinia and Corsica province
+				revoke_law = tl_senate_prov_law_6	# revoke Andalusia province
+				revoke_law = tl_senate_prov_law_7	# revoke Africa province
+				revoke_law = tl_senate_prov_law_8	# revoke Trebizond province
+				revoke_law = tl_senate_prov_law_9	# revoke Anatolia province			
+			}
+		}
+	}#end tl_senate_prov_law_0	
+
+	# Imperial Senate Province - Greece
+	tl_senate_prov_law_1 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_byzantium	#must have kingdom of greece
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_byzantium
+				status = no
+			}
+			k_byzantium = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_1
+
+	# Imperial Senate Province - Epirus
+	tl_senate_prov_law_2 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_epirus	#must have kingdom of epirus
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_epirus
+				status = no
+			}
+			k_epirus = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_2
+
+	# Imperial Senate Province - Sicily
+	tl_senate_prov_law_3 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_sicily	#must have kingdom of sicily
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_sicily
+				status = no
+			}
+			k_sicily = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_3
+
+	# Imperial Senate Province - Italy
+	tl_senate_prov_law_4 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_italy #must have kingdom of italy
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_italy
+				status = no
+			}
+			k_italy = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_4
+
+	# Imperial Senate Province - Sardinia
+	tl_senate_prov_law_5 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_sardinia #must have kingdom of sardinia
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_sardinia
+				status = no
+			}
+			k_sardinia = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_5
+
+	# Imperial Senate Province - Baetica (Andalusia)
+	tl_senate_prov_law_6 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_andalusia #must have kingdom of andalusia
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_andalusia
+				status = no
+			}
+			k_andalusia = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_6
+
+	# Imperial Senate Province - Africa
+	tl_senate_prov_law_7 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_africa #must have kingdom of africa
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_africa
+				status = no
+			}
+			k_africa = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_7
+
+	# Imperial Senate Province - Trebizond
+	tl_senate_prov_law_8 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_trebizond #must have kingdom of trebizond
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_trebizond
+				status = no
+			}
+			k_trebizond = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_8
+
+	# Imperial Senate Province - Anatolia
+	tl_senate_prov_law_9 = {
+		group = tl_senate_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_senate_law_1		#require Imperial Senate council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_anatolia #must have kingdom of anatolia
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_senate_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			activate_title = {
+				title = k_anatolia
+				status = no
+			}
+			k_anatolia = {
+				destroy_landed_title = THIS
+			}
+			hidden_tooltip = {
+				revoke_law = tl_senate_prov_law_0	# revoke no senate provinces
+			}
+		}
+
+		vassal_limit = 5
+
+	}#end tl_senate_prov_law_9
+
+
+	# LEGATES AUGUSTI LAWS
+	# Legates Augusti Disabled
+	tl_legatus_law_0 = {
+		group = tl_legatus_law
+		default = yes 			#start game disabled
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			add_law = {
+				law = tl_legatus_prov_law_0
+				cooldown = no
+				opinion_effect = no
+			}
+			hidden_tooltip = {
+				revoke_law = tl_legatus_law_1	# revoke Legates Augusti established law
+			}
+		}
+	}#end tl_legatus_law_0
+
+	# Legatus Augusti Established
+	tl_legatus_law_1 = {
+		group = tl_legatus_law
+		default = no
+
+		#when is this enabled
+		allow = {
+			has_law = tl_legatus_law_0
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_legatus_law_0	# revoke Legates Augusti disabled law
+			}
+		}
+
+		vassal_opinion = -25	#direct vassals, more vassals, more scheming
+		vassal_limit = 5
+		demesne_size = 2
+
+	}#end tl_legatus_law_1
+
+	# No Legatus Augusti Provinces
+	tl_legatus_prov_law_0 = {
+		group = tl_legatus_prov_law
+		default = yes 			#start game disallowed
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_1	# revoke Hispania province
+				revoke_law = tl_legatus_prov_law_2	# revoke Gallia province
+				revoke_law = tl_legatus_prov_law_3	# revoke Egypt province
+				revoke_law = tl_legatus_prov_law_4	# revoke Germania province
+				revoke_law = tl_legatus_prov_law_5	# revoke Britannia province
+				revoke_law = tl_legatus_prov_law_6	# revoke Dalmatia province
+				revoke_law = tl_legatus_prov_law_7	# revoke Moesia province
+				revoke_law = tl_legatus_prov_law_8	# revoke Syria province
+				revoke_law = tl_legatus_prov_law_9	# revoke Armenia province
+				revoke_law = tl_legatus_prov_law_10	# revoke Arabia province
+			}
+		}
+	}#end tl_legatus_prov_law_0
+
+	# Legatus Augusti Hispania
+	tl_legatus_prov_law_1 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_galicia	#hold one of the titles in the province
+					has_landed_title = k_navarra
+					has_landed_title = k_valencia
+					has_landed_title = k_badajoz
+					has_landed_title = k_asturias
+					has_landed_title = k_andalusia
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_1
+
+	# Legatus Augusti Gallia
+	tl_legatus_prov_law_2 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_france		#hold one of the titles in the province
+					has_landed_title = k_brittany
+					has_landed_title = k_burgundy
+					has_landed_title = k_aquitaine
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_2
+
+	# Legatus Augusti Aegyptus (Praefectus Aegypti)
+	tl_legatus_prov_law_3 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				has_landed_title = k_egypt		#hold kingdom of egypt
+
+
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_3
+
+	# Legatus Augusti Germania
+	tl_legatus_prov_law_4 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_germany	#hold one of the titles in the province
+					has_landed_title = k_bavaria
+					has_landed_title = k_lotharingia
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_4
+
+	# Legatus Augusti Britannia
+	tl_legatus_prov_law_5 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_england
+					has_landed_title = k_wales
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_5
+
+	# Legatus Augusti Dalmatia
+	tl_legatus_prov_law_6 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_croatia
+					has_landed_title = k_serbia
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_6
+
+	# Legatus Augusti Moesia
+	tl_legatus_prov_law_7 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_bulgaria
+					has_landed_title = k_dacia
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_7
+
+	# Legatus Augusti Syria
+	tl_legatus_prov_law_8 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_syria
+					has_landed_title = k_mesopotamia
+					has_landed_title = k_iraq
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_8
+
+	# Legatus Augusti Armenia
+	tl_legatus_prov_law_9 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_armenia
+					has_landed_title = k_georgia
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_9
+
+	# Legatus Augusti Arabia
+	tl_legatus_prov_law_10 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_arabia
+					has_landed_title = k_jerusalem
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_10
+
+	# Legatus Augusti Italia
+	tl_legatus_prov_law_11 = {
+		group = tl_legatus_prov_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_legatus_law_1	#require Legatus Augusti council law
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+				OR = {
+					has_landed_title = k_sicily
+					has_landed_title = k_italy
+					has_landed_title = k_sardinia
+					has_landed_title = k_romagna
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			has_law = tl_legatus_law_1
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+
+			hidden_tooltip = {
+				revoke_law = tl_legatus_prov_law_0	# revoke no Legatus Augusti provinces
+				revoke_law = tl_senate_prov_law_3	# revoke sicily senate
+				revoke_law = tl_senate_prov_law_4	# revoke italy senate
+				revoke_law = tl_senate_prov_law_5	# revoke sardinia senate
+			}
+		}
+
+		vassal_limit = 5
+	}#end tl_legatus_prov_law_11
+
+
+	# IMPERIAL PRIVLEGES
+	# Bestow Born In The Purple Disabled
+	tl_purple_law_0 = {
+		group = tl_purple_law
+		default = yes			#enabled by default
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_purple_law_1	# revoke bestow purple law allowed
+			}
+		}
+
+		#vassal_opinion = 0
+
+	}#end tl_purple_law_0
+
+	# Bestow Born In The Purple Allowed
+	tl_purple_law_1 = {
+		group = tl_purple_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_purple_law_0
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+				OR = {
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_purple_law_0	# revoke bestow purple law disabled
+			}
+		}
+
+		vassal_opinion = -5
+
+	}#end tl_purple_law_1
+
+	# Deactivate titular titles Disabled
+	tl_deact_law_0 = {
+		group = tl_title_law
+		default = yes			#enabled by default
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_real_tier_than = DUKE
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_real_tier_than = DUKE
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_deact_law_1	# revoke Deactivate titular titles Enabled
+			}
+		}
+
+		#vassal_opinion = 0
+
+	}#end tl_deact_law_0
+
+	# Deactivate titular titles Enabled
+	tl_deact_law_1 = {
+		group = tl_title_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			has_law = tl_deact_law_0
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_real_tier_than = DUKE
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_real_tier_than = DUKE
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_deact_law_0	# revoke Deactivate titular titles disabled
+			}
+		}
+
+	}#end tl_deact_law_1
+
+	# De jure edict disabled
+	tl_djedict_law_0 = {
+		group = tl_title_law
+		default = yes
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_real_tier_than = DUKE
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_real_tier_than = DUKE
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_djedict_law_1	# revoke De jure edict enabled
+			}
+		}
+
+	}#end tl_djedict_law_0	
+
+	# De jure edict enabled
+	tl_djedict_law_1 = {
+		group = tl_title_law
+		default = yes
+
+		#when is this enabled
+		allow = {
+			has_law = tl_djedict_law_0
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_real_tier_than = DUKE
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_real_tier_than = DUKE
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_djedict_law_0	# revoke De jure edict disabled
+			}
+		}
+
+	}#end tl_djedict_law_1	
+
+
+	#BLINDING
+	# No blinding
+	tl_blind_law_0 = {
+		group = tl_blind_law
+		default = yes 			#start game no blinding
+
+		#when is this enabled
+		allow = {
+			NOT = { has_law = tl_blind_law_0 }	#can always return to both off
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+			}#end holder_scope
+			
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+
+			holder_scope = {
+				higher_tier_than = DUKE
+				independent = yes
+				NOT = {
+					OR = {
+						culture_group = byzantine
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_blinding
+						}
+					}
+				}
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_blind_law_1	# revoke other two laws
+				revoke_law = tl_blind_law_2
+			}
+		}
+	}#end tl_blind_law_0
+
+	#One eyed
+	tl_blind_law_1 = {
+		group = tl_blind_law
+		default = no
+
+		#when is this enabled
+		allow = {
+			holder_scope = {
+				is_adult = yes			#must be adult
+			}#end holder_scope
+
+			OR = {
+				AND = {
+					has_law = tl_blind_law_0
+					holder_scope = {
+						OR = {
+							NOT = { trait = kind }		#must be lunatic or not kind
+							trait = lunatic
+						}
+					}
+				}
+				has_law = tl_blind_law_2
+			}
+        }
+
+		#when does this option show up in the list
+		potential = {		
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+
+			holder_scope = {
+				higher_tier_than = DUKE
+				independent = yes
+				NOT = {
+					OR = {
+						culture_group = byzantine
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_blinding
+						}
+					}
+				}	
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_blind_law_0	# revoke other two laws
+				revoke_law = tl_blind_law_2
+			}
+		}
+	}#end tl_blind_law_1
+
+	#Blinding
+	tl_blind_law_2 = {
+		group = tl_blind_law
+		default = no
+
+		#when is this enabled
+		allow = {
+			has_law = tl_blind_law_1
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					NOT = { trait = kind }		#must be lunatic or not kind
+					trait = lunatic
+				}
+			}#end holder_scope
+        }
+
+		#when does this option show up in the list
+		potential = {		
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+
+			holder_scope = {
+				higher_tier_than = DUKE
+				independent = yes
+				NOT = {
+					OR = {
+						culture_group = byzantine
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_blinding
+						}
+					}
+				}	
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_blind_law_0	# revoke other two laws
+				revoke_law = tl_blind_law_1
+			}
+		}
+	}#end tl_blind_law_2
+
+
+	#CASTRATION
+	# No castration
+	tl_cast_law_0 = {
+		group = tl_cast_law
+		default = yes 			#start game no castration
+
+		#when is this enabled		
+		allow = {
+			#has_law = tl_cast_law_1
+			holder_scope = {
+				is_adult = yes			#must be adult
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {		
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+
+			holder_scope = {
+				higher_tier_than = DUKE
+				independent = yes
+				NOT = {
+					OR = {
+						culture_group = byzantine
+						culture_group = chinese_group
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_castration
+						}
+					}
+				}	
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_cast_law_1	# revoke castration
+			}
+		}
+	}#end tl_cast_law_0	
+
+	# Castration
+	tl_cast_law_1 = {
+		group = tl_cast_law
+		default = no
+
+		#when is this enabled
+		allow = {
+			has_law = tl_cast_law_0
+			holder_scope = {
+				is_adult = yes			#must be adult
+				OR = {
+					NOT = { trait = kind }		#must be lunatic or not kind
+					trait = lunatic
+				}
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+
+			holder_scope = {
+				higher_tier_than = DUKE
+				independent = yes
+				NOT = {
+					OR = {
+						culture_group = byzantine
+						culture_group = chinese_group
+						any_owned_bloodline = {
+							has_bloodline_flag = bloodline_castration
+						}
+					}
+				}
+			}
+		}
+
+		revoke_allowed = { always = no }
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_cast_law_0	# revoke no castration
+			}
+		}
+	}#end tl_cast_law_1	
+
+
+	# COUNCIL PUNISHMENT VOTING
+	# No vote on class I punishments
+	tl_punish_voting_power1_0 = {
+		group = tl_punish_voting_power1
+		default = yes
+		
+		allow = {
+			NOT = { has_law = tl_punish_voting_power1_0 }
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law = tribal_organization_4
+			}
+			NOT = { is_nomadic = yes }
+		}
+		potential = {
+			has_dlc = "Zeus"
+			higher_tier_than = COUNT
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law	= tribal_organization_3
+				has_law = tribal_organization_4
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.05
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_law = tl_punish_voting_power1_1
+						holder_scope = {
+							primary_title = {
+								title = PREVPREV
+							}
+						}
+					}
+					holder_scope = {
+						any_vassal = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_decreased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_decreased_council_power
+								years = 5
+							}
+						}
+						any_courtier = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_decreased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_decreased_council_power
+								years = 5
+							}
+						}
+					}
+				}
+				revoke_law = tl_punish_voting_power1_1
+			}
+		
+			disable_council_voting_on_issue = prisoner_torture
+			disable_council_voting_on_issue = prisoner_humiliation	
+			disable_council_voting_on_issue = tl_vassal_probation_decision
+		}
+	}#end tl_punish_voting_power_1
+	
+	# Council class I punishment committee - probation, torture, humiliation
+	tl_punish_voting_power1_1 = {
+		group = tl_punish_voting_power1
+		default = no
+		
+		allow = {
+			has_law = tl_punish_voting_power1_0
+
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law = tribal_organization_2
+			}
+		}
+		potential = {
+			has_dlc = "Zeus"
+			higher_tier_than = COUNT
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law	= tribal_organization_3
+				has_law = tribal_organization_4
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_law = tl_punish_voting_power1_0
+						holder_scope = {
+							primary_title = {
+								title = PREVPREV
+							}
+						}
+					}
+					holder_scope = {
+						any_vassal = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_increased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_increased_council_power
+								years = 5
+							}
+						}
+						any_courtier = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_increased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_increased_council_power
+								years = 5
+							}
+						}
+					}
+				}
+				revoke_law = tl_punish_voting_power1_0
+			}
+			
+			enable_council_voting_on_issue = prisoner_torture
+			enable_council_voting_on_issue = prisoner_humiliation
+			enable_council_voting_on_issue = tl_vassal_probation_decision
+		}
+		vassal_limit = 2
+
+	}#end tl_punish_voting_power_1
+
+	# No vote on class II punishments
+	tl_punish_voting_power2_0 = {
+		group = tl_punish_voting_power2
+		default = yes
+		
+		allow = {
+			NOT = { has_law = tl_punish_voting_power2_0 }
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law = tribal_organization_4
+			}
+			NOT = { is_nomadic = yes }
+		}
+		potential = {
+			has_dlc = "Zeus"
+			higher_tier_than = COUNT
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law	= tribal_organization_3
+				has_law = tribal_organization_4
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0.05
+			}
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_law = tl_punish_voting_power2_1
+						holder_scope = {
+							primary_title = {
+								title = PREVPREV
+							}
+						}
+					}
+					holder_scope = {
+						any_vassal = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_decreased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_decreased_council_power
+								years = 5
+							}
+						}
+						any_courtier = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_decreased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_decreased_council_power
+								years = 5
+							}
+						}
+					}
+				}
+				revoke_law = tl_punish_voting_power2_1
+			}
+			disable_council_voting_on_issue = tl_vassal_castrate_decision
+			disable_council_voting_on_issue = tl_vassal_blinding_decision
+			disable_council_voting_on_issue = tl_vassal_partblind_decision
+			disable_council_voting_on_issue = vassal_castrate_decision
+			disable_council_voting_on_issue = vassal_blinding_decision
+			disable_council_voting_on_issue = prisoner_mutilate		
+		}
+	}#end tl_punish_voting_power2_0
+	
+	# Council class II punishment committee - blinding, castration, mutilation
+	tl_punish_voting_power2_1 = {
+		group = tl_punish_voting_power2
+		default = no
+		
+		allow = {
+			has_law = law_voting_power_1
+			has_law = tl_punish_voting_power2_0
+
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law = tribal_organization_3
+			}
+		}
+		potential = {
+			has_dlc = "Zeus"
+			higher_tier_than = COUNT
+			OR = {
+				NOT = { holder_scope = { is_tribal = yes } }
+				has_law	= tribal_organization_3
+				has_law = tribal_organization_4
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}			
+		ai_will_do = {
+			factor = 0
+		}
+		ai_will_revoke = {
+			factor = 0
+		}
+		effect = {
+			hidden_tooltip = {
+				if = {
+					limit = { 
+						has_law = tl_punish_voting_power2_0
+						holder_scope = {
+							primary_title = {
+								title = PREVPREV
+							}
+						}
+					}
+					holder_scope = {
+						any_vassal = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_increased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_increased_council_power
+								years = 5
+							}
+						}
+						any_courtier = {
+							limit = {
+								NOT = { has_opinion_modifier = { who = ROOT modifier = opinion_increased_council_power } }
+							}
+							opinion = {
+								who = ROOT
+								modifier = opinion_increased_council_power
+								years = 5
+							}
+						}
+					}
+				}
+				revoke_law = tl_punish_voting_power2_0
+			}
+			enable_council_voting_on_issue = tl_vassal_castrate_decision
+			enable_council_voting_on_issue = tl_vassal_blinding_decision
+			enable_council_voting_on_issue = tl_vassal_partblind_decision
+			enable_council_voting_on_issue = vassal_castrate_decision
+			enable_council_voting_on_issue = vassal_blinding_decision
+			enable_council_voting_on_issue = prisoner_mutilate
+
+		}
+		vassal_limit = 2
+
+	}#end tl_punish_voting_power2_1
+}
+
+#Crown Laws
+de_jure_laws = {
+
+	# IMPERIAL USURPATION
+	# Not Allowed
+	tl_impusurp_law_0 = {
+		group = tl_impusurp_law
+		default = yes 			#start game disallowed
+		allow = {
+
+			#can always go back
+			has_law = vice_royalty_2	#require viceroyal duchies
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_tier_than = KING
+			}#end holder_scope
+
+        }
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			#need the disallow law to even start putting into effect, unless you have viceroy duchies already, like the Byzantine Empire does
+			has_law = vice_royalty_2	
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_impusurp_law_1	# revoke feudal usurp
+				revoke_law = tl_impusurp_law_2	# revoke republic usurp
+				revoke_law = tl_impusurp_law_3	# revoke theocracy usurp
+			}
+		}
+	}#end tl_impusurp_law_0	
+
+	# Usurp Feudal Allowed
+	tl_impusurp_law_1 = {
+		group = tl_impusurp_law
+		default = no
+		allow = {
+
+			OR = {
+				has_law = tl_impusurp_law_0
+				has_law = tl_impusurp_law_2
+			}
+			has_law = vice_royalty_2	#require viceroyal duchies
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_tier_than = KING
+			}#end holder_scope
+
+        }
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_impusurp_law_0	# revoke no feudal usurp
+				revoke_law = tl_impusurp_law_2	# revoke republic usurp
+			}
+		}
+
+		vassal_opinion = -4		#direct vassals
+		feudal_opinion = -8		#direct feudal vassals
+
+	}#end tl_impusurp_law_1	
+
+	# Usurp Republic Allowed
+	tl_impusurp_law_2 = {
+		group = tl_impusurp_law
+		default = no
+		allow = {
+
+			OR = {
+				has_law = tl_impusurp_law_1
+				has_law = tl_impusurp_law_3
+			}
+			has_law = vice_royalty_2	#require viceroyal duchies
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_tier_than = KING
+			}#end holder_scope
+
+        }
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_impusurp_law_1	# revoke feudal only usurp
+				revoke_law = tl_impusurp_law_3	# revoke theocracy usurp
+			}
+		}
+
+		vassal_opinion = -6		#direct vassals
+		feudal_opinion = -8		#direct feudal vassals
+		city_opinion = -8		#direct republic vassals
+
+	}#end tl_impusurp_law_2	
+
+	# Usurp Theocracy Allowed
+	tl_impusurp_law_3 = {
+		group = tl_impusurp_law
+		default = no
+		allow = {
+
+			has_law = tl_impusurp_law_2
+			has_law = vice_royalty_2	#require viceroyal duchies
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				higher_tier_than = KING
+			}#end holder_scope
+
+        }
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				higher_tier_than = KING
+				independent = yes
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_impusurp_law_2	# revoke republic usurp
+			}
+		}
+
+		vassal_opinion = -8		#direct vassals
+		feudal_opinion = -8		#direct feudal vassals
+		city_opinion = -8		#direct republic vassals
+		temple_opinion = -8		#direct theocratic vassals
+	}#end tl_impusurp_law_3
+
+}#end de_jure_laws

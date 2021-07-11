@@ -1,0 +1,101 @@
+###############################################################################
+#	File:	tl_voting_pragmatist.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the ruler.
+#			This file details how the Pragmatist will vote on the changes.
+#
+###############################################################################
+
+pragmatist_pattern_for = { # Votes for the safest course of action
+	icon = 6
+	pattern_type = for
+
+	# Imperial Feudal Usurp - probably best if my liege can't do this
+	tl_impusurp_law_0 = { always = yes }
+
+	# Imperial Republic Usurp - TBD votes for if reducing power
+	#tl_impusurp_law_1 = { always = yes }
+
+	# Imperial Theocracy Usurp - TBD votes for if reducing power
+	#tl_impusurp_law_2 = { always = yes }
+
+	# Bestow Born in Purple - no opinion
+	tl_purple_law_0 = { always = no }	
+	tl_purple_law_1 = { always = no }
+
+	# Imperial Senate - fewer potential council members, I want to gain power
+	tl_senate_law_0 = { always = yes }
+
+	# Deactivate titular titles - no opinion
+	tl_deact_law_0 = { always = no }
+	tl_deact_law_1 = { always = no }
+
+	# De Jure Edict - probably best if my liege can't do this
+	tl_djedict_law_0 = { always = yes }
+	
+	# Legatus Augusti - fewer potential council members, I want to gain power
+	tl_legatus_law_0 = { always = yes }
+	tl_legatus_prov_law_0 = { always = yes }
+
+	# Punishment Committee - best if the council weighed in
+	tl_punish_voting_power1_1 = { always = yes }
+	tl_punish_voting_power2_1 = { always = yes }	
+
+}
+
+pragmatist_pattern_against = {
+	icon = 6
+	pattern_type = against
+
+	# Imperial Feudal Usurp - probably best if my liege can't do this, votes against if increasing power
+	tl_impusurp_law_1 = { always = yes }
+
+	# Imperial Republic Usurp - probably best if my liege can't do this, votes against if increasing power
+	tl_impusurp_law_2 = { always = yes }
+
+	# Imperial Theocracy Usurp - probably best if my liege can't do this
+	tl_impusurp_law_3 = { always = yes }
+
+	# Bestow Born in Purple - no opinion
+	tl_purple_law_0 = { always = no }	
+	tl_purple_law_1 = { always = no }
+
+	# Deactivate titular titles - no opinion
+	tl_deact_law_0 = { always = no }
+	tl_deact_law_1 = { always = no }
+
+	# De Jure Edict - probably best if my liege can't do this
+	tl_djedict_law_1 = { always = yes }
+
+	# Imperial Senate - more potential council members, I don't want to lose power
+	tl_senate_law_1 = { always = yes }
+	tl_senate_prov_law_0 = { always = yes }
+	tl_senate_prov_law_1 = { always = yes }
+	tl_senate_prov_law_2 = { always = yes }
+	tl_senate_prov_law_3 = { always = yes }
+	tl_senate_prov_law_4 = { always = yes }
+	tl_senate_prov_law_5 = { always = yes }
+	tl_senate_prov_law_6 = { always = yes }
+	tl_senate_prov_law_7 = { always = yes }
+	tl_senate_prov_law_8 = { always = yes }
+	tl_senate_prov_law_9 = { always = yes }
+
+	# Legatus Augusti - more potential council members, I don't want to lose power
+	tl_legatus_law_1 = { always = yes }
+	tl_legatus_prov_law_1 = { always = yes }
+	tl_legatus_prov_law_2 = { always = yes }
+	tl_legatus_prov_law_3 = { always = yes }
+	tl_legatus_prov_law_4 = { always = yes }
+	tl_legatus_prov_law_5 = { always = yes }
+	tl_legatus_prov_law_6 = { always = yes }
+	tl_legatus_prov_law_7 = { always = yes }
+	tl_legatus_prov_law_8 = { always = yes }
+	tl_legatus_prov_law_9 = { always = yes }
+	tl_legatus_prov_law_10 = { always = yes }
+	tl_legatus_prov_law_11 = { always = yes }
+
+	# Punishment Committee - best if the council weighed in
+	tl_punish_voting_power1_0 = { always = yes }
+	tl_punish_voting_power2_0 = { always = yes }
+}

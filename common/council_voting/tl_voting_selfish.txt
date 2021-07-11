@@ -1,0 +1,666 @@
+###############################################################################
+#	File:	tl_voting_selfish.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the ruler.
+#			This file details how the selfish will vote on the changes.
+#
+# ROOT - Voter, FROM - Actor, FROMFROM - Recipient, FROMFROMFROM - Revoked title.
+###############################################################################
+
+
+selfish_pattern_for = {
+	icon = 9
+	pattern_type = for
+
+	# I have a non-viceroyal title, always go back to disallow feudal usurp
+	# ROOT - Voter, FROM - Actor
+	tl_impusurp_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_vice_royalty = no
+						is_landed = yes
+						is_feudal = yes
+					}
+				}
+			}
+		}
+	}
+
+	# I have a republic title, always go back to disallow republic usurp
+	# ROOT - Voter, FROM - Actor
+	tl_impusurp_law_1 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						is_republic = yes
+						liege = { has_law = tl_impusurp_law_2 }
+					}
+				}
+			}
+		}
+	}	
+
+	# I have a theocratic title, always go back to disallow theocracy usurp
+	# ROOT - Voter, FROM - Actor
+	tl_impusurp_law_2 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						is_theocracy = yes
+						liege = { has_law = tl_impusurp_law_3 }
+					}
+				}
+			}
+		}
+	}
+
+	# Bestow Born in Purple Allowed - Heir to the Roman/Byz Empire will approve!
+	tl_purple_law_1 = {
+		ROOT = {
+			OR = {
+				is_heir = e_byzantium
+				is_heir = e_roman_empire
+			}
+		}
+	}
+
+	# Imperial Senate
+	# I am of the Legates Augusti! Abolishing the Imperial Senate could bring me influence!
+	# ROOT - Voter, FROM - Actor
+	tl_senate_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_leg_gallia
+							has_minor_title = tbyz_title_leg_hispania
+							has_minor_title = tbyz_title_leg_aegyptus
+							has_minor_title = tbyz_title_leg_germania
+							has_minor_title = tbyz_title_leg_britannia
+							has_minor_title = tbyz_title_leg_dalmatia
+							has_minor_title = tbyz_title_leg_moesia
+							has_minor_title = tbyz_title_leg_syria
+							has_minor_title = tbyz_title_leg_armenia
+							has_minor_title = tbyz_title_leg_arabia
+							has_minor_title = tbyz_title_leg_italia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Imperial Senate Provinces
+	# I am of the Legates Augusti! Abolishing the Imperial Senate provinces could bring me influence!
+	tl_senate_prov_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_leg_gallia
+							has_minor_title = tbyz_title_leg_hispania
+							has_minor_title = tbyz_title_leg_aegyptus
+							has_minor_title = tbyz_title_leg_germania
+							has_minor_title = tbyz_title_leg_britannia
+							has_minor_title = tbyz_title_leg_dalmatia
+							has_minor_title = tbyz_title_leg_moesia
+							has_minor_title = tbyz_title_leg_syria
+							has_minor_title = tbyz_title_leg_armenia
+							has_minor_title = tbyz_title_leg_arabia
+							has_minor_title = tbyz_title_leg_italia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Legatus Augusti
+	# I am a Senator! Abolishing the Legatus Augusti could bring me influence!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_senator_greece
+							has_minor_title = tbyz_title_senator_epirus
+							has_minor_title = tbyz_title_senator_sicily
+							has_minor_title = tbyz_title_senator_italy
+							has_minor_title = tbyz_title_senator_sardinia
+							has_minor_title = tbyz_title_senator_andalusia
+							has_minor_title = tbyz_title_senator_africa
+							has_minor_title = tbyz_title_senator_trebizond
+							has_minor_title = tbyz_title_senator_anatolia
+						}
+					}
+				}
+			}
+		}
+	}	
+
+	# Legatus Augusti Provinces
+	# I am a Senator! Abolishing the Legatus Augusti provinces could bring me influence!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_senator_greece
+							has_minor_title = tbyz_title_senator_epirus
+							has_minor_title = tbyz_title_senator_sicily
+							has_minor_title = tbyz_title_senator_italy
+							has_minor_title = tbyz_title_senator_sardinia
+							has_minor_title = tbyz_title_senator_andalusia
+							has_minor_title = tbyz_title_senator_africa
+							has_minor_title = tbyz_title_senator_trebizond
+							has_minor_title = tbyz_title_senator_anatolia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Legatus Augusti
+	# I have a title which falls under the Legates Augusti!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_law_1 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_arabia		#Arabia combo
+							has_landed_title = k_jerusalem
+							has_landed_title = k_armenia	#Armenia combo
+							has_landed_title = k_georgia
+							has_landed_title = k_syria		#Syria combo
+							has_landed_title = k_mesopotamia
+							has_landed_title = k_iraq
+							has_landed_title = k_germany	#Germania combo
+							has_landed_title = k_lotharingia
+							has_landed_title = k_bavaria
+							has_landed_title = k_england	#Brittania
+							has_landed_title = k_wales
+							has_landed_title = k_bulgaria	#Moesia combo
+							has_landed_title = k_dacia
+							has_landed_title = k_egypt		#Aegyptus
+							has_landed_title = k_croatia	#Dalmatia
+							has_landed_title = k_serbia
+							has_landed_title = k_france		#Gallia	combo
+							has_landed_title = k_aquitaine
+							has_landed_title = k_burgundy
+							has_landed_title = k_brittany
+							has_landed_title = k_galicia	#Hispania combo
+							has_landed_title = k_navarra
+							has_landed_title = k_asturias
+							has_landed_title = k_badajoz
+							has_landed_title = k_andalusia
+							has_landed_title = k_valencia
+							has_landed_title = k_sicily		#Italia combo
+							has_landed_title = k_italy
+							has_landed_title = k_sardinia
+							AND = {							#Italia, not pope
+								has_landed_title = k_romagna
+								is_feudal = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Hispania!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_1 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_galicia	#Hispania combo
+							has_landed_title = k_navarra
+							has_landed_title = k_asturias
+							has_landed_title = k_badajoz
+							has_landed_title = k_andalusia
+							has_landed_title = k_valencia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Gallia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_2 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_france		#Gallia	combo
+							has_landed_title = k_aquitaine
+							has_landed_title = k_burgundy
+							has_landed_title = k_brittany
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Praefectus Aegyptus!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_3 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						has_landed_title = k_egypt
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Germania!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_4 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_germany	#Germania combo
+							has_landed_title = k_bavaria
+							has_landed_title = k_lotharingia
+						}
+					}
+				}
+			}
+		}
+	}	
+
+	# I could be Legatus Britannia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_5 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_england	#Britannia combo
+							has_landed_title = k_wales
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Dalmatia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_6 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_croatia
+							has_landed_title = k_serbia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Moesia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_7 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_bulgaria
+							has_landed_title = k_dacia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Syria!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_8 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_syria
+							has_landed_title = k_mesopotamia
+							has_landed_title = k_iraq
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Armenia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_9 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_armenia
+							has_landed_title = k_georgia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Arabia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_10 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_arabia
+							has_landed_title = k_jerusalem
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I could be Legatus Italia!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_11 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_pos_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_landed_title = k_sicily		#Italia combo
+							has_landed_title = k_italy
+							has_landed_title = k_sardinia
+							AND = {							#Italia, not pope
+								has_landed_title = k_romagna
+								is_feudal = yes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Punishment Committee - liege is my foe! I'll take my chances with the council
+	tl_punish_voting_power1_1 = { is_foe = FROM }
+	tl_punish_voting_power2_1 = { is_foe = FROM }
+
+}#end selfish_pattern_for
+
+selfish_pattern_against = {
+	icon = 10
+	pattern_type = against
+
+	# Imperial Feudal Usurp
+	# I have a non-viceroyal title, I'm against allowing Imperial Feudal Usurp
+	# ROOT - Voter, FROM - Actor
+	tl_impusurp_law_1 = {
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_vice_royalty = no
+						is_landed = yes
+						is_feudal = yes
+					}
+				}
+			}
+		}
+	}
+
+	# Imperial Republic Usurp
+	# I have a republic title, I'm against allowing Imperial Republic Usurp
+	# ROOT - Voter, FROM - Actor
+	tl_impusurp_law_2 = {
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						is_republic = yes
+					}
+				}
+			}
+		}
+	}
+
+	# Imperial Theocracy Usurp
+	# I have a theocracy title, I'm against allowing Imperial Theocracy Usurp
+	# ROOT - Voter, FROM - Actor
+	tl_impusurp_law_3 = {
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						is_theocracy = yes
+					}
+				}
+			}
+		}
+	}
+
+	# Bestow Born in Purple Allowed - Heir to the Roman/Byz Empire will disapprove!
+	tl_purple_law_0 = {
+		ROOT = {
+			OR = {
+				is_heir = e_byzantium
+				is_heir = e_roman_empire
+			}
+		}
+	}
+
+	# Imperial Senate
+	# I am a Senator! I do not wish to abolish the Imperial Senate!
+	# ROOT - Voter, FROM - Actor
+	tl_senate_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_senator_greece
+							has_minor_title = tbyz_title_senator_epirus
+							has_minor_title = tbyz_title_senator_sicily
+							has_minor_title = tbyz_title_senator_italy
+							has_minor_title = tbyz_title_senator_sardinia
+							has_minor_title = tbyz_title_senator_andalusia
+							has_minor_title = tbyz_title_senator_africa
+							has_minor_title = tbyz_title_senator_trebizond
+							has_minor_title = tbyz_title_senator_anatolia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Imperial Senate
+	# I am a Senator! I do not wish to abolish the Imperial Senate Provinces!
+	# ROOT - Voter, FROM - Actor
+	tl_senate_prov_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_senator_greece
+							has_minor_title = tbyz_title_senator_epirus
+							has_minor_title = tbyz_title_senator_sicily
+							has_minor_title = tbyz_title_senator_italy
+							has_minor_title = tbyz_title_senator_sardinia
+							has_minor_title = tbyz_title_senator_andalusia
+							has_minor_title = tbyz_title_senator_africa
+							has_minor_title = tbyz_title_senator_trebizond
+							has_minor_title = tbyz_title_senator_anatolia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	
+	# I am a Senator under Italia! I do not wish create the Legatus Italia Province!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_prov_law_11 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_senator_sicily
+							has_minor_title = tbyz_title_senator_italy
+							has_minor_title = tbyz_title_senator_sardinia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# Legatus Augusti
+	# I am of the Legates Augusti! I do not wish to abolish the Legates Augusti!
+	# ROOT - Voter, FROM - Actor
+	tl_legatus_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_leg_gallia
+							has_minor_title = tbyz_title_leg_hispania
+							has_minor_title = tbyz_title_leg_aegyptus
+							has_minor_title = tbyz_title_leg_germania
+							has_minor_title = tbyz_title_leg_britannia
+							has_minor_title = tbyz_title_leg_dalmatia
+							has_minor_title = tbyz_title_leg_moesia
+							has_minor_title = tbyz_title_leg_syria
+							has_minor_title = tbyz_title_leg_armenia
+							has_minor_title = tbyz_title_leg_arabia
+							has_minor_title = tbyz_title_leg_italia
+						}
+					}
+				}
+			}
+		}
+	}
+
+	# I am of the Legates Augusti! I do not wish to abolish the Legates Augusti provinces!
+	tl_legatus_prov_law_0 = { 
+		custom_tooltip = {
+			text = tl_pattern_selfish_affects_me_neg_custom_tooltip
+			hidden_tooltip = {
+				ROOT = {
+					AND = {
+						is_landed = yes
+						OR = {
+							has_minor_title = tbyz_title_leg_gallia
+							has_minor_title = tbyz_title_leg_hispania
+							has_minor_title = tbyz_title_leg_aegyptus
+							has_minor_title = tbyz_title_leg_germania
+							has_minor_title = tbyz_title_leg_britannia
+							has_minor_title = tbyz_title_leg_dalmatia
+							has_minor_title = tbyz_title_leg_moesia
+							has_minor_title = tbyz_title_leg_syria
+							has_minor_title = tbyz_title_leg_armenia
+							has_minor_title = tbyz_title_leg_arabia	
+							has_minor_title = tbyz_title_leg_italia
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	# Punishment Committee - liege is my foe! I'll take my chances with the council
+	tl_punish_voting_power1_0 = { is_foe = FROM }
+	tl_punish_voting_power2_0 = { is_foe = FROM }
+
+}#end selfish_pattern_against

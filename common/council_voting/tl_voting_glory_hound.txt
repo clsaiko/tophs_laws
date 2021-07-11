@@ -1,0 +1,134 @@
+###############################################################################
+#	File:	tl_voting_glory_hound.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the ruler.
+#			This file details how the Glory Hound will vote on the changes.
+#
+###############################################################################
+
+glory_hound_pattern_for = { #
+	icon = 7
+	pattern_type = for
+
+	# Imperial Feudal Usurp - no opinion
+	tl_impusurp_law_0 = { always = no }
+	tl_impusurp_law_1 = { always = no }
+
+	# Imperial Republic Usurp - no opinion
+	tl_impusurp_law_2 = { always = no }
+
+	# Imperial Theocracy Usurp - no opinion
+	tl_impusurp_law_3 = { always = no }
+
+	# Bestow Born in Purple - no opinion
+	tl_purple_law_0 = { always = no }	
+	tl_purple_law_1 = { always = no }
+
+	# Deactivate titular titles - no opinion
+	tl_deact_law_0 = { always = no }
+	tl_deact_law_1 = { always = no }
+
+	# De Jure Edict - no opinion
+	tl_djedict_law_0 = { always = no }
+	tl_djedict_law_1 = { always = no }
+
+	# Imperial Senate - no opinion
+	tl_senate_law_0 = { always = no }
+	tl_senate_prov_law_0 = { always = no }
+	tl_senate_prov_law_1 = { always = no }
+	tl_senate_prov_law_2 = { always = no }
+	tl_senate_prov_law_3 = { always = no }
+	tl_senate_prov_law_4 = { always = no }
+	tl_senate_prov_law_5 = { always = no }
+	tl_senate_prov_law_6 = { always = no }
+	tl_senate_prov_law_7 = { always = no }
+	tl_senate_prov_law_8 = { always = no }
+	tl_senate_prov_law_9 = { always = no }
+
+	# Legatus Augusti - no opinion
+	tl_legatus_law_0 = { always = no }
+	tl_legatus_prov_law_0 = { always = no }
+	tl_legatus_prov_law_1 = { always = no }
+	tl_legatus_prov_law_2 = { always = no }
+	tl_legatus_prov_law_3 = { always = no }
+	tl_legatus_prov_law_4 = { always = no }
+	tl_legatus_prov_law_5 = { always = no }
+	tl_legatus_prov_law_6 = { always = no }
+	tl_legatus_prov_law_7 = { always = no }
+	tl_legatus_prov_law_8 = { always = no }
+	tl_legatus_prov_law_9 = { always = no }
+	tl_legatus_prov_law_10 = { always = no }
+	tl_legatus_prov_law_11 = { always = no }
+
+	# Punishment Committee - no opinion
+	tl_punish_voting_power1_0 = { always = no }
+	tl_punish_voting_power1_1 = { always = no }
+	tl_punish_voting_power2_0 = { always = no }
+	tl_punish_voting_power2_1 = { always = no }
+}
+
+glory_hound_pattern_against = {	#
+	icon = 7
+	pattern_type = against
+
+	# Imperial Feudal Usurp - no opinion
+	tl_impusurp_law_0 = { always = no }
+	tl_impusurp_law_1 = { always = no }
+
+	# Imperial Republic Usurp - no opinion
+	tl_impusurp_law_2 = { always = no }
+
+	# Imperial Theocracy Usurp - no opinion
+	tl_impusurp_law_3 = { always = no }
+
+	# Bestow Born in Purple - no opinion
+	tl_purple_law_0 = { always = no }	
+	tl_purple_law_1 = { always = no }	
+
+	# Deactivate titular titles - no opinion
+	tl_deact_law_0 = { always = no }
+	tl_deact_law_1 = { always = no }
+
+	# De Jure Edict - no opinion
+	tl_djedict_law_0 = { always = no }
+	tl_djedict_law_1 = { always = no }
+
+	# Imperial Senate - The Roman Empire of old had this! Return to greatness
+	tl_senate_law_0 = { always = yes }
+
+	# Imperial Senate - no opinion
+	tl_senate_prov_law_0 = { always = no }
+	tl_senate_prov_law_1 = { always = no }
+	tl_senate_prov_law_2 = { always = no }
+	tl_senate_prov_law_3 = { always = no }
+	tl_senate_prov_law_4 = { always = no }
+	tl_senate_prov_law_5 = { always = no }
+	tl_senate_prov_law_6 = { always = no }
+	tl_senate_prov_law_7 = { always = no }
+	tl_senate_prov_law_8 = { always = no }
+	tl_senate_prov_law_9 = { always = no }
+
+	# Legatus Augusti - The Roman Empire of old had this! Return to greatness
+	tl_legatus_law_1 = { always = yes }
+
+	#no opinion on Legatus Augusti provinces
+	tl_legatus_prov_law_0 = { always = no }
+	tl_legatus_prov_law_1 = { always = no }
+	tl_legatus_prov_law_2 = { always = no }	
+	tl_legatus_prov_law_3 = { always = no }
+	tl_legatus_prov_law_4 = { always = no }
+	tl_legatus_prov_law_5 = { always = no }
+	tl_legatus_prov_law_6 = { always = no }
+	tl_legatus_prov_law_7 = { always = no }
+	tl_legatus_prov_law_8 = { always = no }
+	tl_legatus_prov_law_9 = { always = no }
+	tl_legatus_prov_law_10 = { always = no }
+	tl_legatus_prov_law_11 = { always = no }
+
+	# Punishment Committee - no opinion
+	tl_punish_voting_power1_0 = { always = no }
+	tl_punish_voting_power1_1 = { always = no }
+	tl_punish_voting_power2_0 = { always = no }
+	tl_punish_voting_power2_1 = { always = no }
+}
