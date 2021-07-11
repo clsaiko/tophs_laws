@@ -1,5 +1,5 @@
 ###############################################################################
-#	File:	tl_voting_selfish.txt
+#	File:	tl_05_voting_selfish.txt
 #	Author:	Chris Saiko
 # 	Desc:	Toph's Laws Councillor Voting Patterns file
 #           The council may vote on various doctrine changes desired by the ruler.

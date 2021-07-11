@@ -1,5 +1,5 @@
 ###############################################################################
-#	File:	tl_voting_pragmatist.txt
+#	File:	tl_01_voting_pragmatist.txt
 #	Author:	Chris Saiko
 # 	Desc:	Toph's Laws Councillor Voting Patterns file
 #           The council may vote on various doctrine changes desired by the ruler.

@@ -1,5 +1,5 @@
 ###############################################################################
-#	File:	tl_voting_loyalist.txt
+#	File:	tl_00_voting_loyalist.txt
 #	Author:	Chris Saiko
 # 	Desc:	Toph's Laws Councillor Voting Patterns file
 #           The council may vote on various law changes desired by the ruler.
