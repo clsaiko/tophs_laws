@@ -6,6 +6,8 @@
 #           tl_imperial_usurp_f
 #           tl_imperial_usurp_r
 #           tl_imperial_usurp_t
+#           tl_deact_title
+#           tl_djedict_title
 #
 #################################
 
