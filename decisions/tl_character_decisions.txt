@@ -550,5 +550,130 @@ targetted_decisions = {
 		}
 	}# end tl_vassal_partblind_decision
 
+	# Release Prisoner on Probation
+	tl_vassal_probation_decision = {
+		only_playable = yes
+		filter = court
+		ai_target_filter = court
+		ai_check_interval = 6
+
+		from_potential = {
+			has_dlc = "Legacy of Rome"
+			is_playable = yes
+		}
+
+		potential = {
+			host = { character = FROM }
+			prisoner = yes
+		}
+		allow = {
+			prisoner = yes
+		}
+		effect = {
+			prisoner = no
+			opinion = {
+				modifier = opinion_castrated_me
+				who = FROM
+			}
+			FROM = {
+				if = {
+					limit = { NOT = { trait = kind } }
+					custom_tooltip = {
+						text = cruel_imprisoner_trait_chance_TT
+						random = {
+							chance = 25
+							add_trait = kind
+							hidden_tooltip = {
+								character_event = { id = 38259 }
+							}
+						}
+					}
+				}
+				piety = 50
+			}
+			hidden_tooltip = {
+				mother = {
+					opinion = {
+						modifier = opinion_castrated_close_kin
+						who = FROM
+					}
+				}
+				father = {
+					opinion = {
+						modifier = opinion_castrated_close_kin
+						who = FROM
+					}
+				}
+				spouse = {
+					opinion = {
+						modifier = opinion_castrated_close_kin
+						who = FROM
+					}
+				}
+				any_child = {
+					opinion = {
+						modifier = opinion_castrated_close_kin
+						who = FROM
+					}
+				}
+				if = {
+					limit = {
+						FROM = {
+							NOT = { dynasty = ROOT }
+							NOT = { sibling = ROOT }
+						}
+					}
+					any_sibling = {
+						opinion = {
+							modifier = opinion_castrated_close_kin
+							who = FROM
+						}
+					}
+					any_dynasty_member = {
+						opinion = {
+							modifier = opinion_castrated_family
+							who = FROM
+						}
+					}
+				}
+				FROM = {
+					remove_opinion = { who = ROOT modifier = opinion_traitor }
+					remove_opinion = { who = ROOT modifier = opinion_rebel_traitor }
+					remove_opinion = { who = ROOT modifier = opinion_dishonorable }
+				}
+			}
+		}
+		revoke_allowed = {
+			always = no
+		}
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				OR = {
+					reverse_opinion = { who = FROM value = 40 }
+					FROM = { NOT = { piety = 100 } }
+					FROM = { LIEGE = { dynasty = ROOT } }
+				}
+			}
+			modifier = {
+				factor = 0
+				FROM = { trait = cruel }
+			}
+			modifier = {
+				factor = 0.4 # Less likely to do it
+			}				 # Game default is 0.5
+			modifier = {
+				factor = 1.2
+				FROM = {
+					OR = {
+						trait = cruel
+						trait = impaler
+					}
+				}
+			}
+		}
+	}# end tl_vassal_probation_decision
 
 }

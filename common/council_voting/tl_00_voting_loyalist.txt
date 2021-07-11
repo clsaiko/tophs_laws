@@ -79,6 +79,17 @@ loyalist_pattern_for = {	# Always votes with the liege
 		}
 	}
 
+	prisoner_humiliation = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+
+	
+
 }
 
 loyalist_pattern_against = {	#Always votes with the liege
