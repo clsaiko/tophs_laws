@@ -219,13 +219,16 @@ tl_cast_law_1_desc;Castration may be used as a punishment.;;;;;;;;;;;;;x
 tl_cast_law_1_option;Allowed;;;;;;;;;;;;;x
 
 tl_vassal_partblind_decision;Partially Blind [Root.GetTitledFirstName];Aveugler [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] blenden;;Ciego [Root.GetTitledFirstName];;;;;;;;;x
+tl_vassal_partblind_decision_desc;You may give the order to partially blind §Y[Root.GetFirstName]§!.;;;;;;;;;;;;;x
 
 tl_vassal_blinding_decision;Blind [Root.GetTitledFirstName];Aveugler [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] blenden;;Ciego [Root.GetTitledFirstName];;;;;;;;;x
-tl_vassal_blinding_decision_desc;As punishment for [Root.GetHerHis] crimes, [Root.GetTitledFirstName] will be blinded.;;;;;;;;;;;;;x
+tl_vassal_blinding_decision_desc;You may give the order to permanently blind §Y[Root.GetFirstName]§!.;;;;;;;;;;;;;x
 
 tl_vassal_castrate_decision;Castrate [Root.GetTitledFirstName];Castrer [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] kastrieren;;Castrado [Root.GetTitledFirstName];;;;;;;;;x
+tl_vassal_castrate_decision_desc;You may give the order to castrate §Y[Root.GetFirstName]§! and turn him into a eunuch. He will be unable to sire more spawn or be granted landed titles, a severe punishment.;Vous pourriez donner l'ordre de castrer §Y[Root.GetFirstName]§! pour en faire un eunuque. Il serait incapable d'engendrer ou de recevoir des titres. Un sévère châtiment.;Ihr könnt den Befehl zum Kastrieren von §Y[Root.GetFirstName]§! erteilen und ihn so in einen Eunuchen verwandeln. Er wird danach nicht länger in der Lage sein Erben zu zeugen oder Besitztümer zu erhalten. Eine wahrlich schwere Strafe.;;Puedes ordenar que castren a §Y[Root.GetFirstName]§! y convertirlo en eunuco. No podrá tener más descendencia ni se le concederán títulos con tierras. Un castigo muy duro.;;;;;x
 
-tl_vassal_probation_decision;Release [Root.GetTitledFirstName] on Probation;Libérer [Root.Get_le_TitledFirstName] en probation;[Root.GetTitledFirstName] auf Bewährung freilassen;;Liberar a [Root.GetTitledFirstName] en libertad condicional;;;;;;;;;x
+tl_vassal_probation_decision;Release on Probation;Libération conditionnelle;Entlassung auf Bewährung;;Libertad condicional;;;;;;;;;x
+tl_vassal_probation_decision_desc;[Root.GetTitledFirstName] is released on conditional 5 year probation. [Root.GetSheHe] will no longer plot against you.;;;;;;;;;;;;;x
 
 #Council Punishments Voting
 tl_punish_voting_power1;Class I Punishment;;;;;;;;;;;;;x
