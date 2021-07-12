@@ -572,19 +572,19 @@ targetted_decisions = {
 		effect = {
 			prisoner = no
 			opinion = {
-				modifier = opinion_castrated_me
+				modifier = opinion_tl_probation
 				who = FROM
 			}
 			FROM = {
 				if = {
 					limit = { NOT = { trait = kind } }
 					custom_tooltip = {
-						text = cruel_imprisoner_trait_chance_TT
+						text = tl_kind_imprisoner_trait_chance_TT
 						random = {
 							chance = 25
 							add_trait = kind
 							hidden_tooltip = {
-								character_event = { id = 38259 }
+								character_event = { id = 38268 }
 							}
 						}
 					}
@@ -594,25 +594,25 @@ targetted_decisions = {
 			hidden_tooltip = {
 				mother = {
 					opinion = {
-						modifier = opinion_castrated_close_kin
+						modifier = opinion_merciful
 						who = FROM
 					}
 				}
 				father = {
 					opinion = {
-						modifier = opinion_castrated_close_kin
+						modifier = opinion_merciful
 						who = FROM
 					}
 				}
 				spouse = {
 					opinion = {
-						modifier = opinion_castrated_close_kin
+						modifier = opinion_merciful
 						who = FROM
 					}
 				}
 				any_child = {
 					opinion = {
-						modifier = opinion_castrated_close_kin
+						modifier = opinion_merciful
 						who = FROM
 					}
 				}
@@ -625,13 +625,13 @@ targetted_decisions = {
 					}
 					any_sibling = {
 						opinion = {
-							modifier = opinion_castrated_close_kin
+							modifier = opinion_merciful
 							who = FROM
 						}
 					}
 					any_dynasty_member = {
 						opinion = {
-							modifier = opinion_castrated_family
+							modifier = opinion_merciful
 							who = FROM
 						}
 					}
@@ -652,11 +652,15 @@ targetted_decisions = {
 			modifier = {
 				factor = 0
 				OR = {
-					reverse_opinion = { who = FROM value = 40 }
-					FROM = { NOT = { piety = 100 } }
-					FROM = { LIEGE = { dynasty = ROOT } }
+					reverse_opinion = { who = FROM value = -20 }
+					FROM = { NOT = { piety = 50 } }
 				}
 			}
+			modifier = {
+				factor = 0.5
+				FROM = { LIEGE = { dynasty = ROOT } }
+			}
+
 			modifier = {
 				factor = 0
 				FROM = { trait = cruel }
@@ -668,8 +672,8 @@ targetted_decisions = {
 				factor = 1.2
 				FROM = {
 					OR = {
-						trait = cruel
-						trait = impaler
+						trait = kind
+						trait = scholar
 					}
 				}
 			}

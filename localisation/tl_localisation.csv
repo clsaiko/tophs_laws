@@ -225,7 +225,7 @@ tl_vassal_blinding_decision_desc;As punishment for [Root.GetHerHis] crimes, [Roo
 
 tl_vassal_castrate_decision;Castrate [Root.GetTitledFirstName];Castrer [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] kastrieren;;Castrado [Root.GetTitledFirstName];;;;;;;;;x
 
-tl_vassal_probation_decision;Release [Root.GetTitledFirstName];Libérer [Root.Get_le_TitledFirstName] en probation;[Root.GetTitledFirstName] auf Bewährung freilassen;;Liberar a [Root.GetTitledFirstName] en libertad condicional;;;;;;;;;x
+tl_vassal_probation_decision;Release [Root.GetTitledFirstName] on Probation;Libérer [Root.Get_le_TitledFirstName] en probation;[Root.GetTitledFirstName] auf Bewährung freilassen;;Liberar a [Root.GetTitledFirstName] en libertad condicional;;;;;;;;;x
 
 #Council Punishments Voting
 tl_punish_voting_power1;Class I Punishment;;;;;;;;;;;;;x
@@ -286,7 +286,7 @@ tl_bestow_purple_modifier_desc;This ruler has bestowed the Born in the Purple tr
 #TEXT
 tl_pattern_selfish_affects_me_pos_custom_tooltip;This affects me positively!;;;;;;;;;;;;;x
 tl_pattern_selfish_affects_me_neg_custom_tooltip;This affects me negatively!;;;;;;;;;;;;;x
-
+tl_kind_imprisoner_trait_chance_TT;A 25% chance to become §YKind§!;;;;;;;;;;;;;x
 
 
 #MINOR TITLES
