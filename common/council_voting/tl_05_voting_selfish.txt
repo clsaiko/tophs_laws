@@ -663,4 +663,96 @@ selfish_pattern_against = {
 	tl_punish_voting_power1_0 = { is_foe = FROM }
 	tl_punish_voting_power2_0 = { is_foe = FROM }
 
+	# ROOT - Voter, FROM - Actor, FROMFROM - Recipient
+	prisoner_mutilate = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}	
+	prisoner_humiliation = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}	
+	prisoner_torture = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}	
+	vassal_castrate_decision = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	tl_vassal_castrate_decision = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}	
+	vassal_blinding_decision = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	tl_vassal_blinding_decision = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	tl_vassal_probation_decision = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}
+	tl_vassal_partblind_decision = {
+		custom_tooltip = {
+			text = pattern_selfish_affects_me_custom_tooltip
+			hidden_tooltip = {
+				FROMFROM = {
+					character = ROOT
+				}
+			}
+		}
+	}
+
 }#end selfish_pattern_against

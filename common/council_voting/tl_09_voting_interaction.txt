@@ -1,0 +1,140 @@
+###############################################################################
+#	File:	tl_09_voting_interaction.txt
+#	Author:	Chris Saiko
+# 	Desc:	Toph's Laws Councillor Voting Patterns file
+#           The council may vote on various doctrine changes desired by the ruler.
+#			This file details how a member will vote on the changes based on opinion.
+#
+# ROOT - Voter, FROM - Actor, FROMFROM - Recipient, FROMFROMFROM - Revoked title.
+###############################################################################
+
+interaction_pattern_for = {
+	icon = 9
+	pattern_type = for
+
+	prisoner_mutilate = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	prisoner_humiliation = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	prisoner_torture = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	vassal_castrate_decision = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	tl_vassal_castrate_decision = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	vassal_blinding_decision = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	tl_vassal_blinding_decision = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	tl_vassal_probation_decision = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+	tl_vassal_partblind_decision = {
+		custom_tooltip = {
+			text = pattern_interaction_dislike_custom_tooltip
+			hidden_tooltip = {
+				NOT = {
+					opinion = {
+						who = FROMFROM
+						value = -9
+					}
+				}
+			}
+		}
+	}
+
+}#end interaction_pattern_for
+
+interaction_pattern_against = {
+	icon = 10
+	pattern_type = against
+	
+	
+}#end interaction_pattern_against

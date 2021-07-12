@@ -68,6 +68,18 @@ malcontent_pattern_for = {	# Always votes against the liege
 	tl_punish_voting_power1_1 = { NOT = { liege = { character = FROM } } }
 	tl_punish_voting_power2_0 = { NOT = { liege = { character = FROM } } }
 	tl_punish_voting_power2_1 = { NOT = { liege = { character = FROM } } }
+
+	# Council Punishment Voting Patterns
+	prisoner_torture = { NOT = { liege = { character = FROM } } }
+	prisoner_humiliation = { NOT = { liege = { character = FROM } } }
+	prisoner_mutilate = { NOT = { liege = { character = FROM } } }
+	tl_vassal_probation_decision = { NOT = { liege = { character = FROM } } }
+	vassal_castrate_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_castrate_decision = { NOT = { liege = { character = FROM } } }
+	vassal_blinding_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_blinding_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_probation_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_partblind_decision = { NOT = { liege = { character = FROM } } }
 }
 
 malcontent_pattern_against = {	#Always votes against the liege
@@ -157,4 +169,59 @@ malcontent_pattern_against = {	#Always votes against the liege
 			}
 		}
 	}
+	# Standard
+	vassal_castrate_decision = { 
+		custom_tooltip = {
+				text = pattern_malcontent_vote_against_liege_custom_tooltip
+				hidden_tooltip = {
+					always = yes
+				}
+		}
+	}
+	# Non-Standard
+	tl_vassal_castrate_decision = { 
+		custom_tooltip = {
+				text = pattern_malcontent_vote_against_liege_custom_tooltip
+				hidden_tooltip = {
+					always = yes
+				}
+		}
+	}
+	#Standard
+	vassal_blinding_decision = { 
+		custom_tooltip = {
+				text = pattern_malcontent_vote_against_liege_custom_tooltip
+				hidden_tooltip = {
+					always = yes
+				}
+		}
+	}
+	# Non-Standard
+	tl_vassal_blinding_decision = { 
+		custom_tooltip = {
+				text = pattern_malcontent_vote_against_liege_custom_tooltip
+				hidden_tooltip = {
+					always = yes
+				}
+		}
+	}
+	# Prisoner Probation
+	tl_vassal_probation_decision = { 
+		custom_tooltip = {
+				text = pattern_malcontent_vote_against_liege_custom_tooltip
+				hidden_tooltip = {
+					always = yes
+				}
+		}
+	}
+	# Non-Standard
+	tl_vassal_partblind_decision = { 
+		custom_tooltip = {
+				text = pattern_malcontent_vote_against_liege_custom_tooltip
+				hidden_tooltip = {
+					always = yes
+				}
+		}
+	}
+
 }

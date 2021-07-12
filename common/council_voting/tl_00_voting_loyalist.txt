@@ -69,6 +69,7 @@ loyalist_pattern_for = {	# Always votes with the liege
 	tl_punish_voting_power2_0 = { liege = { character = FROM } }
 	tl_punish_voting_power2_1 = { liege = { character = FROM } }
 
+	# Council Punishment Voting Patterns
 	# ROOT - Voter, FROM - Actor, FROMFROM - Recipient, FROMFROMFROM - Revoked title.
 	prisoner_torture = { 
 		custom_tooltip = {
@@ -78,7 +79,6 @@ loyalist_pattern_for = {	# Always votes with the liege
 				}
 		}
 	}
-
 	prisoner_humiliation = { 
 		custom_tooltip = {
 				text = pattern_loyalist_vote_as_liege_custom_tooltip
@@ -87,8 +87,68 @@ loyalist_pattern_for = {	# Always votes with the liege
 				}
 		}
 	}
-
-	
+	prisoner_mutilate = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+	# Standard
+	vassal_castrate_decision = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+	# Non-Standard
+	tl_vassal_castrate_decision = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+	#Standard
+	vassal_blinding_decision = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+	# Non-Standard
+	tl_vassal_blinding_decision = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+	# Prisoner Probation
+	tl_vassal_probation_decision = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
+	# Non-Standard
+	tl_vassal_partblind_decision = { 
+		custom_tooltip = {
+				text = pattern_loyalist_vote_as_liege_custom_tooltip
+				hidden_tooltip = {
+					liege = { character = FROM }
+				}
+		}
+	}
 
 }
 
@@ -154,7 +214,16 @@ loyalist_pattern_against = {	#Always votes with the liege
 	tl_punish_voting_power2_0 = { NOT = { liege = { character = FROM } } }
 	tl_punish_voting_power2_1 = { NOT = { liege = { character = FROM } } }
 
-	# Punishment Committee Decisions
+	# Council Punishment Voting Patterns
 	prisoner_torture = { NOT = { liege = { character = FROM } } }
-
+	prisoner_humiliation = { NOT = { liege = { character = FROM } } }
+	prisoner_mutilate = { NOT = { liege = { character = FROM } } }
+	tl_vassal_probation_decision = { NOT = { liege = { character = FROM } } }
+	vassal_castrate_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_castrate_decision = { NOT = { liege = { character = FROM } } }
+	vassal_blinding_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_blinding_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_probation_decision = { NOT = { liege = { character = FROM } } }
+	tl_vassal_partblind_decision = { NOT = { liege = { character = FROM } } }
+	
 }
