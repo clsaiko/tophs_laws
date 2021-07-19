@@ -42,8 +42,11 @@ tl_purple_law_1;Bestow Born In The Purple Enabled;;;;;;;;;;;;;x
 tl_purple_law_1_desc;Born In The Purple is a trait reserved for only direct children of the Emperor who are born in the Imperial Palace. The Emperor may, under certain conditions, grant this trait to grandchildren of the Emperor.;;;;;;;;;;;;;x
 tl_purple_law_1_option;Enabled;;;;;;;;;;;;;x
 
-tl_title_law;Realm Title Laws;;;;;;;;;;;;;x
-tl_title_law_desc;Certain laws pertaining to title decisions within the realm.;;;;;;;;;;;;;x
+tl_ttitle_law;Titular Title Laws;;;;;;;;;;;;;x
+tl_ttitle_law_desc;The ruler may choose to permanently destroy titular titles.;;;;;;;;;;;;;x
+
+tl_djtitle_law;De Jure Title Laws;;;;;;;;;;;;;x
+tl_djtitle_law_desc;The ruler may choose to issue and edict, declaring a duchy as de jure.;;;;;;;;;;;;;x
 
 tl_deact_law_0;Deactivate Titular Title Disabled;;;;;;;;;;;;;x
 tl_deact_law_0_desc;The ruler may not deactivate owned titular titles.;;;;;;;;;;;;;x
@@ -221,7 +224,7 @@ tl_cast_law_1_option;Allowed;;;;;;;;;;;;;x
 tl_vassal_partblind_decision;Partially Blind [Root.GetTitledFirstName];Aveugler [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] blenden;;Ciego [Root.GetTitledFirstName];;;;;;;;;x
 tl_vassal_partblind_decision_desc;You may give the order to partially blind §Y[Root.GetFirstName]§!.;;;;;;;;;;;;;x
 
-tl_vassal_blinding_decision;Blind [Root.GetTitledFirstName];Aveugler [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] blenden;;Ciego [Root.GetTitledFirstName];;;;;;;;;x
+tl_vassal_blinding_decision;Blind Prisoner;Prisonnier aveugle;Blinder Gefangener;;Prisionero ciego;;;;;;;;;x
 tl_vassal_blinding_decision_desc;You may give the order to permanently blind §Y[Root.GetFirstName]§!.;;;;;;;;;;;;;x
 
 tl_vassal_castrate_decision;Castrate [Root.GetTitledFirstName];Castrer [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] kastrieren;;Castrado [Root.GetTitledFirstName];;;;;;;;;x
@@ -229,6 +232,9 @@ tl_vassal_castrate_decision_desc;You may give the order to castrate §Y[Root.GetF
 
 tl_vassal_probation_decision;Release on Probation;Libération conditionnelle;Entlassung auf Bewährung;;Libertad condicional;;;;;;;;;x
 tl_vassal_probation_decision_desc;[Root.GetTitledFirstName] is released on conditional 5 year probation. [Root.GetSheHe] will no longer plot against you.;;;;;;;;;;;;;x
+
+# Override testing
+vassal_blinding_decision;Blind Prisoner;Prisonnier aveugle;Blinder Gefangener;;Prisionero ciego;;;;;;;;;x
 
 #Council Punishments Voting
 tl_punish_voting_power1;Class I Punishment;;;;;;;;;;;;;x
@@ -404,3 +410,6 @@ tbyz_title_leg_arabia_desc;The Legatus Italia is the governor which oversees the
 #De Jure Edict
 tl_edict_modifier;De Jure Edict;;;;;;;;;;;;;x
 tl_edict_modifier_desc;The ruler has proclaimed an edict, shifting the de jure allegiance of a vassal.;;;;;;;;;;;;;x
+
+opinion_tl_probation;On Probation;;;;;;;;;;;;;x
+opinion_tl_probation_desc;This character has been released from prison on a conditional probation. They will not take hostile actions against their former jailer.;;;;;;;;;;;;;x

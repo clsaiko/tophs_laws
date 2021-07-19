@@ -20,8 +20,14 @@ law_groups = {
 		allowed_for_councillors = yes
 	}
 
-	# Title Law
-	tl_title_law = {
+	# Titular Title Law
+	tl_ttitle_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# De Jure Title Law
+	tl_djtitle_law = {
 		law_type = realm
 		allowed_for_councillors = yes
 	}
@@ -1691,7 +1697,7 @@ laws = {
 
 	# Deactivate titular titles Disabled
 	tl_deact_law_0 = {
-		group = tl_title_law
+		group = tl_ttitle_law
 		default = yes			#enabled by default
 
 		#when is this enabled
@@ -1731,7 +1737,7 @@ laws = {
 
 	# Deactivate titular titles Enabled
 	tl_deact_law_1 = {
-		group = tl_title_law
+		group = tl_ttitle_law
 		default = no
 
 		#when is this enabled
@@ -1770,7 +1776,7 @@ laws = {
 
 	# De jure edict disabled
 	tl_djedict_law_0 = {
-		group = tl_title_law
+		group = tl_djtitle_law
 		default = yes
 
 		#when is this enabled
@@ -1808,7 +1814,7 @@ laws = {
 
 	# De jure edict enabled
 	tl_djedict_law_1 = {
-		group = tl_title_law
+		group = tl_djtitle_law
 		default = yes
 
 		#when is this enabled
