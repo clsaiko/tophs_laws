@@ -33,8 +33,7 @@ glory_hound_pattern_for = { #
 	tl_djedict_law_0 = { always = no }
 	tl_djedict_law_1 = { always = no }
 
-	# Imperial Senate - no opinion
-	tl_senate_law_0 = { always = no }
+	# Imperial Senate provinces - no opinion
 	tl_senate_prov_law_0 = { always = no }
 	tl_senate_prov_law_1 = { always = no }
 	tl_senate_prov_law_2 = { always = no }
@@ -46,8 +45,7 @@ glory_hound_pattern_for = { #
 	tl_senate_prov_law_8 = { always = no }
 	tl_senate_prov_law_9 = { always = no }
 
-	# Legatus Augusti - no opinion
-	tl_legatus_law_0 = { always = no }
+	# Legatus Augusti provinces - no opinion
 	tl_legatus_prov_law_0 = { always = no }
 	tl_legatus_prov_law_1 = { always = no }
 	tl_legatus_prov_law_2 = { always = no }
@@ -60,6 +58,12 @@ glory_hound_pattern_for = { #
 	tl_legatus_prov_law_9 = { always = no }
 	tl_legatus_prov_law_10 = { always = no }
 	tl_legatus_prov_law_11 = { always = no }
+
+	# Imperial Senate - The Roman Empire of old had a Senate!
+	tl_senate_law_1 = { always = yes }
+
+	# Legatus Augusti - The Roman Empire of old Legates Augusti!
+	tl_legatus_law_1 = { always = yes }
 
 	# Punishment Committee - no opinion
 	tl_punish_voting_power1_0 = { always = no }
@@ -94,8 +98,11 @@ glory_hound_pattern_against = {	#
 	tl_djedict_law_0 = { always = no }
 	tl_djedict_law_1 = { always = no }
 
-	# Imperial Senate - The Roman Empire of old had this! Return to greatness
+	# Imperial Senate - The Roman Empire of old had a Senate! I don't want to go back!
 	tl_senate_law_0 = { always = yes }
+
+	# Legatus Augusti - The Roman Empire of old Legates Augusti! I don't want to go back!
+	tl_legatus_law_0 = { always = yes }
 
 	# Imperial Senate - no opinion
 	tl_senate_prov_law_0 = { always = no }
@@ -108,9 +115,6 @@ glory_hound_pattern_against = {	#
 	tl_senate_prov_law_7 = { always = no }
 	tl_senate_prov_law_8 = { always = no }
 	tl_senate_prov_law_9 = { always = no }
-
-	# Legatus Augusti - The Roman Empire of old had this! Return to greatness
-	tl_legatus_law_1 = { always = yes }
 
 	#no opinion on Legatus Augusti provinces
 	tl_legatus_prov_law_0 = { always = no }
@@ -132,341 +136,343 @@ glory_hound_pattern_against = {	#
 	tl_punish_voting_power2_0 = { always = no }
 	tl_punish_voting_power2_1 = { always = no }
 
-	prisoner_mutilate = {
-		OR = {
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
-				hidden_tooltip = {
-					liege = {
-						FROMFROM = {
-							dynasty = PREV
-						}
-					}	
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_defenseless_child_tooltip
-				hidden_tooltip = {
-					FROMFROM = {
-						is_adult = no
-					}
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_powerful_vassal_tooltip
-				hidden_tooltip = {
-					same_liege = FROMFROM
-					liege = {
-						OR = {
-							AND = {
-								primary_title = {
-									tier = emperor
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 6
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 5
-								}
-							}
-							AND = {
-								primary_title = {
-									lower_tier_than = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 4
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	vassal_castrate_decision = {
-		OR = {
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
-				hidden_tooltip = {
-					liege = {
-						FROMFROM = {
-							dynasty = PREV
-						}
-					}	
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_defenseless_child_tooltip
-				hidden_tooltip = {
-					FROMFROM = {
-						is_adult = no
-					}
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_powerful_vassal_tooltip
-				hidden_tooltip = {
-					same_liege = FROMFROM
-					liege = {
-						OR = {
-							AND = {
-								primary_title = {
-									tier = emperor
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 6
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 5
-								}
-							}
-							AND = {
-								primary_title = {
-									lower_tier_than = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 4
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}	
-	tl_vassal_castrate_decision = {
-		OR = {
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
-				hidden_tooltip = {
-					liege = {
-						FROMFROM = {
-							dynasty = PREV
-						}
-					}	
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_defenseless_child_tooltip
-				hidden_tooltip = {
-					FROMFROM = {
-						is_adult = no
-					}
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_powerful_vassal_tooltip
-				hidden_tooltip = {
-					same_liege = FROMFROM
-					liege = {
-						OR = {
-							AND = {
-								primary_title = {
-									tier = emperor
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 6
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 5
-								}
-							}
-							AND = {
-								primary_title = {
-									lower_tier_than = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 4
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}	
-	vassal_blinding_decision = {
-		OR = {
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
-				hidden_tooltip = {
-					liege = {
-						FROMFROM = {
-							dynasty = PREV
-						}
-					}	
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_defenseless_child_tooltip
-				hidden_tooltip = {
-					FROMFROM = {
-						is_adult = no
-					}
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_powerful_vassal_tooltip
-				hidden_tooltip = {
-					same_liege = FROMFROM
-					liege = {
-						OR = {
-							AND = {
-								primary_title = {
-									tier = emperor
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 6
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 5
-								}
-							}
-							AND = {
-								primary_title = {
-									lower_tier_than = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 4
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}	
-	tl_vassal_blinding_decision = {
-		OR = {
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
-				hidden_tooltip = {
-					liege = {
-						FROMFROM = {
-							dynasty = PREV
-						}
-					}	
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_defenseless_child_tooltip
-				hidden_tooltip = {
-					FROMFROM = {
-						is_adult = no
-					}
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_powerful_vassal_tooltip
-				hidden_tooltip = {
-					same_liege = FROMFROM
-					liege = {
-						OR = {
-							AND = {
-								primary_title = {
-									tier = emperor
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 6
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 5
-								}
-							}
-							AND = {
-								primary_title = {
-									lower_tier_than = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 4
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}	
-	tl_vassal_partblind_decision = {
-		OR = {
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
-				hidden_tooltip = {
-					liege = {
-						FROMFROM = {
-							dynasty = PREV
-						}
-					}	
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_defenseless_child_tooltip
-				hidden_tooltip = {
-					FROMFROM = {
-						is_adult = no
-					}
-				}
-			}
-			custom_tooltip = {
-				text = pattern_glory_hound_weakening_powerful_vassal_tooltip
-				hidden_tooltip = {
-					same_liege = FROMFROM
-					liege = {
-						OR = {
-							AND = {
-								primary_title = {
-									tier = emperor
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 6
-								}
-							}
-							AND = {
-								primary_title = {
-									tier = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 5
-								}
-							}
-							AND = {
-								primary_title = {
-									lower_tier_than = king
-								}
-								FROMFROM = {
-									among_most_powerful_vassals = 4
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-	}
+	# ROOT - Voter, FROM - Actor, FROMFROM - Recipient, FROMFROMFROM - Revoked title.
+	# Prisoner decisions, currently not working
+	# prisoner_mutilate = {
+	# 	OR = {
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
+	# 			hidden_tooltip = {
+	# 				liege = {
+	# 					FROMFROM = {
+	# 						dynasty = PREV
+	# 					}
+	# 				}	
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_defenseless_child_tooltip
+	# 			hidden_tooltip = {
+	# 				FROMFROM = {
+	# 					is_adult = no
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_powerful_vassal_tooltip
+	# 			hidden_tooltip = {
+	# 				same_liege = FROMFROM
+	# 				liege = {
+	# 					OR = {
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = emperor
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 6
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 5
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								lower_tier_than = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 4
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# vassal_castrate_decision = {
+	# 	OR = {
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
+	# 			hidden_tooltip = {
+	# 				liege = {
+	# 					FROMFROM = {
+	# 						dynasty = PREV
+	# 					}
+	# 				}	
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_defenseless_child_tooltip
+	# 			hidden_tooltip = {
+	# 				FROMFROM = {
+	# 					is_adult = no
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_powerful_vassal_tooltip
+	# 			hidden_tooltip = {
+	# 				same_liege = FROMFROM
+	# 				liege = {
+	# 					OR = {
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = emperor
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 6
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 5
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								lower_tier_than = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 4
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }	
+	# tl_vassal_castrate_decision = {
+	# 	OR = {
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
+	# 			hidden_tooltip = {
+	# 				liege = {
+	# 					FROMFROM = {
+	# 						dynasty = PREV
+	# 					}
+	# 				}	
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_defenseless_child_tooltip
+	# 			hidden_tooltip = {
+	# 				FROMFROM = {
+	# 					is_adult = no
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_powerful_vassal_tooltip
+	# 			hidden_tooltip = {
+	# 				same_liege = FROMFROM
+	# 				liege = {
+	# 					OR = {
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = emperor
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 6
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 5
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								lower_tier_than = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 4
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }	
+	# vassal_blinding_decision = {
+	# 	OR = {
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
+	# 			hidden_tooltip = {
+	# 				liege = {
+	# 					FROMFROM = {
+	# 						dynasty = PREV
+	# 					}
+	# 				}	
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_defenseless_child_tooltip
+	# 			hidden_tooltip = {
+	# 				FROMFROM = {
+	# 					is_adult = no
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_powerful_vassal_tooltip
+	# 			hidden_tooltip = {
+	# 				same_liege = FROMFROM
+	# 				liege = {
+	# 					OR = {
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = emperor
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 6
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 5
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								lower_tier_than = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 4
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }	
+	# tl_vassal_blinding_decision = {
+	# 	OR = {
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
+	# 			hidden_tooltip = {
+	# 				liege = {
+	# 					FROMFROM = {
+	# 						dynasty = PREV
+	# 					}
+	# 				}	
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_defenseless_child_tooltip
+	# 			hidden_tooltip = {
+	# 				FROMFROM = {
+	# 					is_adult = no
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_powerful_vassal_tooltip
+	# 			hidden_tooltip = {
+	# 				same_liege = FROMFROM
+	# 				liege = {
+	# 					OR = {
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = emperor
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 6
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 5
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								lower_tier_than = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 4
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }	
+	# tl_vassal_partblind_decision = {
+	# 	OR = {
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_ruling_dynasty_tooltip
+	# 			hidden_tooltip = {
+	# 				liege = {
+	# 					FROMFROM = {
+	# 						dynasty = PREV
+	# 					}
+	# 				}	
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_defenseless_child_tooltip
+	# 			hidden_tooltip = {
+	# 				FROMFROM = {
+	# 					is_adult = no
+	# 				}
+	# 			}
+	# 		}
+	# 		custom_tooltip = {
+	# 			text = pattern_glory_hound_weakening_powerful_vassal_tooltip
+	# 			hidden_tooltip = {
+	# 				same_liege = FROMFROM
+	# 				liege = {
+	# 					OR = {
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = emperor
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 6
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								tier = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 5
+	# 							}
+	# 						}
+	# 						AND = {
+	# 							primary_title = {
+	# 								lower_tier_than = king
+	# 							}
+	# 							FROMFROM = {
+	# 								among_most_powerful_vassals = 4
+	# 							}
+	# 						}
+	# 					}
+	# 				}
+	# 			}
+	# 		}
+	# 	}
+	# }
 
 }

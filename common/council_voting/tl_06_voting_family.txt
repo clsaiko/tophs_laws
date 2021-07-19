@@ -13,110 +13,111 @@ family_pattern_for = {
 	pattern_type = for
 
 
-}#end selfish_pattern_for
+}#end family_pattern_for
 
 family_pattern_against = {
 	icon = 12
 	pattern_type = against
 
-	prisoner_mutilate = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	prisoner_humiliation = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	prisoner_torture = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	vassal_castrate_decision = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	tl_vassal_castrate_decision = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	vassal_blinding_decision = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	tl_vassal_blinding_decision = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	tl_vassal_probation_decision = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
-	tl_vassal_partblind_decision = {
-		custom_tooltip = {
-			text = pattern_family_member_affected_negatively_custom_tooltip
-			hidden_tooltip = {
-				FROMFROM = {
-					is_close_relative = ROOT
-					NOT = { is_rival = ROOT }
-				}
-			}
-		}
-	}
+	#currently not working
+	# prisoner_mutilate = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# prisoner_humiliation = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# prisoner_torture = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# vassal_castrate_decision = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# tl_vassal_castrate_decision = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# vassal_blinding_decision = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# tl_vassal_blinding_decision = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# tl_vassal_probation_decision = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
+	# tl_vassal_partblind_decision = {
+	# 	custom_tooltip = {
+	# 		text = pattern_family_member_affected_negatively_custom_tooltip
+	# 		hidden_tooltip = {
+	# 			FROMFROM = {
+	# 				is_close_relative = ROOT
+	# 				NOT = { is_rival = ROOT }
+	# 			}
+	# 		}
+	# 	}
+	# }
 
-}#end selfish_pattern_against
+}#end family_pattern_against

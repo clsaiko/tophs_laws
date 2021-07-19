@@ -68,6 +68,12 @@ pragmatist_pattern_against = {
 	# De Jure Edict - probably best if my liege can't do this
 	tl_djedict_law_1 = { always = yes }
 
+	# Legatus Augusti - more potential council members, I would lose power
+	tl_legatus_law_1 = { always = yes }
+
+	# Imperial Senate - more potential council members, I would lose power
+	tl_senate_law_1 = { always = yes }	
+
 	# Imperial Senate - more potential council members, I don't want to lose power
 	tl_senate_law_1 = { always = yes }
 	tl_senate_prov_law_0 = { always = yes }
