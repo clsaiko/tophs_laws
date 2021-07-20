@@ -65,11 +65,9 @@ glory_hound_pattern_for = { #
 	# Legatus Augusti - The Roman Empire of old Legates Augusti!
 	tl_legatus_law_1 = { always = yes }
 
-	# Punishment Committee - no opinion
-	tl_punish_voting_power1_0 = { always = no }
-	tl_punish_voting_power1_1 = { always = no }
-	tl_punish_voting_power2_0 = { always = no }
-	tl_punish_voting_power2_1 = { always = no }
+	# Punishment Committee - I'm on the council
+	tl_punish_voting_power1_1 = { always = yes }
+	tl_punish_voting_power2_1 = { always = yes }
 }
 
 glory_hound_pattern_against = {	#
@@ -130,11 +128,9 @@ glory_hound_pattern_against = {	#
 	tl_legatus_prov_law_10 = { always = no }
 	tl_legatus_prov_law_11 = { always = no }
 
-	# Punishment Committee - no opinion
-	tl_punish_voting_power1_0 = { always = no }
-	tl_punish_voting_power1_1 = { always = no }
-	tl_punish_voting_power2_0 = { always = no }
-	tl_punish_voting_power2_1 = { always = no }
+	# Punishment Committee - I'm on the council
+	tl_punish_voting_power1_0 = { always = yes }
+	tl_punish_voting_power2_0 = { always = yes }
 
 	# ROOT - Voter, FROM - Actor, FROMFROM - Recipient, FROMFROMFROM - Revoked title.
 	# Prisoner decisions, currently not working

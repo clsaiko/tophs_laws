@@ -62,11 +62,9 @@ zealot_pattern_for = {
 	tl_senate_prov_law_8 = { always = no }
 	tl_senate_prov_law_9 = { always = no }
 
-	# Punishment Committee - no opinion
-	tl_punish_voting_power1_0 = { always = no }
-	tl_punish_voting_power1_1 = { always = no }
-	tl_punish_voting_power2_0 = { always = no }
-	tl_punish_voting_power2_1 = { always = no }
+	# Punishment Committee - I'm on the council
+	tl_punish_voting_power1_1 = { always = yes }
+	tl_punish_voting_power2_1 = { always = yes }
 
 	prisoner_mutilate = {
 		FROMFROM = {
@@ -193,10 +191,7 @@ zealot_pattern_against = {
 	tl_senate_prov_law_8 = { always = no }
 	tl_senate_prov_law_9 = { always = no }
 
-	# Punishment Committee - no opinion
-	tl_punish_voting_power1_0 = { always = no }
-	tl_punish_voting_power1_1 = { always = no }
-	tl_punish_voting_power2_0 = { always = no }
-	tl_punish_voting_power2_1 = { always = no }
-
+	# Punishment Committee - I'm on the council
+	tl_punish_voting_power1_0 = { always = yes }
+	tl_punish_voting_power2_0 = { always = yes }
 }

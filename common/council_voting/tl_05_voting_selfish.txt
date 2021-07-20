@@ -467,7 +467,7 @@ selfish_pattern_against = {
 	pattern_type = against
 
 	# Imperial Feudal Usurp
-	# I have a non-viceroyal title, I'm against allowing Imperial Feudal Usurp
+	# I have a non-viceroyal ducal title, I'm against allowing Imperial Feudal Usurp
 	# ROOT - Voter, FROM - Actor
 	tl_impusurp_law_1 = {
 		custom_tooltip = {
@@ -476,6 +476,7 @@ selfish_pattern_against = {
 				ROOT = {
 					AND = {
 						is_vice_royalty = no
+						tier = DUKE
 						is_landed = yes
 						is_feudal = yes
 					}
