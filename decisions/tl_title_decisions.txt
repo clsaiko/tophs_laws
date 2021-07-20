@@ -16,8 +16,8 @@ title_decisions = {
     # Forcefully usurp this title, feudal only
     tl_imperial_usurp_f = {
         only_playable = yes
-        filter = all
-        ai_target_filter = none
+        filter = realm_owned
+        ai_target_filter = realm_owned
         ai_check_interval = 120
 
         from_potential = { ai = no }
@@ -61,7 +61,7 @@ title_decisions = {
     # Forcefully usurp this title, republic
     tl_imperial_usurp_r = {
         only_playable = yes
-        filter = all
+        filter = realm_owned
         ai_target_filter = none
         ai_check_interval = 120
 
@@ -104,7 +104,7 @@ title_decisions = {
     # Forcefully usurp this title, theocratic
     tl_imperial_usurp_t = {
         only_playable = yes
-        filter = all
+        filter = realm_owned
         ai_target_filter = none
         ai_check_interval = 120
 
@@ -182,7 +182,7 @@ title_decisions = {
     # De Jure Edict
     tl_djedict_title = {
         only_playable = yes
-        filter = owned
+        filter = realm_owned
         ai_target_filter = none
         ai_check_interval = 120
 
