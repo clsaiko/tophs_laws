@@ -64,7 +64,7 @@ trade_post_decisions = {
 			FROM = {
 				prestige = -250					#Cost
 				add_character_modifier = {      #vassals are upset
-				modifier = tl_sieze_tradepost_modifier
+				modifier = tl_seize_tradepost_modifier
 				years = 5
 				stacking = yes
 			}

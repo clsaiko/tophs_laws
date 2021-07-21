@@ -70,11 +70,11 @@ tl_trade_auth_law;Trade Authority Law;;;;;;;;;;;;;x
 tl_trade_auth_law_desc;Law controlling imperial authority over trade posts within the realm.;;;;;;;;;;;;;x
 
 tl_trade_auth_law_0;Free Trade Authority;;;;;;;;;;;;;x
-tl_trade_auth_law_0_desc;The Empire may not sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_trade_auth_law_0_desc;The Empire may not seize trade posts for direct use.;;;;;;;;;;;;;x
 tl_trade_auth_law_0_option;Free;;;;;;;;;;;;;x
 
 tl_trade_auth_law_1;Imperial Trade Authority;;;;;;;;;;;;;x
-tl_trade_auth_law_1_desc;The Empire may sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_trade_auth_law_1_desc;The Empire may seize trade posts for direct use.;;;;;;;;;;;;;x
 tl_trade_auth_law_1_option;Imperial;;;;;;;;;;;;;x
 
 #Trade Authority Law - Byzantine/Roman
@@ -82,11 +82,11 @@ tl_byz_trade_auth_law;Trade Authority Law;;;;;;;;;;;;;x
 tl_byz_trade_auth_law_desc;Law controlling imperial authority over trade posts within the realm.;;;;;;;;;;;;;x
 
 tl_byz_trade_auth_law_0;Free Trade Authority;;;;;;;;;;;;;x
-tl_byz_trade_auth_law_0_desc;The Empire may not sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_0_desc;The Empire may not seize trade posts for direct use.;;;;;;;;;;;;;x
 tl_byz_trade_auth_law_0_option;Free;;;;;;;;;;;;;x
 
 tl_byz_trade_auth_law_1;Imperial Trade Authority;;;;;;;;;;;;;x
-tl_byz_trade_auth_law_1_desc;The Empire may sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_1_desc;The Empire may seize trade posts for direct use.;;;;;;;;;;;;;x
 tl_byz_trade_auth_law_1_option;Imperial;;;;;;;;;;;;;x
 
 #IMPERIAL SENATE LAW
@@ -313,7 +313,7 @@ tl_deact_title;Deactivate Title;;;;;;;;;;;;;x
 tl_deact_title_desc;Deactivate the title §Y[Root.GetFullBaseName]§!.;;;;;;;;;;;;;x
 
 #Imperial Trade Authority
-tl_imperial_seize_trade_post;Sieze Trade Post;;;;;;;;;;;;;x
+tl_imperial_seize_trade_post;Seize Trade Post;;;;;;;;;;;;;x
 tl_imperial_seize_trade_post_desc;The Emperor may seize a Trade Post within the realm, for direct use by the Empire.;;;;;;;;;;;;;x
 
 
