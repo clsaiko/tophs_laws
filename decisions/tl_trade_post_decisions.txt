@@ -11,7 +11,7 @@
 
 trade_post_decisions = {
 
-	tl_imperial_sieze_trade_post = {
+	tl_imperial_seize_trade_post = {
 		only_playable = yes
 		filter = sub_realm_owned
 		ai_target_filter = sub_realm_owned
@@ -49,7 +49,7 @@ trade_post_decisions = {
 		effect = {
             #Commands executed when taking the decision
 
-			#Trade post owner owner is furious
+			#Former trade post owner is furious
 			trade_post_owner = {
 				opinion = {
 					modifier = opinion_furious
