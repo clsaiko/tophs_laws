@@ -29,8 +29,7 @@ tl_impusurp_law_3;Imperial Theocracy Usurp Allowed;;;;;;;;;;;;;x
 tl_impusurp_law_3_desc;The emperor may usurp theocratic duchies from a theocratic direct vassal for any reason.;;;;;;;;;;;;;x
 tl_impusurp_law_3_option;Theocracy;;;;;;;;;;;;;x
 
-
-#Other Laws
+#Born in the Purple Law
 tl_purple_law;Bestow Born In The Purple Law;;;;;;;;;;;;;x
 tl_purple_law_desc;Born In The Purple is a trait reserved for only direct children of the Emperor who are born in the Imperial Palace. The Emperor may, under certain conditions, grant this trait to grandchildren of the Emperor.;;;;;;;;;;;;;x
 
@@ -42,11 +41,9 @@ tl_purple_law_1;Bestow Born In The Purple Enabled;;;;;;;;;;;;;x
 tl_purple_law_1_desc;Born In The Purple is a trait reserved for only direct children of the Emperor who are born in the Imperial Palace. The Emperor may, under certain conditions, grant this trait to grandchildren of the Emperor.;;;;;;;;;;;;;x
 tl_purple_law_1_option;Enabled;;;;;;;;;;;;;x
 
-tl_ttitle_law;Titular Title Laws;;;;;;;;;;;;;x
+#Titular Title Law
+tl_ttitle_law;Titular Title Law;;;;;;;;;;;;;x
 tl_ttitle_law_desc;The ruler may choose to permanently destroy titular titles.;;;;;;;;;;;;;x
-
-tl_djtitle_law;De Jure Title Laws;;;;;;;;;;;;;x
-tl_djtitle_law_desc;The ruler may choose to issue and edict, declaring a duchy as de jure.;;;;;;;;;;;;;x
 
 tl_deact_law_0;Deactivate Titular Title Disabled;;;;;;;;;;;;;x
 tl_deact_law_0_desc;The ruler may not deactivate owned titular titles.;;;;;;;;;;;;;x
@@ -56,8 +53,9 @@ tl_deact_law_1;Deactivate Titular Title Enabled;;;;;;;;;;;;;x
 tl_deact_law_1_desc;The ruler may deactivate owned titular titles.;;;;;;;;;;;;;x
 tl_deact_law_1_option;Enabled;;;;;;;;;;;;;x
 
-tl_deact_title;Deactivate Title;;;;;;;;;;;;;x
-tl_deact_title_desc;Deactivate the title §Y[Root.GetFullBaseName]§!.;;;;;;;;;;;;;x
+#De Jure Edict Law
+tl_djtitle_law;De Jure Title Law;;;;;;;;;;;;;x
+tl_djtitle_law_desc;The ruler may choose to issue and edict, declaring a duchy as de jure.;;;;;;;;;;;;;x
 
 tl_djedict_law_0;De Jure Edict Disabled;;;;;;;;;;;;;x
 tl_djedict_law_0_desc;The ruler may not issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
@@ -67,9 +65,29 @@ tl_djedict_law_1;De Jure Edict Enabled;;;;;;;;;;;;;x
 tl_djedict_law_1_desc;The ruler may issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
 tl_djedict_law_1_option;Enabled;;;;;;;;;;;;;x
 
-plot_seize_trade_post_byz_title;Seize the Trade Post in [This.GetName];S'emparer du comptoir de [This.GetName];Beschlagnahmt den Handelsposten in [This.GetName];;Sitiar el Puesto Comercial de [This.GetName];;;;;;;;;x
-plot_seize_trade_post_byz_desc;Strike a blow for freedom everywhere by usurping control over the [This.GetName] Trade Post.;Combattre pour défendre la liberté en usurpant le comptoir de [This.GetName].;Brecht überall eine Lanze für Freiheit, indem Ihr die Kontrolle über den [This.GetName] Handelsposten an Euch reißt.;;Contribuir a la defensa de la libertad en todas partes usurpando el control del Puesto Comercial de [This.GetName].;;;;;;;;;x
+#Trade Authority Law - Non-Byzantine
+tl_trade_auth_law;Trade Authority Law;;;;;;;;;;;;;x
+tl_trade_auth_law_desc;Law controlling imperial authority over trade posts within the realm.;;;;;;;;;;;;;x
 
+tl_trade_auth_law_0;Free Trade Authority;;;;;;;;;;;;;x
+tl_trade_auth_law_0_desc;The Empire may not sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_trade_auth_law_0_option;Free;;;;;;;;;;;;;x
+
+tl_trade_auth_law_1;Imperial Trade Authority;;;;;;;;;;;;;x
+tl_trade_auth_law_1_desc;The Empire may sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_trade_auth_law_1_option;Imperial;;;;;;;;;;;;;x
+
+#Trade Authority Law - Byzantine/Roman
+tl_byz_trade_auth_law;Trade Authority Law;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_desc;Law controlling imperial authority over trade posts within the realm.;;;;;;;;;;;;;x
+
+tl_byz_trade_auth_law_0;Free Trade Authority;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_0_desc;The Empire may not sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_0_option;Free;;;;;;;;;;;;;x
+
+tl_byz_trade_auth_law_1;Imperial Trade Authority;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_1_desc;The Empire may sieze trade posts for direct use.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_1_option;Imperial;;;;;;;;;;;;;x
 
 #IMPERIAL SENATE LAW
 tl_senate_law;Imperial Senate;;;;;;;;;;;;;x
@@ -282,6 +300,7 @@ tl_imperial_usurp_r_desc;Usurp the republic title §Y[Root.GetFullBaseName]§! fro
 tl_imperial_usurp_t;Imperial Usurpation;;;;;;;;;;;;;x
 tl_imperial_usurp_t_desc;Usurp the theocractic title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
 
+#De Jure Edict
 tl_djedict_title;De Jure Edict;;;;;;;;;;;;;x
 tl_djedict_title_desc;The title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
 
@@ -289,8 +308,15 @@ tl_djedict_title_desc;The title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.G
 tl_best_purple;Bestow Born in the Purple;;;;;;;;;;;;;x
 tl_best_purple_desc;Bestow the Born in the Purple trait on §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
 
-tl_bestow_purple_modifier;Bestowed Born in the Purple;;;;;;;;;;;;;x
-tl_bestow_purple_modifier_desc;This ruler has bestowed the Born in the Purple trait upon a grandchild.;;;;;;;;;;;;;x
+#Deactivate Titular Title
+tl_deact_title;Deactivate Title;;;;;;;;;;;;;x
+tl_deact_title_desc;Deactivate the title §Y[Root.GetFullBaseName]§!.;;;;;;;;;;;;;x
+
+#Imperial Trade Authority
+tl_imperial_sieze_trade_post;Sieze Trade Post;;;;;;;;;;;;;x
+tl_imperial_sieze_trade_post_desc;The Emperor may sieze a Trade Post within the realm, for direct use by the Empire.;;;;;;;;;;;;;x
+
+
 
 #TEXT
 tl_pattern_selfish_affects_me_pos_custom_tooltip;This affects me positively!;;;;;;;;;;;;;x
@@ -411,5 +437,14 @@ tbyz_title_leg_arabia_desc;The Legatus Italia is the governor which oversees the
 tl_edict_modifier;De Jure Edict;;;;;;;;;;;;;x
 tl_edict_modifier_desc;The ruler has proclaimed an edict, shifting the de jure allegiance of a vassal.;;;;;;;;;;;;;x
 
+#Bestow Purple
+tl_bestow_purple_modifier;Bestowed Born in the Purple;;;;;;;;;;;;;x
+tl_bestow_purple_modifier_desc;This ruler has bestowed the Born in the Purple trait upon a grandchild.;;;;;;;;;;;;;x
+
+#Sieze Trade Post
+tl_sieze_tradepost_modifier;Siezed Trade Post;;;;;;;;;;;;;x
+tl_sieze_tradepost_modifier_desc;The ruler has siezed a trade post, annoying their vassals.;;;;;;;;;;;;;x
+
+#Probation
 opinion_tl_probation;On Probation;;;;;;;;;;;;;x
 opinion_tl_probation_desc;This character has been released from prison on a conditional probation. They will not take hostile actions against their former jailer.;;;;;;;;;;;;;x

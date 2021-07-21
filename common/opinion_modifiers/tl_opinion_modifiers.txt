@@ -25,6 +25,6 @@
 opinion_tl_probation = {
 	opinion = 50
 	months = 60	# five years
-	non_interference = yes
-	#obedient = yes
+	#non_interference = yes
+	obedient = yes
 }

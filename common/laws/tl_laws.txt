@@ -32,6 +32,18 @@ law_groups = {
 		allowed_for_councillors = yes
 	}
 
+	# Trade Authority Law - Non-Byzantine
+	tl_trade_auth_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+
+	# Trade Authority Law - Byzantine/Roman
+	tl_byz_trade_auth_law = {
+		law_type = realm
+		allowed_for_councillors = yes
+	}
+	
 	# Imperial Senate Council Law
 	tl_senate_law = {
 		law_type = council
@@ -1849,6 +1861,180 @@ laws = {
 		}
 
 	}#end tl_djedict_law_1	
+
+	# Trade Authority - Free Trade - Non-Byzantine
+	tl_trade_auth_law_0 = {
+		group = tl_trade_auth_law
+		default = yes
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				real_tier = EMPEROR
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				real_tier = EMPEROR
+				independent = yes
+				NOT = {					#not the byzantine law
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_trade_auth_law_1	# revoke Imperial Trade Authority
+			}
+		}
+
+	}#end tl_trade_auth_law_0
+	
+	# Trade Authority - Imperial - Non-Byzantine
+	tl_trade_auth_law_1 = {
+		group = tl_trade_auth_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				real_tier = EMPEROR
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				real_tier = EMPEROR
+				independent = yes
+				NOT = {					#not the byzantine law
+					OR = {
+						has_landed_title = e_byzantium
+						has_landed_title = e_roman_empire
+					}
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_trade_auth_law_0	# revoke Free Trade Authority
+			}
+		}
+
+		vassal_opinion = -5
+		
+	}#end tl_trade_auth_law_1
+
+	# Trade Authority - Free Trade - Byzantine/Roman
+	tl_byz_trade_auth_law_0 = {
+		group = tl_byz_trade_auth_law
+		default = yes
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				real_tier = EMPEROR
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				real_tier = EMPEROR
+				independent = yes
+				OR = {					#the byzantine law
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_byz_trade_auth_law_1	# revoke Imperial Trade Authority
+			}
+		}
+
+	}#end tl_byz_trade_auth_law_0
+	
+	# Trade Authority - Imperial - Byzantine/Roman
+	tl_byz_trade_auth_law_1 = {
+		group = tl_byz_trade_auth_law
+		default = no
+
+		#when is this enabled
+		allow = {
+
+			holder_scope = {
+				is_adult = yes			#must be adult
+				real_tier = EMPEROR
+			}#end holder_scope
+
+        }
+
+		#when does this option show up in the list
+		potential = {
+			has_dlc = "Holy Fury"
+			has_dlc = "Legacy of Rome"
+			has_dlc = "Zeus"
+
+			holder_scope = {
+				real_tier = EMPEROR
+				independent = yes
+				OR = {					#the byzantine law
+					has_landed_title = e_byzantium
+					has_landed_title = e_roman_empire
+				}
+			}
+		}
+
+		ai_will_do = { factor = 0 }
+		ai_will_revoke = { factor = 0 }
+		pass_effect = { }
+		effect = {
+			hidden_tooltip = {
+				revoke_law = tl_byz_trade_auth_law_0	# revoke Free Trade Authority
+			}
+		}
+
+	}#end tl_byz_trade_auth_law_1
 
 
 	#BLINDING

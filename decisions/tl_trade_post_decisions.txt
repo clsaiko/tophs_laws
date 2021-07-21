@@ -1,4 +1,4 @@
-# Trade post decisions are possible vs _all_ trade posts and are shown in the Settlement Diplomacy View, not the Intrigue View. The taker is in the FROM scope.
+# Trade post decisions are possible vs _all_ trade posts and are shown in the Settlement Diplomacy View, not the Intrigue View. The taker is in the FROM scope. ROOT is the province
 #
 # filter = [capital/owned/vassal_owned/sub_realm_owned/realm_owned/dynasty_owned]
 # ai_target_filter = [capital/owned/vassal_owned/sub_realm_owned/realm_owned/dynasty_owned] (which trade posts for which the AI evaluates the decision.)
@@ -20,23 +20,55 @@ trade_post_decisions = {
 		from_potential = {
             #Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
             ai = no
+			OR = {
+				has_law = tl_trade_auth_law_1
+				has_law = tl_byz_trade_auth_law_1
+			}
 		}
 		
 		potential = {
             #Conditions on the targeted character for the decision to appear
+			# Owner is not the ruler
 			trade_post_owner = {
-				character = FROM
+				NOT = { character = FROM }
 			}
 		}
 		allow = {
             #Conditions for the decision to be enabled
-			trade_post_owner = {
+
+			FROM = {
+                prestige = 250              #decision taker has enough prestige
+                completely_controls = ROOT  #decision taker completely controls the province
+				num_of_trade_posts <= 8		#trade post limit maximum
+            }
+
+			trade_post_owner = {			#trade post owner can't be at war
 				war = no
 			}
 		}
 		effect = {
             #Commands executed when taking the decision
-			destroy_tradepost = THIS
+
+			#Trade post owner owner is furious
+			trade_post_owner = {
+				opinion = {
+					modifier = opinion_furious
+					who = FROM
+					years = 10
+				}
+			}
+
+			#Seize trade post
+			seize_trade_post = FROM
+
+			FROM = {
+				prestige = -250					#Cost
+				add_character_modifier = {      #vassals are upset
+				modifier = tl_sieze_tradepost_modifier
+				years = 5
+				stacking = yes
+			}
+			}
 		}
 		revoke_allowed = {
 			always = no
