@@ -93,8 +93,8 @@ tl_bestow_purple_modifier = {
     icon = 36
 }
 
-# Sieze Trade Post
-tl_sieze_tradepost_modifier = {
+# Seize Trade Post
+tl_seize_tradepost_modifier = {
 	vassal_opinion = -5
     icon = 36
 }

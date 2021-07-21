@@ -313,8 +313,8 @@ tl_deact_title;Deactivate Title;;;;;;;;;;;;;x
 tl_deact_title_desc;Deactivate the title §Y[Root.GetFullBaseName]§!.;;;;;;;;;;;;;x
 
 #Imperial Trade Authority
-tl_imperial_sieze_trade_post;Sieze Trade Post;;;;;;;;;;;;;x
-tl_imperial_sieze_trade_post_desc;The Emperor may sieze a Trade Post within the realm, for direct use by the Empire.;;;;;;;;;;;;;x
+tl_imperial_seize_trade_post;Sieze Trade Post;;;;;;;;;;;;;x
+tl_imperial_seize_trade_post_desc;The Emperor may seize a Trade Post within the realm, for direct use by the Empire.;;;;;;;;;;;;;x
 
 
 
@@ -441,9 +441,9 @@ tl_edict_modifier_desc;The ruler has proclaimed an edict, shifting the de jure a
 tl_bestow_purple_modifier;Bestowed Born in the Purple;;;;;;;;;;;;;x
 tl_bestow_purple_modifier_desc;This ruler has bestowed the Born in the Purple trait upon a grandchild.;;;;;;;;;;;;;x
 
-#Sieze Trade Post
-tl_sieze_tradepost_modifier;Siezed Trade Post;;;;;;;;;;;;;x
-tl_sieze_tradepost_modifier_desc;The ruler has siezed a trade post, annoying their vassals.;;;;;;;;;;;;;x
+#Seize Trade Post
+tl_seize_tradepost_modifier;Seized Trade Post;;;;;;;;;;;;;x
+tl_seize_tradepost_modifier_desc;The ruler has seized a trade post, annoying their vassals.;;;;;;;;;;;;;x
 
 #Probation
 opinion_tl_probation;On Probation;;;;;;;;;;;;;x
