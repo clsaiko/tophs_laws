@@ -69,6 +69,12 @@ loyalist_pattern_for = {	# Always votes with the liege
 	tl_punish_voting_power2_0 = { liege = { character = FROM } }
 	tl_punish_voting_power2_1 = { liege = { character = FROM } }
 
+	# Imperial Trade Authority
+	tl_trade_auth_law_0 = { liege = { character = FROM } }
+	tl_trade_auth_law_1 = { liege = { character = FROM } }
+	tl_byz_trade_auth_law_0 = { liege = { character = FROM } }
+	tl_byz_trade_auth_law_1 = { liege = { character = FROM } }
+
 	# Council Punishment Voting Patterns
 	# ROOT - Voter, FROM - Actor, FROMFROM - Recipient, FROMFROMFROM - Revoked title.
 	prisoner_torture = { 
@@ -225,5 +231,11 @@ loyalist_pattern_against = {	#Always votes with the liege
 	tl_vassal_blinding_decision = { NOT = { liege = { character = FROM } } }
 	tl_vassal_probation_decision = { NOT = { liege = { character = FROM } } }
 	tl_vassal_partblind_decision = { NOT = { liege = { character = FROM } } }
+
+	# Imperial Trade Authority
+	tl_trade_auth_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_trade_auth_law_1 = { NOT = { liege = { character = FROM } } }
+	tl_byz_trade_auth_law_0 = { NOT = { liege = { character = FROM } } }
+	tl_byz_trade_auth_law_1 = { NOT = { liege = { character = FROM } } }
 	
 }
