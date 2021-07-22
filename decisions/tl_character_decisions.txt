@@ -29,7 +29,7 @@ targetted_decisions = {
 				is_capital = c_byzantion
 				is_capital = c_roma
 			}
-			has_law = tl_djedict_law_1
+			has_law = tl_purple_law_1
 		}
 		potential = {
 			#Conditions on the targeted character for the decision to appear
