@@ -2295,6 +2295,7 @@ laws = {
 			NOT = { has_law = tl_punish_voting_power1_0 }
 			OR = {
 				NOT = { holder_scope = { is_tribal = yes } }
+				has_law	= tribal_organization_3
 				has_law = tribal_organization_4
 			}
 			NOT = { is_nomadic = yes }
@@ -2361,8 +2362,8 @@ laws = {
 			disable_council_voting_on_issue = prisoner_humiliation	
 			disable_council_voting_on_issue = tl_vassal_probation_decision
 		}
-	}#end tl_punish_voting_power_1
-	
+	}#end tl_punish_voting_power1_0
+
 	# Council class I punishment committee - probation, torture, humiliation
 	tl_punish_voting_power1_1 = {
 		group = tl_punish_voting_power1
@@ -2373,7 +2374,8 @@ laws = {
 
 			OR = {
 				NOT = { holder_scope = { is_tribal = yes } }
-				has_law = tribal_organization_2
+				has_law	= tribal_organization_3
+				has_law = tribal_organization_4
 			}
 		}
 		potential = {
@@ -2437,7 +2439,7 @@ laws = {
 		}
 		vassal_limit = 2
 
-	}#end tl_punish_voting_power_1
+	}#end tl_punish_voting_power1_1
 
 	# No vote on class II punishments
 	tl_punish_voting_power2_0 = {
@@ -2448,6 +2450,7 @@ laws = {
 			NOT = { has_law = tl_punish_voting_power2_0 }
 			OR = {
 				NOT = { holder_scope = { is_tribal = yes } }
+				has_law	= tribal_organization_3
 				has_law = tribal_organization_4
 			}
 			NOT = { is_nomadic = yes }
@@ -2529,7 +2532,8 @@ laws = {
 
 			OR = {
 				NOT = { holder_scope = { is_tribal = yes } }
-				has_law = tribal_organization_3
+				has_law	= tribal_organization_3
+				has_law = tribal_organization_4
 			}
 		}
 		potential = {
