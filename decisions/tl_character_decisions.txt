@@ -39,10 +39,13 @@ targetted_decisions = {
 		allow = {
 			#Conditions for the decision to be enabled
 			dynasty = FROM	#same dynasty
-			age < 2			#age less than 2
+			age < 5			#age less than 5
 			NOT = { trait = born_in_the_purple }
 			is_landed = no
-			is_grandchild_of = FROM
+			OR = {
+				is_grandchild_of = FROM
+				is_child_of = FROM
+			}
 
 		}
 		effect = {
