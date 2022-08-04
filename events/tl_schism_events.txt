@@ -1,0 +1,80 @@
+# ### The Great Schism Mended - MOVED TO MAIN EVENTS FILE
+
+# namespace = TL
+
+# # The Schism Mended - Catholic
+# narrative_event = {
+# 	id = TL.210
+# 	title = EVTNAMETL.210
+# 	desc = EVTDESCTL.210
+	
+# 	picture = GFX_evt_icon
+	
+# 	is_triggered_only = yes
+	
+# 	option = {
+# 		name = EVTOPTATL.200
+
+# 		if = {
+# 			limit = { religion = catholic }
+# 			set_parent_religion = { religion = orthodox parent = catholic }
+# 			set_parent_religion = { religion = monothelite parent = catholic }
+# 			set_parent_religion = { religion = iconoclast parent = catholic }
+# 			set_parent_religion = { religion = paulician parent = catholic }
+
+# 		}
+
+# 		set_global_flag = schism_mended
+# 		give_nickname = nick_the_saint
+# 		hidden_tooltip = {
+# 			any_playable_ruler = {
+# 				limit = {
+# 					OR = {
+# 						religion = orthodox
+# 						religion = monothelite
+# 						religion = iconoclast
+# 						religion = paulician
+# 					}
+# 					controls_religion = no
+# 				}
+# 				narrative_event = { id = TL.211 }
+# 			}
+# 		}
+# 	}
+# }
+
+# # Convert or Not?
+# narrative_event = {
+# 	id = TL.211
+# 	title = EVTNAMETL.210
+# 	desc = EVTDESCTL.210
+	
+# 	picture = GFX_evt_icon
+	
+# 	is_triggered_only = yes
+	
+# 	option = { # Yes
+# 		name = EVTOPTATL.211
+# 		ai_chance = { factor = 75 }
+# 		religion = FROM
+# 		any_courtier = {
+# 			limit = {
+# 				OR = {
+# 					religion = orthodox
+# 					religion = monothelite
+# 					religion = iconoclast
+# 					religion = paulician
+# 				}
+# 				liege = { character = ROOT }
+# 			}
+# 			religion = FROM
+# 		}
+# 		capital_scope = {
+# 			religion = FROM
+# 		}
+# 	}
+# 	option = { # No
+# 		name = EVTOPTBTL.211
+# 		ai_chance = { factor = 25 }
+# 	}
+# }

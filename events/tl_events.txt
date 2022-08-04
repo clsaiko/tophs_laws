@@ -1,0 +1,455 @@
+### Toph's Laws events
+#
+#	Childhood tutor events
+#	TL.100 - Scholar-bureaucrat instructing child
+#	TL.110 - Master engineer instructing child
+#	TL.120 - Strategist instructing child
+#
+#	TL.210 - Mend schism catholic
+#	TL.211 - Convert or not, catholic side
+#
+#	TL.300 - Houndmaster - fire WoL.5202 on liege
+
+
+
+
+namespace = TL
+
+# Chinese guardian teaches skills
+# TL.100 - Scholar-bureaucrat tutor, ward can pick up being a scholar-bureaucrat
+character_event = {
+	id = TL.100
+	desc = EVTDESCTL.100
+	picture = GFX_evt_china_diplomatic_success
+
+	#Pre-triggers
+	has_dlc = "Jade Dragon"
+	has_character_flag = is_chinese_administrator
+	only_capable = yes
+
+	hide_window = yes
+
+	trigger = {
+		any_ward = {
+			NOT = { has_character_modifier = jd_administrator }
+			NOT = { has_character_modifier = jd_strategist }
+			NOT = { has_character_modifier = jd_master_engineer }
+			age > 10
+		}
+	}
+
+	weight_multiplier = {
+		years = 8
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = patient
+				has_trait = erudite
+				has_trait = diligent
+				has_trait = shrewd
+				has_trait = quick
+				has_trait = genius
+				has_trait = administrator
+				has_trait = fortune_builder
+				has_trait = midas_touched
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_trait = slothful
+				has_trait = arbitrary
+			}
+		}
+		modifier = {
+			factor = 2
+			any_ward = 	{
+				OR = {
+					has_trait = quick
+					has_trait = genius
+					has_trait = curious
+					is_child_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_ward = 	{
+				OR = {
+					has_trait = slow
+					has_trait = imbecile
+					has_trait = inbred
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_ward = 	{
+				OR = {
+					has_trait = lunatic
+					has_trait = slothful
+				}
+			}
+		}
+	}
+
+	immediate = {
+		any_ward = {
+			if = {
+				limit = {
+					NOT = { has_character_modifier = jd_administrator }
+					NOT = { has_character_modifier = jd_strategist }
+					NOT = { has_character_modifier = jd_master_engineer }
+				}
+				add_character_modifier = {
+					name = jd_administrator
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+# TL.110 - Master engineer tutor, ward can pick up being a master engineer
+character_event = {
+	id = TL.110
+	desc = EVTDESCTL.110
+	picture = GFX_evt_china_diplomatic_success
+
+	#Pre-triggers
+	has_dlc = "Jade Dragon"
+	has_character_flag = is_chinese_master_engineer
+	only_capable = yes
+
+	hide_window = yes
+
+	trigger = {
+		any_ward = {
+			NOT = { has_character_modifier = jd_administrator }
+			NOT = { has_character_modifier = jd_master_engineer }
+			NOT = { has_character_modifier = jd_strategist }
+			age > 10
+		}
+	}
+
+	weight_multiplier = {
+		years = 8
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = patient
+				has_trait = erudite
+				has_trait = diligent
+				has_trait = shrewd
+				has_trait = quick
+				has_trait = genius
+				has_trait = administrator
+				has_trait = fortune_builder
+				has_trait = midas_touched
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_trait = slothful
+				has_trait = arbitrary
+				has_trait = lunatic
+			}
+		}
+		modifier = {
+			factor = 2
+			any_ward = 	{
+				OR = {
+					has_trait = quick
+					has_trait = genius
+					has_trait = curious
+					is_child_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_ward = 	{
+				OR = {
+					has_trait = slow
+					has_trait = imbecile
+					has_trait = inbred
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_ward = 	{
+				OR = {
+					has_trait = lunatic
+					has_trait = slothful
+				}
+			}
+		}
+	}
+
+	immediate = {
+		any_ward = {
+			if = {
+				limit = {
+					NOT = { has_character_modifier = jd_administrator }
+					NOT = { has_character_modifier = jd_strategist }
+					NOT = { has_character_modifier = jd_master_engineer }
+				}
+				add_character_modifier = {
+					name = jd_master_engineer
+					duration = -1
+				}
+			}
+		}
+	}
+}
+
+# TL.120 - Strategist tutor, ward can pick up being a strategist and a chinese leadership trait
+character_event = {
+	id = TL.120
+	desc = EVTDESCTL.120
+	picture = GFX_evt_china_diplomatic_success
+
+	#Pre-triggers
+	has_dlc = "Jade Dragon"
+	has_character_flag = is_chinese_strategist
+	only_capable = yes
+
+	hide_window = yes
+
+	trigger = {
+		any_ward = {
+			NOT = { has_character_modifier = jd_administrator }
+			NOT = { has_character_modifier = jd_strategist }
+			NOT = { has_character_modifier = jd_master_engineer }
+			age > 10
+		}
+	}
+
+	weight_multiplier = {
+		years = 8
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = patient
+				has_trait = erudite
+				has_trait = diligent
+				has_trait = shrewd
+				has_trait = quick
+				has_trait = genius
+				has_trait = strategist
+				has_trait = skilled_tactician
+				has_trait = brilliant_strategist
+			}
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_trait = slothful
+				has_trait = arbitrary
+				has_trait = lunatic
+			}
+		}
+		modifier = {
+			factor = 2
+			any_ward = 	{
+				OR = {
+					has_trait = quick
+					has_trait = genius
+					has_trait = curious
+					is_child_of = ROOT
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_ward = 	{
+				OR = {
+					has_trait = slow
+					has_trait = imbecile
+					has_trait = inbred
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			any_ward = 	{
+				OR = {
+					has_trait = lunatic
+					has_trait = slothful
+				}
+			}
+		}
+	}
+
+	immediate = {
+		any_ward = {
+			if = {
+				limit = {
+					NOT = { has_character_modifier = jd_administrator }
+					NOT = { has_character_modifier = jd_strategist }
+					NOT = { has_character_modifier = jd_master_engineer }
+				}
+				add_character_modifier = {
+					name = jd_strategist
+					duration = -1
+				}
+				#random chinese leadership trait
+				random_list = {
+					25 = { add_trait = logistics_expert }
+					25 = { add_trait = master_of_flame }
+					25 = { add_trait = sapper }
+					25 = { add_trait = levy_coordinator }
+				}
+			}
+		}
+	}
+}
+
+
+# Great Schism mending events
+# TL.210 - The Schism Mended - Catholic
+narrative_event = {
+	id = TL.210
+	title = EVTNAMETL.210
+	desc = EVTDESCTL.210
+	
+	picture = GFX_evt_icon
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = EVTOPTATL.200
+
+		if = {
+			limit = { religion = catholic }
+			set_parent_religion = { religion = orthodox parent = catholic }
+			set_parent_religion = { religion = monothelite parent = catholic }
+			set_parent_religion = { religion = iconoclast parent = catholic }
+			set_parent_religion = { religion = paulician parent = catholic }
+
+		}
+
+		set_global_flag = schism_mended
+		give_nickname = nick_the_saint
+		hidden_tooltip = {
+			any_playable_ruler = {
+				limit = {
+					OR = {
+						religion = orthodox
+						religion = monothelite
+						religion = iconoclast
+						religion = paulician
+					}
+					controls_religion = no
+				}
+				narrative_event = { id = TL.211 }
+			}
+		}
+	}
+}
+
+# TL.211 - Convert or Not?
+narrative_event = {
+	id = TL.211
+	title = EVTNAMETL.210
+	desc = EVTDESCTL.210
+	
+	picture = GFX_evt_icon
+	
+	is_triggered_only = yes
+	
+	option = { # Yes
+		name = EVTOPTATL.211
+		ai_chance = { factor = 75 }
+		religion = FROM
+		any_courtier = {
+			limit = {
+				OR = {
+					religion = orthodox
+					religion = monothelite
+					religion = iconoclast
+					religion = paulician
+				}
+				liege = { character = ROOT }
+			}
+			religion = FROM
+		}
+		capital_scope = {
+			religion = FROM
+		}
+	}
+	option = { # No
+		name = EVTOPTBTL.211
+		ai_chance = { factor = 25 }
+	}
+}
+
+
+# Houndmaster events
+# Select houndmaster lets liege get hunting dog - based on WoL.5200
+character_event = {
+	id = TL.300
+	desc = EVTDESCTL.300
+	picture = GFX_evt_hunting_scene
+
+	#Pre-triggers
+	has_dlc = "Way of Life"
+	has_minor_title = title_houndmaster
+	only_capable = yes
+
+	hide_window = yes
+
+	trigger = {
+		liege = {
+			NOT = { has_character_modifier = pet_hunting_dog }
+			NOT = { trait = incapable }
+			prisoner = no
+			age > 12
+		}
+	}
+	
+	weight_multiplier = {
+		years = 10
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = patient
+				has_trait = diligent
+				martial >= 10
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = erudite
+				has_trait = shrewd
+				has_trait = quick
+				has_trait = genius
+			}
+		}
+		modifier = {
+			factor = 2
+			OR = {
+				has_trait = strategist
+				has_trait = hunter
+			}
+		}		
+		modifier = {
+			factor = 0.5
+			OR = {
+				has_trait = slothful
+				has_trait = arbitrary
+			}
+		}
+	}
+
+	immediate = {
+		liege = {
+			character_event = { id = WoL.5202 }
+		}
+		set_character_flag = offered_puppy
+	}
+
+}

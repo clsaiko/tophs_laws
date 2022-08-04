@@ -1,0 +1,55 @@
+ # Triggers are in Province scope. The From Scope contains the settlement holder (character)
+ # start trigger is in title scope.
+ 
+ #<tag> = {
+ #	desc = description used in the tooltip of the building
+ #	trigger = used for tech requirement of the building, set to 0 if no requirement so it can be build automatically on new games
+ #	gold_cost = cost to build the building
+ #	build_time = time to build, in days
+ #	
+ #	ai_creation_factor = weight that the AI uses to determine what building to build
+ #	extra_tech_building_start = when starting a new game this building will be pre-built if the province has higher tech than the requirement + this + random 0-1
+ #}
+ 
+ # Trade Post
+ trade_post = {
+		
+	#Imperial Admin Post
+	tl_tp_adm_post_1 = {
+	potential = {
+		#trade_route = trans_saharan_trade_route
+		#trans_saharan_trade_post_market_trigger = yes
+		OR = {
+			FROM = { has_law = tl_byz_trade_auth_law_1 } # liege must have a relevant law
+			FROM = { has_law = tl_byz_trade_auth_law_2 }
+		}
+	}
+	desc = tl_tp_adm_post_1_desc
+	trigger = {
+		TECH_TRADE_PRACTICES = 5
+		TECH_CONSTRUCTION = 3
+	}
+	is_active_trigger = {
+		OR = {
+			FROM = { has_law = tl_byz_trade_auth_law_1 }  # liege must have a relevant law
+			FROM = { has_law = tl_byz_trade_auth_law_2 }
+		}
+	}
+	prerequisites = {}
+	gold_cost = 1200
+	build_time = 650
+	#upgrades_from = tl_tp_adm_post_1
+	ai_creation_factor = 95
+	add_number_to_name = no
+	
+	trade_route_wealth = 1	# Affects total value of trade route
+	tradevalue = 20
+	monthly_character_prestige = 0.25
+	economy_techpoints = 0.01
+	max_tradeposts = 1
+	tax_income = -1.0
+	
+	extra_tech_building_start = 10.0 # Never get at start of game
+	}#end tl_tp_adm_post_1
+
+}

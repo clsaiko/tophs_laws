@@ -8,8 +8,12 @@
 #           tl_imperial_usurp_t
 #           tl_deact_title
 #           tl_djedict_title
+#           tl_djedict_imperial
 #
 #################################
+
+# FROM is the decision taker
+# ROOT is the targeted title
 
 title_decisions = {
 
@@ -50,9 +54,11 @@ title_decisions = {
             ROOT = { usurp_title = FROM }
 
             # cost
-            wealth = -100
-            prestige = -100
-            piety = -50
+            FROM = {
+                wealth = -100
+                prestige = 50
+                piety = -50
+            }
         }
         revoke_allowed = { always = no }
         ai_will_do = { factor = 0 }   
@@ -70,8 +76,9 @@ title_decisions = {
         potential = {       #when does this option show up in the list
             AND = {
                 OR = {
-                    FROM = { has_law = tl_impusurp_law_2 }  # liege must have the law
+                    FROM = { has_law = tl_impusurp_law_2 }  # liege must have a relevant law
                     FROM = { has_law = tl_impusurp_law_3 }
+                    FROM = { has_law = tl_byz_trade_auth_law_2 }
                 }
                 ROOT = { real_tier = DUKE }                 # only duke tier, cleans up visibility
                 ROOT = { vassal_of = FROM }                 # must be a direct vassal
@@ -94,8 +101,8 @@ title_decisions = {
             ROOT = { usurp_title = FROM }
 
             # cost
-            wealth = -100
-            prestige = -150
+            FROM = { wealth = -100 }
+            FROM = { prestige = -150 }
         }
         revoke_allowed = { always = no }
         ai_will_do = { factor = 0 }
@@ -189,8 +196,83 @@ title_decisions = {
         from_potential = { ai = no }
 
         potential = {       #when does this option show up in the list
-            FROM = { has_law = tl_djedict_law_1 }      # must have the law
+            FROM = { 
+                OR = {       # must have an allowing law
+                    has_law = tl_djedict_law_1
+                    has_law = tl_djedict_law_2
+                }
+            }     
             ROOT = { real_tier = DUKE }                 # only duke tier, cleans up visibility
+            ROOT = { vassal_of = FROM }                 # must be a direct vassal
+            NOT = {
+                FROM = {
+                    capital_scope = {
+                        kingdom = {
+                            ROOT = {
+                                de_jure_liege = PREV
+                            }
+                        }
+                    }
+                }
+            }           
+        }
+
+        allow = {           #when is this enabled
+            FROM = { wealth = 500 }
+            FROM = { prestige = 500 }
+            ROOT = {
+                real_tier = DUKE        # only duke tier, just for player info
+            }
+        }
+
+        effect = {
+            # Transfer the title
+            FROM = {
+                capital_scope = {   #scopes to the capital de jure kingdom
+                    kingdom = {
+                        ROOT = {
+                            de_jure_liege = PREV
+                        }
+                    }
+                }
+            }
+            # cost
+            FROM = { 
+                wealth = -500
+                prestige = -500
+                add_character_modifier = {      #vassals are upset
+                    modifier = tl_edict_modifier
+                    months = 24
+                    stacking = yes
+                }
+            }
+
+            holder_scope = {    #title holder is mad at this sudden change
+                opinion = {
+                    modifier = opinion_outraged
+                    who = FROM
+                    years = 3
+                }
+            }
+
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }
+
+    }#end tl_djedict_title
+
+    # De Jure Edict Imperial
+    tl_djedict_imperial = {
+        only_playable = yes
+        filter = realm_owned
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            FROM = { has_law = tl_djedict_law_2 }      # must have an allowing law
+            ROOT = { real_tier = KING }                 # only king tier, cleans up visibility
             ROOT = { vassal_of = FROM }                 # must be a direct vassal
             NOT = {
                 FROM = {
@@ -208,9 +290,8 @@ title_decisions = {
         allow = {           #when is this enabled
             FROM = { wealth = 1000 }
             FROM = { prestige = 1000 }
-            FROM = { num_of_king_titles == 1 }  #must only have one Kingdom title
             ROOT = {
-                real_tier = DUKE        # only duke tier, just for player info
+                real_tier = KING        # only king tier, just for player info
             }
         }
 
@@ -218,7 +299,7 @@ title_decisions = {
             # Transfer the title
             FROM = {
                 capital_scope = {
-                    kingdom = {
+                    crownlaw_title = {
                         ROOT = {
                             de_jure_liege = PREV
                         }
@@ -231,7 +312,7 @@ title_decisions = {
                 prestige = -1000
                 add_character_modifier = {      #vassals are upset
                     modifier = tl_edict_modifier
-                    months = 120
+                    months = 48
                     stacking = yes
                 }
             }
@@ -240,7 +321,7 @@ title_decisions = {
                 opinion = {
                     modifier = opinion_outraged
                     who = FROM
-                    years = 2
+                    years = 6
                 }
             }
 
@@ -248,6 +329,112 @@ title_decisions = {
         revoke_allowed = { always = no }
         ai_will_do = { factor = 0 }
 
-    }#end tl_djedict_title
+    }#end tl_djedict_imperial
+
+    # Merchant Republic De Jure Edict
+    tl_mredict_title = {
+        only_playable = yes
+        filter = realm_owned
+        ai_target_filter = none
+        ai_check_interval = 120
+
+        from_potential = { ai = no }
+
+        potential = {       #when does this option show up in the list
+            FROM = { 
+                has_law = tl_repedict_law_1    # must have an allowing law
+                real_tier = KING               # no emperors, king doge only
+            }     
+            ROOT = {
+                real_tier = DUKE            # only duke tier, cleans up visibility
+            }
+
+            # ROOT = { vassal_of = FROM }        # must be a direct vassal
+
+            # NOT = {
+            #     FROM = {
+            #         capital_scope = {
+            #             kingdom = {
+            #                 ROOT = {
+            #                     de_jure_liege = PREV
+            #                 }
+            #             }
+            #         }
+            #     }
+            # }
+        }
+
+        allow = {           #when is this enabled
+            FROM = { 
+                prestige = 500
+                wealth = 500
+            }     
+            ROOT = {
+                real_tier = DUKE            # only duke tier
+                holder_scope = {
+                    is_republic = yes           # must be a republic
+                    is_patrician = yes          # current holder must be a patrician
+                }
+            }
+
+            custom_tooltip = { # Custom tooltip to clear up what is required
+                text = tl_vassalof
+                hidden_tooltip = {
+                    OR = {
+                        ROOT = { vassal_of = FROM }        # ROOT must be a direct vassal of FROM
+                        holder = FROM                      # title must be held by FROM
+                    }
+                }
+            }
+
+            custom_tooltip = { # Custom tooltip to clear up what is required
+                text = tl_isdejureliege
+                hidden_tooltip = {
+                    NOT = {
+                        FROM = {
+                            primary_title = {              #title must not already be a de jure vassal
+                                ROOT = {
+                                    de_jure_liege = PREV
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        effect = {
+            # Transfer the title
+            FROM = {
+                primary_title = {   #scopes to the current primary title, which should be a kingdom 
+                        ROOT = {
+                            de_jure_liege = PREV
+                        }
+                }
+            }
+            # cost
+            FROM = { 
+                wealth = -500
+                prestige = -500
+                add_character_modifier = {      #vassals are upset
+                    modifier = tl_edict_modifier
+                    months = 24
+                    stacking = yes
+                }
+            }
+
+            holder_scope = {    #title holder is mad at this sudden change
+                opinion = {
+                    modifier = opinion_outraged
+                    who = FROM
+                    years = 3
+                }
+            }
+
+        }
+        revoke_allowed = { always = no }
+        ai_will_do = { factor = 0 }
+
+    }#end tl_mredict_title
 
 }#end title_decisions

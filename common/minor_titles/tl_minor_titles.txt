@@ -8,13 +8,14 @@
 # Characters can have any number of these
 #
 #	Titles:
+#		Houndmaster - keeps dogs on behalf of the liege
 #		Tresviri capitales - oversee imperial executions
 #		Tresviri epulones - priests that oversee public banquets
 #		Tresviri monetales - oversee imperial coin minting
 #		Senator titles - Duke level titles to add further vassals to the council
 #		Legatus Augusti titles - King level titles to add further vassals to the council
 #		
-#		keeper of the seal
+#		
 #		
 #
 ########################################################
@@ -28,28 +29,48 @@
 #	message: should fire a message to the its owner when set
 #	The other fields are all character modifiers.
 
-# Basic title example
+# Basic title example from PDX wiki
 title_houndmaster = {
-    dignity = 0.05
+	is_voter = no
+	attribute = martial	#used in minor titles?
+	dignity = 0.1
     grant_limit = 1
     opinion_effect = 5
 
     monthly_salary = 0.1
     monthly_prestige = 0.15
 
-    is_unique = yes
+    is_unique = no
 
     allowed_to_hold = {
-        is_adult = yes
-        NOT = { trait = incapable }
+		is_adult = yes
+		prisoner = no
+		is_landed = no
+		NOR = {
+			trait = incapable
+			trait = infirm
+		}
+		OR = {
+			NOT = { is_female = yes }
+			OR = {
+				liege = { has_law = status_of_women_3 }
+				liege = { has_law = status_of_women_4 }
+			}
+		}
+		martial = 5
+		NOT = { religion = jain }
     }
     allowed_to_grant = {
 		is_feudal = yes
-		OR = {
-			has_landed_title = e_byzantium
-			has_landed_title = e_roman_empire
-		}
+		real_tier = EMPEROR
+		NOT = { religion = jain }
     }
+
+	gain_effect = {
+		character_event = { id = WoL.5202 }	#choose to get a pet dog or not
+	}
+	lose_effect = {
+	}
 
 	revoke_trigger = {
 		FROM = {
@@ -62,6 +83,8 @@ title_houndmaster = {
 			}
 		}
 	}
+
+	message = yes
 }
 
 # Tresviri monetales - oversee imperial coin minting
@@ -73,12 +96,12 @@ tbyz_title_monetalis = {
 	grant_limit = 3
 	opinion_effect = 10
 	
-	monthly_salary = 0.15
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
 	
-	is_unique = yes
+	is_unique = no
 	
 	allowed_to_hold = {
 		NOT = { 
@@ -86,11 +109,12 @@ tbyz_title_monetalis = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		higher_tier_than = BARON
-		NOT = { trait = incapable }
 	}
 	
 	allowed_to_grant = {
@@ -103,6 +127,13 @@ tbyz_title_monetalis = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -128,7 +159,7 @@ tbyz_title_capitalis = {
 	
 	show_as_title = yes
 	
-	is_unique = yes
+	is_unique = no
 	
 	allowed_to_hold = {
 		NOT = { 
@@ -136,11 +167,12 @@ tbyz_title_capitalis = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		higher_tier_than = BARON
-		NOT = { trait = incapable }
 	}
 	
 	allowed_to_grant = {
@@ -153,6 +185,13 @@ tbyz_title_capitalis = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -179,7 +218,7 @@ tbyz_title_epulonis = {
 	
 	show_as_title = yes
 	
-	is_unique = yes
+	is_unique = no
 	
 	allowed_to_hold = {
 		NOT = { 
@@ -187,11 +226,16 @@ tbyz_title_epulonis = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
-		is_theocracy = yes
-		NOT = { trait = incapable }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
+		religion = FROM
+		OR = {
+			is_theocracy = yes
+			religion_group = muslim
+		}
 	}
 	
 	allowed_to_grant = {
@@ -204,6 +248,13 @@ tbyz_title_epulonis = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -228,7 +279,7 @@ tbyz_title_consul = {
 	opinion_effect = 10
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.5
+	monthly_prestige = 0.25
 	
 	show_as_title = yes
 	
@@ -254,9 +305,11 @@ tbyz_title_consul = {
 			liege = { has_trait = arbitrary }
 			liege = { has_trait = lunatic }
 		}
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -271,6 +324,13 @@ tbyz_title_consul = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -290,10 +350,10 @@ tbyz_title_senator_greece = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 2
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -318,9 +378,11 @@ tbyz_title_senator_greece = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -336,6 +398,13 @@ tbyz_title_senator_greece = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -355,10 +424,10 @@ tbyz_title_senator_epirus = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 2
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -383,9 +452,11 @@ tbyz_title_senator_epirus = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -401,6 +472,13 @@ tbyz_title_senator_epirus = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -420,10 +498,10 @@ tbyz_title_senator_sicily = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 2
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -448,9 +526,11 @@ tbyz_title_senator_sicily = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -466,6 +546,13 @@ tbyz_title_senator_sicily = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -485,10 +572,10 @@ tbyz_title_senator_italy = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 2
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -513,9 +600,11 @@ tbyz_title_senator_italy = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -531,6 +620,13 @@ tbyz_title_senator_italy = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -550,10 +646,10 @@ tbyz_title_senator_sardinia = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 1
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -578,9 +674,11 @@ tbyz_title_senator_sardinia = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -596,6 +694,13 @@ tbyz_title_senator_sardinia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -615,10 +720,10 @@ tbyz_title_senator_andalusia = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 2
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -643,9 +748,11 @@ tbyz_title_senator_andalusia = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -661,6 +768,13 @@ tbyz_title_senator_andalusia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -680,10 +794,10 @@ tbyz_title_senator_africa = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 2
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -708,9 +822,11 @@ tbyz_title_senator_africa = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -726,6 +842,13 @@ tbyz_title_senator_africa = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -745,10 +868,10 @@ tbyz_title_senator_trebizond = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 1
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -773,9 +896,11 @@ tbyz_title_senator_trebizond = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -791,6 +916,13 @@ tbyz_title_senator_trebizond = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -810,10 +942,10 @@ tbyz_title_senator_anatolia = {
 	dignity = 5
 	realm_in_name = yes
 	grant_limit = 3
-	opinion_effect = 10
+	opinion_effect = 5
 	
 	monthly_salary = 0.0	#unpaid
-	monthly_prestige = 0.35
+	monthly_prestige = 0.15
 	
 	show_as_title = yes
 	is_unique = no
@@ -838,9 +970,11 @@ tbyz_title_senator_anatolia = {
 		is_feudal = yes
 		is_landed = yes
 		is_adult = yes
-		NOT = { trait = incapable }
-		NOT = { trait = imbecile }
-		NOT = { trait = infirm }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 	}
 	
@@ -856,6 +990,13 @@ tbyz_title_senator_anatolia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -879,7 +1020,7 @@ tbyz_title_leg_hispania = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -892,9 +1033,11 @@ tbyz_title_leg_hispania = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_galicia
@@ -914,6 +1057,7 @@ tbyz_title_leg_hispania = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_galicia
 				has_landed_title = k_navarra
@@ -927,6 +1071,13 @@ tbyz_title_leg_hispania = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -948,7 +1099,7 @@ tbyz_title_leg_gallia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -961,9 +1112,11 @@ tbyz_title_leg_gallia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_france
@@ -981,6 +1134,7 @@ tbyz_title_leg_gallia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_france
 				has_landed_title = k_aquitaine
@@ -992,6 +1146,13 @@ tbyz_title_leg_gallia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1013,7 +1174,7 @@ tbyz_title_leg_aegyptus = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.3
+	monthly_salary = 0.15
 	monthly_prestige = 0.5
 	
 	show_as_title = yes
@@ -1026,9 +1187,11 @@ tbyz_title_leg_aegyptus = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_egypt
@@ -1043,6 +1206,7 @@ tbyz_title_leg_aegyptus = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_egypt
 			}
@@ -1051,6 +1215,13 @@ tbyz_title_leg_aegyptus = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1072,7 +1243,7 @@ tbyz_title_leg_germania = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1085,9 +1256,11 @@ tbyz_title_leg_germania = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_germany
@@ -1104,6 +1277,7 @@ tbyz_title_leg_germania = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_germany
 				has_landed_title = k_bavaria
@@ -1114,6 +1288,13 @@ tbyz_title_leg_germania = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1135,7 +1316,7 @@ tbyz_title_leg_britannia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1148,9 +1329,11 @@ tbyz_title_leg_britannia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_england
@@ -1166,6 +1349,7 @@ tbyz_title_leg_britannia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_england
 				has_landed_title = k_wales
@@ -1175,6 +1359,13 @@ tbyz_title_leg_britannia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1196,7 +1387,7 @@ tbyz_title_leg_dalmatia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1209,9 +1400,11 @@ tbyz_title_leg_dalmatia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_croatia
@@ -1227,6 +1420,7 @@ tbyz_title_leg_dalmatia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_croatia
 				has_landed_title = k_serbia
@@ -1236,6 +1430,13 @@ tbyz_title_leg_dalmatia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1257,7 +1458,7 @@ tbyz_title_leg_moesia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1270,9 +1471,11 @@ tbyz_title_leg_moesia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_bulgaria
@@ -1288,6 +1491,7 @@ tbyz_title_leg_moesia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_bulgaria
 				has_landed_title = k_dacia
@@ -1297,6 +1501,13 @@ tbyz_title_leg_moesia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1318,7 +1529,7 @@ tbyz_title_leg_syria = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1331,9 +1542,11 @@ tbyz_title_leg_syria = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_syria
@@ -1350,6 +1563,7 @@ tbyz_title_leg_syria = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_syria
 				has_landed_title = k_mesopotamia
@@ -1360,6 +1574,13 @@ tbyz_title_leg_syria = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1381,7 +1602,7 @@ tbyz_title_leg_armenia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1394,9 +1615,11 @@ tbyz_title_leg_armenia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_armenia
@@ -1412,6 +1635,7 @@ tbyz_title_leg_armenia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_armenia
 				has_landed_title = k_georgia
@@ -1421,6 +1645,13 @@ tbyz_title_leg_armenia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1442,7 +1673,7 @@ tbyz_title_leg_arabia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1455,9 +1686,11 @@ tbyz_title_leg_arabia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_arabia
@@ -1473,15 +1706,24 @@ tbyz_title_leg_arabia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			NOT = { is_councillor = yes }	#can't already be a councillor
+			is_adult = yes
 			OR = {
-				has_landed_title = k_arabia
 				has_landed_title = k_jerusalem
+				has_landed_title = k_arabia
 			}
 		}
 		OR = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	
@@ -1503,7 +1745,7 @@ tbyz_title_leg_italia = {
 	grant_limit = 1
 	opinion_effect = 10
 	
-	monthly_salary = 0.25
+	monthly_salary = 0.1
 	monthly_prestige = 0.25
 	
 	show_as_title = yes
@@ -1516,9 +1758,11 @@ tbyz_title_leg_italia = {
 		}
 		is_landed = yes
 		is_adult = yes
-		NOT = { has_trait = incapable }
-		NOT = { has_trait = infirm }
-		NOT = { has_trait = imbecile }
+		NOR = {
+			trait = incapable
+			trait = infirm
+			trait = imbecile
+		}
 		NOT = { is_councillor = yes }	#can't already be a councillor
 		OR = {
 			has_landed_title = k_sicily
@@ -1539,6 +1783,7 @@ tbyz_title_leg_italia = {
 			has_landed_title = e_roman_empire
 		}
 		any_vassal = {
+			is_adult = yes
 			OR = {
 				has_landed_title = k_sicily
 				has_landed_title = k_italy
@@ -1553,6 +1798,13 @@ tbyz_title_leg_italia = {
 			religion_group = christian
 			religion_group = jewish_group
 			religion_group = pagan_group
+			AND = {
+                religion_group = muslim
+                OR = {
+                    culture_group = byzantine
+                    culture = roman
+                }
+            }
 		}
 	}
 	

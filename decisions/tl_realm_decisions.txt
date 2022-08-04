@@ -1,0 +1,151 @@
+decisions = {
+    tl_restore_roman_empire = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		
+		potential = {
+			is_playable = yes
+			has_dlc = "Legacy of Rome"
+			has_landed_title = e_byzantium
+			AND = {
+				religion_group = muslim
+				culture_group = byzantine
+			}
+			is_adult = yes
+			prisoner = no
+			NOT = { trait = incapable }
+			NOT = { has_global_flag = rome_restored }
+			NOR = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		allow = {
+			primary_title = { title = e_byzantium }
+			prestige = 3000
+			completely_controls = d_latium
+			completely_controls = d_venice
+			completely_controls = d_ferrara
+			completely_controls = d_sicily
+			completely_controls = d_genoa
+			completely_controls = d_capua
+			completely_controls = d_apulia
+			completely_controls = d_thrace
+			completely_controls = d_antioch
+			completely_controls = d_jerusalem
+			completely_controls = d_alexandria
+			completely_controls = d_athens
+			completely_controls = d_tunis
+			completely_controls = d_croatia
+		}
+		effect = {
+			set_global_flag = rome_restored
+			narrative_event = { id = LoR.20 tooltip = EVTTOOLTIPLoR.20 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	tl_mend_great_schism = {
+		only_independent = yes
+		is_high_prio = yes
+		ai_check_interval = 24
+		
+		potential = {
+			has_dlc = "Legacy of Rome"
+			is_playable = yes
+			is_adult = yes
+			prisoner = no
+			independent = yes
+			NOT = { trait = incapable }
+			religion = catholic
+			OR = {
+				has_landed_title = e_byzantium
+				has_landed_title = e_roman_empire
+				has_landed_title = e_hre
+			}
+			is_heretic = no
+			NOT = { has_global_flag = schism_mended }
+			k_papal_state = {
+				holder_scope = {
+					is_heretic = no # If the Pope (and thus Catholicism) is heretical, mending the schism is no longer possible
+				}
+			}
+			NOT = {
+				has_alternate_start_parameter = { key = religion_names value = random }
+			}
+		}
+		allow = {
+			piety = 2000
+			religion_authority = 0.9
+			completely_controls = c_byzantion
+			b_hagiasophia = {
+				custom_tooltip = { # Custom tooltip to shorten the in-game tooltip
+					text = tl_mend_the_schism_holder_religion
+					hidden_tooltip = {
+						holder_scope = {
+							religion = catholic
+							is_heretic = no
+						}
+					}
+				}
+			}
+			completely_controls = c_antiocheia
+			b_antiocheia = {
+				custom_tooltip = {
+					text = tl_mend_the_schism_holder_religion
+					hidden_tooltip = {
+						holder_scope = {
+							religion = catholic
+							is_heretic = no
+						}
+					}
+				}
+			}
+			completely_controls = c_jerusalem
+			b_jerusalem = {
+				custom_tooltip = {
+					text = tl_mend_the_schism_holder_religion
+					hidden_tooltip = {
+						holder_scope = {
+							religion = catholic
+							is_heretic = no
+						}
+					}
+				}
+			}
+			completely_controls = c_alexandria
+			b_alexandria = {
+				custom_tooltip = {
+					text = tl_mend_the_schism_holder_religion
+					hidden_tooltip = {
+						holder_scope = {
+							religion = catholic
+							is_heretic = no
+						}
+					}
+				}
+			}
+			completely_controls = c_roma
+			b_roma = {
+				custom_tooltip = {
+					text = tl_mend_the_schism_holder_religion
+					hidden_tooltip = {
+						holder_scope = {
+							religion = catholic
+							is_heretic = no
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			narrative_event = { id = TL.210 tooltip = EVTTOOLTIPTL.210}
+			set_global_flag = schism_mended
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

@@ -21,9 +21,11 @@ trade_post_decisions = {
             #Conditions on the decision taker for the decision to appear. Not taken into account when filter = self, use potential instead.
             ai = no
 			OR = {
-				has_law = tl_trade_auth_law_1
+				has_law = tl_trade_auth_law_1	# liege must have a relevant law
 				has_law = tl_byz_trade_auth_law_1
+				has_law = tl_byz_trade_auth_law_2
 			}
+			
 		}
 		
 		potential = {
@@ -33,19 +35,230 @@ trade_post_decisions = {
 				NOT = { character = FROM }
 			}
 		}
+		
 		allow = {
             #Conditions for the decision to be enabled
 
 			FROM = {
                 prestige = 250              #decision taker has enough prestige
                 completely_controls = ROOT  #decision taker completely controls the province
-				num_of_trade_posts <= 8		#trade post limit maximum
-            }
+				num_of_trade_posts <= 20	#hard cap of 20
+            } #end FROM block
 
 			trade_post_owner = {			#trade post owner can't be at war
 				war = no
+				NOT = { has_non_aggression_pact_with = FROM } #current owner can't be in a NAP with me
 			}
-		}
+
+			FROM = {
+				
+				OR = {
+					any_demesne_province = {	#once reached here assume we're in trade post runaway to 20
+						count >= 7
+						trade_post_has_building = tl_tp_adm_post_1
+					}
+	
+					#this is ugly, but the trade post limit isn't exposed as a condition in code, so no way to work with it										
+
+					num_of_trade_posts < 1
+
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 8 }
+						OR = {
+							num_of_trade_posts < 8
+							AND = {
+								any_demesne_province = {
+									count = 6
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 17
+							}
+							AND = {
+								any_demesne_province = {
+									count = 5
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 15
+							}
+							AND = {
+								any_demesne_province = {
+									count = 4
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 14
+							}
+							AND = {
+								any_demesne_province = {
+									count = 3
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 12
+							}
+							AND = {
+								any_demesne_province = {
+									count = 2
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 11
+							}
+							AND = {
+								any_demesne_province = {
+									count = 1
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 9
+							}
+						}
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 7 }
+						OR = {
+							num_of_trade_posts < 7
+							AND = {
+								any_demesne_province = {
+									count = 6
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 15
+							}
+							AND = {
+								any_demesne_province = {
+									count = 5
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 14
+							}
+							AND = {
+								any_demesne_province = {
+									count = 4
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 13
+							}
+							AND = {
+								any_demesne_province = {
+									count = 3
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 11
+							}
+							AND = {
+								any_demesne_province = {
+									count = 2
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 10
+							}
+						}
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 6 }
+						OR = {
+							num_of_trade_posts < 7
+							AND = {
+								any_demesne_province = {
+									count = 6
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 14
+							}
+							AND = {
+								any_demesne_province = {
+									count = 5
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 13
+							}
+							AND = {
+								any_demesne_province = {
+									count = 4
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 12
+							}
+							AND = {
+								any_demesne_province = {
+									count = 2
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 9
+							}
+							AND = {
+								any_demesne_province = {
+									count = 1
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 8
+							}
+						}
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 5 }
+						OR = {
+							num_of_trade_posts < 7
+							AND = {
+								any_demesne_province = {
+									count = 6
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 13
+							}
+							AND = {
+								any_demesne_province = {
+									count = 5
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 12
+							}
+							AND = {
+								any_demesne_province = {
+									count = 4
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 11
+							}
+							AND = {
+								any_demesne_province = {
+									count = 3
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 10
+							}
+							AND = {
+								any_demesne_province = {
+									count = 2
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 8
+							}
+							AND = {
+								any_demesne_province = {
+									count = 1
+									trade_post_has_building = tl_tp_adm_post_1
+								}
+								num_of_trade_posts < 7
+							}
+						}
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 4 }
+						num_of_trade_posts < 6
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 3 }
+						num_of_trade_posts < 5
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 2 }
+						num_of_trade_posts < 3
+					}
+					AND = {
+						capital_scope = { TECH_TRADE_PRACTICES >= 1 }
+						num_of_trade_posts < 2
+					}
+				} #end OR block
+			} #end FROM block
+		} #end allow block
 		effect = {
             #Commands executed when taking the decision
 
@@ -64,9 +277,9 @@ trade_post_decisions = {
 			FROM = {
 				prestige = -250					#Cost
 				add_character_modifier = {      #vassals are upset
-				modifier = tl_seize_tradepost_modifier
-				years = 5
-				stacking = yes
+					modifier = tl_seize_tradepost_modifier
+					years = 5
+					stacking = yes
 			}
 			}
 		}

@@ -55,15 +55,31 @@ tl_deact_law_1_option;Enabled;;;;;;;;;;;;;x
 
 #De Jure Edict Law
 tl_djtitle_law;De Jure Title Law;;;;;;;;;;;;;x
-tl_djtitle_law_desc;The ruler may choose to issue and edict, declaring a duchy as de jure.;;;;;;;;;;;;;x
+tl_djtitle_law_desc;The ruler may choose to issue an edict, declaring titles as de jure vassals.;;;;;;;;;;;;;x
 
 tl_djedict_law_0;De Jure Edict Disabled;;;;;;;;;;;;;x
 tl_djedict_law_0_desc;The ruler may not issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
 tl_djedict_law_0_option;Disabled;;;;;;;;;;;;;x
 
 tl_djedict_law_1;De Jure Edict Enabled;;;;;;;;;;;;;x
-tl_djedict_law_1_desc;The ruler may issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
+tl_djedict_law_1_desc;The ruler may issue De Jure edicts for vassal duchy titles to become de jure vassals of the realm capital de jure kingdom.;;;;;;;;;;;;;x
 tl_djedict_law_1_option;Enabled;;;;;;;;;;;;;x
+
+tl_djedict_law_2;Imperial De Jure Edict Enabled;;;;;;;;;;;;;x
+tl_djedict_law_2_desc;The ruler may issue De Jure edicts for vassal duchy and kingdom titles.;;;;;;;;;;;;;x
+tl_djedict_law_2_option;Imperial;;;;;;;;;;;;;x
+
+#De Jure Edict Law (Merchant Republic)
+tl_mrtitle_law;De Jure Title Law;;;;;;;;;;;;;x
+tl_mrtitle_law_desc;The ruler may choose to issue an edict, declaring titles as de jure vassals.;;;;;;;;;;;;;x
+
+tl_repedict_law_0;De Jure Edict Disabled;;;;;;;;;;;;;x
+tl_repedict_law_0_desc;The ruler may not issue De Jure edicts for vassal titles.;;;;;;;;;;;;;x
+tl_repedict_law_0_option;Disabled;;;;;;;;;;;;;x
+
+tl_repedict_law_1;De Jure Edict Enabled;;;;;;;;;;;;;x
+tl_repedict_law_1_desc;The ruler may issue De Jure edicts for vassal republic duchy titles to become de jure vassals of the realm capital de jure kingdom.;;;;;;;;;;;;;x
+tl_repedict_law_1_option;Enabled;;;;;;;;;;;;;x
 
 #Trade Authority Law - Non-Byzantine
 tl_trade_auth_law;Trade Authority Law;;;;;;;;;;;;;x
@@ -78,16 +94,20 @@ tl_trade_auth_law_1_desc;The Empire may seize trade posts for direct use.;;;;;;;
 tl_trade_auth_law_1_option;Imperial;;;;;;;;;;;;;x
 
 #Trade Authority Law - Byzantine/Roman
-tl_byz_trade_auth_law;Trade Authority Law;;;;;;;;;;;;;x
-tl_byz_trade_auth_law_desc;Law controlling imperial authority over trade posts within the realm.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law;Republic Authority Law;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_desc;Law controlling imperial authority over Republics and trade posts within the realm.;;;;;;;;;;;;;x
 
 tl_byz_trade_auth_law_0;Free Trade Authority;;;;;;;;;;;;;x
-tl_byz_trade_auth_law_0_desc;The Empire may not seize trade posts for direct use.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_0_desc;The Empire may neither usurp republics, nor seize trade posts for direct use.;;;;;;;;;;;;;x
 tl_byz_trade_auth_law_0_option;Free;;;;;;;;;;;;;x
 
 tl_byz_trade_auth_law_1;Imperial Trade Authority;;;;;;;;;;;;;x
-tl_byz_trade_auth_law_1_desc;The Empire may seize trade posts for direct use.;;;;;;;;;;;;;x
-tl_byz_trade_auth_law_1_option;Imperial;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_1_desc;The Empire may now seize trade posts for direct use.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_1_option;Trade;;;;;;;;;;;;;x
+
+tl_byz_trade_auth_law_2;Imperial Republic Authority;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_2_desc;The Empire may now usurp Republics from vassals, as well as seize trade posts.;;;;;;;;;;;;;x
+tl_byz_trade_auth_law_2_option;Republic;;;;;;;;;;;;;x
 
 #IMPERIAL SENATE LAW
 tl_senate_law;Imperial Senate;;;;;;;;;;;;;x
@@ -246,9 +266,9 @@ tl_vassal_blinding_decision;Blind Prisoner;Prisonnier aveugle;Blinder Gefangener
 tl_vassal_blinding_decision_desc;You may give the order to permanently blind §Y[Root.GetFirstName]§!.;;;;;;;;;;;;;x
 
 tl_vassal_castrate_decision;Castrate [Root.GetTitledFirstName];Castrer [Root.Get_le_TitledFirstName];[Root.GetTitledFirstName] kastrieren;;Castrado [Root.GetTitledFirstName];;;;;;;;;x
-tl_vassal_castrate_decision_desc;You may give the order to castrate §Y[Root.GetFirstName]§! and turn him into a eunuch. He will be unable to sire more spawn or be granted landed titles, a severe punishment.;Vous pourriez donner l'ordre de castrer §Y[Root.GetFirstName]§! pour en faire un eunuque. Il serait incapable d'engendrer ou de recevoir des titres. Un sévère châtiment.;Ihr könnt den Befehl zum Kastrieren von §Y[Root.GetFirstName]§! erteilen und ihn so in einen Eunuchen verwandeln. Er wird danach nicht länger in der Lage sein Erben zu zeugen oder Besitztümer zu erhalten. Eine wahrlich schwere Strafe.;;Puedes ordenar que castren a §Y[Root.GetFirstName]§! y convertirlo en eunuco. No podrá tener más descendencia ni se le concederán títulos con tierras. Un castigo muy duro.;;;;;x
+tl_vassal_castrate_decision_desc;You may give the order to castrate §Y[Root.GetFirstName]§! and turn him into a eunuch. He will be unable to sire more spawn or be granted landed titles, a severe punishment.;Vous pourriez donner l'ordre de castrer §Y[Root.GetFirstName]§! pour en faire un eunuque. Il serait incapable d'engendrer ou de recevoir des titres. Un s§v§re ch§timent.;Ihr k§nnt den Befehl zum Kastrieren von §Y[Root.GetFirstName]§! erteilen und ihn so in einen Eunuchen verwandeln. Er wird danach nicht l§nger in der Lage sein Erben zu zeugen oder Besitzt§mer zu erhalten. Eine wahrlich schwere Strafe.;;Puedes ordenar que castren a §Y[Root.GetFirstName]§! y convertirlo en eunuco. No podr§ tener m§s descendencia ni se le conceder§n t§tulos con tierras. Un castigo muy duro.;;;;;x
 
-tl_vassal_probation_decision;Release on Probation;Libération conditionnelle;Entlassung auf Bewährung;;Libertad condicional;;;;;;;;;x
+tl_vassal_probation_decision;Release on Probation;Lib§ration conditionnelle;Entlassung auf Bew§hrung;;Libertad condicional;;;;;;;;;x
 tl_vassal_probation_decision_desc;[Root.GetTitledFirstName] is released on conditional 5 year probation. [Root.GetSheHe] will no longer plot against you.;;;;;;;;;;;;;x
 
 # Override testing
@@ -304,6 +324,14 @@ tl_imperial_usurp_t_desc;Usurp the theocractic title §Y[Root.GetFullBaseName]§! 
 tl_djedict_title;De Jure Edict;;;;;;;;;;;;;x
 tl_djedict_title_desc;The title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
 
+#Imperial De Jure Edict
+tl_djedict_imperial;Imperial De Jure Edict;;;;;;;;;;;;;x
+tl_djedict_imperial_desc;The title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
+#Republic De Jure Edict
+tl_mredict_title;De Jure Edict;;;;;;;;;;;;;x
+tl_mredict_title_desc;The title §Y[Root.GetFullBaseName]§! from §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
+
 #Bestow Born in the Purple
 tl_best_purple;Bestow Born in the Purple;;;;;;;;;;;;;x
 tl_best_purple_desc;Bestow the Born in the Purple trait on §Y[Root.Holder.GetFullName]§!.;;;;;;;;;;;;;x
@@ -323,6 +351,59 @@ tl_pattern_selfish_affects_me_pos_custom_tooltip;This affects me positively!;;;;
 tl_pattern_selfish_affects_me_neg_custom_tooltip;This affects me negatively!;;;;;;;;;;;;;x
 tl_kind_imprisoner_trait_chance_TT;A 25% chance to become §YKind§!;;;;;;;;;;;;;x
 
+#CODE;ENGLISH;FRENCH;GERMAN;;SPANISH;;;;;;;;;x
+
+#Mending the Schism as a Catholic
+tl_mend_great_schism;Mend the Great Schism;Mettre fin au Grand Schisme;Das Große Schisma heilen;;Reparar el Gran Cisma;;;;;;;;;x
+tl_mend_great_schism_desc;The Great Schism saw the Christian Church divided into two branches, but if all five of the episcopal sees of the Pentarchy could be restored under Roman rule and the Catholic faith, there may be a chance to finally reunite Christendom.;L'Église chrétienne s'est vu divisée en deux lignées par le Grand Schisme, mais si la totalité des cinq sièges épiscopaux de la Pentarchie peut être restaurée sous l'autorité de Rome et de la foi catholique, il y a peut-être une chance de réunifier enfin la chrétienté tout entière;Das große Schisma sah die christliche Kirche in zwei Teile zerfallen, doch wenn alle fünf episkopalen Arme der Pentarchie wieder unter römischer Herrschaft und in katholischen Glauben vereint sind, besteht eine Chance, das Christentum wieder zu vereinen.;;El Gran Cisma dividió la Iglesia Cristiana en dos ramas, pero si las cinco sedes episcopales de la Pentarquía pueden ser recuperadas bajo el dominio romano y la fe católica, podría haber una oportunidad de reunir finalmente la cristiandad.;;;;;;;;;x
+
+tl_mend_the_schism_holder_religion;Holder is §YCatholic§! and NOT a heretic\n;Le détenteur est de religion §Ycatholique§! et pas hérétique\n;Halter ist §YKatholisch§! und KEIN Ketzer\n;;Quien lo ostenta es §Ycatólico§! y no es hereje.\n;;;;;;;;;x
+
+EVTOPTATL.200;God be praised!;Dieu soit loué !;Gepriesen sei Gott!;;¡Alabado sea dios!;;;;;;;;;x
+EVTTOOLTIPTL.210;The Great Schism is mended and Christendom reunited.;Le Grand Schisme est terminé et toute la chrétienté est enfin réunifiée.;Das Große Schisma wurde geheilt und das Christentum wieder vereint.;;El Gran Cisma se remendó y se reunió cristiandad.;;;;;;;;;x
+EVTNAMETL.210;The Great Schism Mended;La Fin du Grand Schisme;Das Große Schisma wurde geheilt;;El Gran Cisma reparado;;;;;;;;;x
+EVTDESCTL.210;At last the Great Schism between the Western Catholic Church and the Eastern Orthodox Church has been mended. With the spread of Catholicism and the fall of the Pentarchy, the Orthodox faith now holds little sway over the people of Europe. There will be those who still cling to it, but they will be few in number and the Catholic Pope can finally claim universal rule over all of Christendom.;Enfin, le schisme entre l'Église catholique d'Occident et l'Église orthodoxe d'Orient est terminé. Avec l'expansion du catholicisme et l'effondrement de la Pentarchie, la foi orthodoxie n'a plus la même influence sur les peuples d'Europe. Il y aura ceux qui continueront à se rattacher à elle, mais ils seront peu nombreux, et l'autorité légitime de la Pentarchie s'imposera universellement sur l'ensemble de la chrétienté.;Endlich wurde das Große Schisma zwischen der westlichen katholischen Kirche und der östlichen orthodoxen Kirche geheilt. Mit der Ausbreitung Katholizismus und dem Zusammenbruch der Pentarchie, hat der orthodoxe Glaube nur noch geringen Einfluss auf die Einwohner Europas. Manche werden dem alten Glauben störrisch anhängen, aber es werden wenige sein. Die Pentarchie kann wieder behaupten, dass sie über alle Christen herrscht.;;Por fin, el Gran Cisma entre la Iglesia Católica Occidental y la Iglesia Ortodoxa Oriental ha sido reparado. Con la expansión del Catolicismo y colapso de la Pentarquía, la fe ortodoxa tiene ahora poca influencia sobre la gente en Europa. Habrá quienes todavía se aferren a ella, pero serán pocos en número y la  Pentarquía puede reclamar una vez más, el dominio universal sobre toda la cristiandad.;;;;;;;;;x
+EVTOPTATL.211;If that's the way the wind is blowing...;Si c'est ainsi que le vent souffle...;Daher also weht der Wind ...;;Si esto es la dirección que el viento está soplando ...;;;;;;;;;x
+EVTOPTBTL.211;I will never give up my faith!;Jamais je ne renierai ma foi !;Ich werde meinen Glauben niemals aufgeben!;;¡Nunca abandonaré mi fe!;;;;;;;;;x
+
+#Vassal of another or holder
+tl_vassalof;§Y[Root.Holder.GetFullName]§! is a direct vassal or the title holder;;;;;;;;;;;;;x
+
+#Already de jure liege
+tl_isdejureliege;§Y[Root.GetFullBaseName]§! is not a de jure vassal of §Y[From.PrimaryTitle.GetFullBaseName]§!;;;;;;;;;;;;;x
+
+
+#BYZANTINE TITLES
+tl_title_despot_muslim;Despot;Despote;Despot;;Déspota;;;;;;;;;x
+tl_title_despot_muslim_desc;Despot is the highest honorary title in the Byzantine Empire, second only to the Emperor. It can only be granted to close relatives, traditionally the oldest son.;Le despote est le plus haut titre honorifique de l'Empire byzantin, après celui d'empereur. Seuls les proches parents, traditionnellement le fils aîné, peuvent en bénéficier.;Despot ist der höchste Ehrentitel im Byzantinischen Kaiserreich und untersteht nur dem Kaiser. Er kann nur engen Verwandten verliehen werden, traditionell dem ältesten Sohn.;;El título honorífico de déspota era el más importante del Imperio Bizantino después del de emperador. Puede otorgarse a los familiares cercanos, tradicionalmente al hijo mayor.;;;;;;;;;x
+
+tl_title_sebastokrator_muslim;Sebastokrator;Sébastokrator;Sebastokrator;;Sebastocrátor;;;;;;;;;x
+tl_title_sebastokrator_muslim_desc;The title of Sebastokrator was created as an even higher honor than that of 'Caesar'. It can only be granted to close relatives of the Emperor.;Le titre de Sébastokrator a été créé à des fins encore plus honorifique que celui de 'César'. Il est réservé aux proches parents de l'empereur.;Der Titel Sebastokrator war mit noch höherer Ehre als der eines "Cäsar" verbunden. Er kann nur engen Verwandten des Kaisers verliehen werden.;;El título de sebastocrátor tenía aún más honor que el de césar. Solo puede otorgarse a los familiares cercanos del emperador.;;;;;;;;;x
+
+tl_title_caesar_muslim;Caesar;César;Cäsar;;César;;;;;;;;;x
+tl_title_caesar_muslim_desc;Originally the highest honor in the Roman Empire, the title of Caesar can now be awarded to anyone.;Plus haut titre de l'Empire romain, le titre de César peut désormais être décerné à tout le monde.;Ursprünglich war der Cäsartitel der ehrenvollste im Römischen Kaiserreich, jetzt aber kann er jedermann verliehen werden.;;Originalmente, era el título con más honor del Imperio Romano, aunque hoy en día puede otorgarse a cualquiera.;;;;;;;;;x
+
+tl_title_kouropalates_muslim;Kouropalates;Curopalate;Kouropalates;;Curopalates;;;;;;;;;x
+tl_title_kouropalates_muslim_desc;Kouropalates - 'the One in Charge of the Palace' - is a very prestigious title in the Byzantine Empire.;Curopalate - 'celui qui a la charge du palais' est un prestigieux titre de l'Empire byzantin.;Kouropalates - "der Palastverwalter" - ist im Byzantinischen Kaiserreich ein äußerst angesehener Titel.;;El título de curopalates (el encargado del palacio) es bastante prestigioso en el Imperio Bizantino.;;;;;;;;;x
+
+tl_title_anthypatos_muslim;Anthypatos;Anthypatos;Anthypatos;;Anthypatos;;;;;;;;;x
+tl_title_anthypatos_muslim_desc;Anthypatos is Greek for Proconsul. However, the office no longer denotes a provincial governor but is purely honorary.;Anthypathos est un terme grec qui signifie proconsul. Toutefois, ce titre ne désigne plus un gouverneur provincial, et s'avère purement honorifique.;Anthypathos ist der griechische Ausdruck für Prokonsul. Dieses Amt steht aber nicht mehr für einen Provinzgouverneur, sondern ist lediglich ein Ehrentitel.;;Anthypathos viene del griego y significa procónsul. Sin embargo, el cargo ya no es para los gobernadores de la provincia, sino que es meramente honorífico.;;;;;;;;;x
+
+tl_title_hypatos_muslim;Hypatos;Hypatos;Hypatos;;Hypatos;;;;;;;;;x
+tl_title_hypatos_muslim_female;Hypatissa;Hypatissa;Hypatissa;;Hipatisa;;;;;x
+tl_title_hypatos_muslim_desc;Consul: Though only honorary now, it denotes the wearer as an important servant of the Empire.;Bien que seulement honorifique à présent, ce titre de consul est octroyé à un important serviteur de l'Empire.;Konsul: Obwohl es nur ehrenamtlich ist, bezeichnet es den Träger als einen wichtigen Diener des Reiches.;;Cónsul: aunque ahora solo es honorífico, señala a su portador como un servidor importante del imperio.;;;;;x
+
+tl_title_patrikios_muslim;Patrikios;Patrikios;Patrikios;;Patricio;;;;;x
+tl_title_patrikios_muslim_female;Patrikia;Patrikia;Patrikia;;Patricia;;;;;x
+tl_title_patrikios_muslim_desc;Patrician: Recognizes the wearer as an elite member of Roman Society and is reserved for only the most influential servants of the Empire.;Membre d'élite patricien de la société romaine, le titre est réservé aux serviteurs les plus influents de l'Empire.;Patrizier: Zeichnet den Träger als Mitglied der Elite innerhalb der römischen Gesellschaft aus und ist nur den einflussreichsten Dienern des Reiches vorbehalten.;;Patricio: reconoce al portador como miembro de élite de la sociedad romana y se reserva solamente para los servidores más influyentes del imperio.;;;;;x
+
+tl_title_sebastos_muslim;Sebastos;Sebastos;Sebastos;;Sebastos;;;;;x
+tl_title_sebastos_muslim_female;Sebaste;Sebaste;Sebaste;;Sebaste;;;;;x
+tl_title_sebastos_muslim_desc;Venerable one: Only important members of the imperial family and those related to them by marriage or blood may bear this venerable title.;Seuls les membres importants de la famille impériale et ceux qui leur sont liés par le mariage ou le sang peuvent porter ce titre vénérable.;Ehrwürdiger: Nur wichtige Mitglieder der kaiserlichen Familie und diejenigen, die durch Ehe oder Blut mit ihnen verwandt sind, dürfen diesen ehrwürdigen Titel tragen.;;Venerable: solo miembros importantes de la familia imperial y aquellas personas relacionadas con ellos por matrimonio o sangre pueden llevar este venerable título.;;;;;x
+
+tl_title_augusta_muslim;Augusta;Augusta;Augusta;;Augusta;;;;;;;;;x
+tl_title_augusta_muslim_desc;Most Pious Augusta: Unlike the male counterpart the Augusta continues to be the most important woman of the empire. Wielding great power and authority, she is second only to the Basileus.;Contrairement à son homologue masculin, Augusta reste la femme la plus importante de l'Empire. Dotée d'un grand pouvoir et d'une grande autorité, elle est la deuxième après le Basileus.;Frommste Augusta: Im Gegensatz zu den Männern ist die Augusta nach wie vor die wichtigste Frau des Reiches. Mit großer Macht und Autorität ist sie nach dem Basileus die zweitwichtigste Person des Reiches.;;La más pía augusta: al contrario que sus contrapartidas masculinas, la augusta sigue siendo la mujer más importante del imperio, ejerciendo un gran poder y autoridad solo por debajo del Basileos.;;;;;x
+
 
 #MINOR TITLES
 #Houndmaster - basic title example
@@ -335,11 +416,11 @@ tbyz_title_capitalis_desc;The Tresviri Capitales are a council of three which ma
 
 #Epulonis - tbyz_title_epulonis
 tbyz_title_epulonis;Epulonis;;;;;;;;;;;;;x
-tbyz_title_epulonis_desc;The Tresviri Epulones are a council of three priests which manage public banquets in the Byzantine Empire.;;;;;;;;;;;;;x
+tbyz_title_epulonis_desc;The Tresviri Epulones are a council of three priests which manages public banquets in the Byzantine Empire.;;;;;;;;;;;;;x
 
 #Tresviri monetales - tbyz_title_monetalis
 tbyz_title_monetalis;Monetalis;;;;;;;;;;;;;x
-tbyz_title_monetalis_desc;The Tresviri Monetales are a council of three which manage the minting of coins in the Byzantine Empire.;;;;;;;;;;;;;x
+tbyz_title_monetalis_desc;The Tresviri Monetales are a council of three which manages the minting of coins in the Byzantine Empire.;;;;;;;;;;;;;x
 
 
 #IMPERIAL SENATE
@@ -426,8 +507,8 @@ tbyz_title_leg_arabia;Legatus Arabia;;;;;;;;;;;;;x
 tbyz_title_leg_arabia_desc;The Legatus Arabia is the governor which oversees the imperial province of Arabia.;;;;;;;;;;;;;x
 
 #Legatus Augusti Italia
-tbyz_title_leg_arabia;Legatus Italia;;;;;;;;;;;;;x
-tbyz_title_leg_arabia_desc;The Legatus Italia is the governor which oversees the imperial province of Italia.;;;;;;;;;;;;;x
+tbyz_title_leg_italia;Legatus Italia;;;;;;;;;;;;;x
+tbyz_title_leg_italia_desc;The Legatus Italia is the governor which oversees the imperial province of Italia.;;;;;;;;;;;;;x
 
 
 
@@ -448,3 +529,14 @@ tl_seize_tradepost_modifier_desc;The ruler has seized a trade post, annoying the
 #Probation
 opinion_tl_probation;On Probation;;;;;;;;;;;;;x
 opinion_tl_probation_desc;This character has been released from prison on a conditional probation. They will not take hostile actions against their former jailer.;;;;;;;;;;;;;x
+
+#BUILDINGS
+ca_con_wall_6;Theodosian Walls;Mur théodosien;Theodosianische Mauern;;Murallas Teodosianas;;;;;;;;;x
+ca_con_wall_7;Theodosian Walls;Mur théodosien;Theodosianische Mauern;;Murallas Teodosianas;;;;;;;;;x
+ca_con_wall_8;Theodosian Walls;Mur théodosien;Theodosianische Mauern;;Murallas Teodosianas;;;;;;;;;x
+
+ca_con_wall_7_desc;The Theodosian Walls were built during the reign of Emperor Theodosius II in the early 5th century, but they still remain some of the most formidable fortifications ever built by human hands.;Le Mur ThÃ©odosien a Ã©tÃ© Ã©rigÃ© au cours du rÃ¨gne de l'empereur ThÃ©odosius II au dÃ©but du Ve siÃ¨cle. MÃªme aujourd'hui, c'est toujours parmi la plus formidable fortification jamais construite par l'homme.;Die Theodosische Mauer wurde wÃ¤hrend der Herrschaft des Kaisers Theodosius II im frÃ¼hen fÃ¼nften Jahrhundert gebaut, aber sie ist noch immer eine der bemerkenswertesten Befestigungen, welche jemals durch Menschen errichtet wurden.;;Las Murallas Teodosianas fueron construidas durante el reinado del emperador Teodosio II, a inicios del siglo V, pero aÃºn son una de las fortificaciones mÃ¡s formidables construidas por el hombre.;;;;;;;;;x
+ca_con_wall_8_desc;The Theodosian Walls were built during the reign of Emperor Theodosius II in the early 5th century, but they still remain some of the most formidable fortifications ever built by human hands.;Le Mur Théodosien a été érigé au cours du règne de l'empereur Théodosius II au début du Ve siècle. Même aujourd'hui, c'est toujours parmi la plus formidable fortification jamais construite par l'homme.;Die Theodosische Mauer wurde während der Herrschaft des Kaisers Theodosius II im frühen fünften Jahrhundert gebaut, aber sie ist noch immer eine der bemerkenswertesten Befestigungen, welche jemals durch Menschen errichtet wurden.;;Las Murallas Teodosianas fueron construidas durante el reinado del emperador Teodosio II, a inicios del siglo V, pero aún son una de las fortificaciones más formidables construidas por el hombre.;;;;;;;;;x
+
+tl_tp_adm_post_1;Imperial Administration Post;Poste administratif impérial;Reichsverwaltungsposten;;Puesto de Administración Imperial;;;;;;;;;x
+tl_tp_adm_post_1_desc;Carries out administration of the Trade Post on behalf of the Empire.;Effectue l'administration du poste de traite au nom de l'Empire.;Führt die Verwaltung des Handelspostens im Namen des Imperiums durch.;;Lleva a cabo la administración del Puesto Comercial en nombre del Imperio.;;;;;;;;;x
